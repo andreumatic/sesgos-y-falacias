@@ -428,3 +428,22 @@ main section[id],main [id]{scroll-margin-top:calc(var(--header-h,108px) + 18px)}
   -webkit-tap-highlight-color:transparent;
 }
 .check-item,.analyzer-item{touch-action:manipulation}
+
+/* ---------- Movil: fuera el recuadro azul del tap (feedback propio) ---------- */
+*{-webkit-tap-highlight-color:transparent}
+
+.btn:active,.filter-chip:active,.quiz-opt:active,.tab-btn:active,.test-btn:active,
+.analyzer-reset:active,.sec-nav a:active,.study-toggle:active,
+.nav-links a:active,.analyzer-item:active,.check-item:active,.card:active{
+  transform:translateY(1px);
+}
+.btn:active,.quiz-opt:active,.filter-chip:active,.tab-btn:active,.test-btn:active{
+  filter:brightness(.96);
+}
+.check-item:active,.analyzer-item:active,.card:active{background:var(--cream2)}
+.sec-nav a:active,.nav-links a:active{color:var(--amber)}
+@media (prefers-reduced-motion:reduce){
+  .btn:active,.filter-chip:active,.quiz-opt:active,.tab-btn:active,.test-btn:active,
+  .analyzer-reset:active,.sec-nav a:active,.study-toggle:active,
+  .nav-links a:active,.analyzer-item:active,.check-item:active,.card:active{transform:none}
+}
