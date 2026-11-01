@@ -25,7 +25,7 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/favicon-32x32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="stylesheet" href="css/estilos.css?v=12">
+<link rel="stylesheet" href="css/estilos.css?v=14">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -1013,6 +1013,90 @@ function renderCards(data, gridId, type) {
 
 renderCards(sesgos, 'gridSesgos', 'sesgo');
 renderCards(falacias, 'gridFalacias', 'falacia');
+
+/* ==================== CARRIL HORIZONTAL DE CONCEPTOS ==================== */
+function setupRail(gridId) {
+  const grid = document.getElementById(gridId);
+  if (!grid) return;
+  const nav = document.createElement('div');
+  nav.className = 'rail-nav';
+  nav.innerHTML =
+    '<button class="rail-btn" type="button" data-dir="-1" aria-label="Concepto anterior">‹</button>' +
+    '<span class="rail-count" aria-live="polite"></span>' +
+    '<button class="rail-btn" type="button" data-dir="1" aria-label="Concepto siguiente">›</button>';
+  grid.after(nav);
+  const count = nav.querySelector('.rail-count');
+  const prev = nav.querySelector('[data-dir="-1"]');
+  const next = nav.querySelector('[data-dir="1"]');
+
+  const visibles = () => [...grid.querySelectorAll('.card')].filter(c => c.offsetParent !== null);
+  const step = () => {
+    const c = visibles()[0];
+    return c ? c.getBoundingClientRect().width + 14 : 340;
+  };
+
+  function update() {
+    const list = visibles();
+    if (!list.length) { count.textContent = '0 / 0'; prev.disabled = next.disabled = true; return; }
+    const perView = Math.max(1, Math.round(grid.clientWidth / step()));
+    const i = Math.min(list.length, Math.round(grid.scrollLeft / step()) + 1);
+    count.textContent = i + ' / ' + list.length;
+    prev.disabled = grid.scrollLeft < 8;
+    next.disabled = grid.scrollLeft >= grid.scrollWidth - grid.clientWidth - 8;
+    count.setAttribute('aria-label', 'Concepto ' + i + ' de ' + list.length + (perView > 1 ? ', ' + perView + ' visibles' : ''));
+  }
+
+  nav.addEventListener('click', e => {
+    const b = e.target.closest('.rail-btn');
+    if (!b) return;
+    grid.scrollBy({ left: Number(b.dataset.dir) * step(), behavior: 'smooth' });
+    setTimeout(update, 380);
+  });
+
+  grid.addEventListener('scroll', () => {
+    clearTimeout(grid._railT);
+    grid._railT = setTimeout(update, 90);
+  }, { passive: true });
+
+  grid.addEventListener('keydown', e => {
+    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    e.preventDefault();
+    grid.scrollBy({ left: (e.key === 'ArrowRight' ? 1 : -1) * step(), behavior: 'smooth' });
+  });
+
+  const section = grid.closest('section');
+  if (section) {
+    const reset = () => { grid.scrollLeft = 0; setTimeout(update, 60); };
+    section.addEventListener('input', reset);
+    section.addEventListener('click', e => { if (e.target.closest('.filter-chip')) reset(); });
+  }
+
+  addEventListener('resize', update);
+  update();
+}
+setupRail('gridSesgos');
+setupRail('gridFalacias');
+
+/* «Sorpréndeme»: abre un concepto al azar del carril */
+document.querySelectorAll('.rail-nav').forEach(nav => {
+  const grid = nav.previousElementSibling;
+  if (!grid) return;
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'rail-random';
+  btn.textContent = '🎲 Al azar';
+  btn.addEventListener('click', () => {
+    const list = [...grid.querySelectorAll('.card')].filter(c => c.offsetParent !== null);
+    if (!list.length) return;
+    const card = list[Math.floor(Math.random() * list.length)];
+    card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    const toggle = card.querySelector('.card-toggle');
+    if (toggle && !card.classList.contains('expanded')) toggle.click();
+    toggle && toggle.focus({ preventScroll: true });
+  });
+  nav.appendChild(btn);
+});
+
 
 document.getElementById('gridPares').innerHTML = pares.map(p => `
   <div class="pair-card">
