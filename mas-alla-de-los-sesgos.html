@@ -159,6 +159,15 @@
     .nav-links .nav-back { order: -1; border-left: 0; border-right: 1px solid rgba(244,238,221,.22); margin: 0 .5rem 0 0; padding: 0 .8rem 0 0; }
     .hero .badge { font-size: 0.56rem; letter-spacing: 0.03em; padding: 0.3rem 0.6rem; text-align: left; }
   }
+
+  /* selector d'idioma */
+  .lang-switch{display:inline-flex;align-items:center;gap:2px;margin-left:.5rem;padding:2px;border-radius:999px;background:rgba(0,0,0,.28);border:1px solid rgba(244,238,221,.22);flex:0 0 auto}
+  .lang-btn{font-family:'Space Mono',monospace;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--cream);background:none;border:0;border-radius:999px;padding:7px 9px;cursor:pointer;line-height:1;min-height:0;transition:background .18s ease,color .18s ease}
+  .lang-btn:hover{background:rgba(244,238,221,.14)}
+  .lang-btn.active{background:var(--amber);color:#2b1c06}
+  .lang-btn:focus-visible{outline:2px solid var(--mint);outline-offset:2px}
+  @media (max-width:720px){.lang-switch{margin-left:auto}.lang-btn{padding:6px 7px;font-size:10px}}
+  @media (prefers-reduced-motion:reduce){.lang-btn{transition:none}}
 </style>
 </head>
 <body>
@@ -175,6 +184,10 @@
     <a href="#glosario">Glosario</a>
     <a href="#fuentes">Fuentes</a>
     <a class="nav-back" href="index.html">← Guía</a>
+  </div>
+  <div class="lang-switch" role="group" aria-label="Idioma">
+    <button class="lang-btn active" type="button" data-lang="es" aria-pressed="true">ES</button>
+    <button class="lang-btn" type="button" data-lang="va" aria-pressed="false">VAL</button>
   </div>
 </nav>
 
@@ -255,6 +268,8 @@
   </div>
 </footer>
 
+<script src="js/va-mas.js"></script>
+<script src="js/i18n-mas.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   console.log('[Constelaciones] DOM listo. Iniciando render...');
@@ -263,7 +278,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // DATA
   // ============================================================
 
-  const CONSTELLATIONS = {
+  let CONSTELLATIONS = {
     digital: {
       name: 'Constelación Digital',
       emoji: '🌐',
@@ -451,7 +466,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   };
 
-  const GLOSSARY = [
+  let GLOSSARY = [
     { term: 'Cámara de eco', def: 'Entorno digital donde solo recibes información que confirma tus creencias, reforzando el sesgo de confirmación.' },
     { term: 'Sesgo de endogrupo', def: 'Tendencia a favorecer y confiar más en los miembros de tu grupo que en los de fuera.' },
     { term: 'Ilusión de objetividad', def: 'Creer que tu lado ve la realidad tal como es, mientras que el lado opuesto está sesgado.' },
@@ -466,7 +481,7 @@ document.addEventListener('DOMContentLoaded', function() {
     { term: 'Ventana de Overton', def: 'Rango de ideas aceptables en el debate público; se puede desplazar para normalizar lo antes impensable.' }
   ];
 
-  const REFERENCES = [
+  let REFERENCES = [
     { concept: 'Desinformación en Twitter', ref: 'Vosoughi, S., Roy, D. & Aral, S. (2018). The spread of true and false news online. Science.', url: 'https://doi.org/10.1126/science.aap9559' },
     { concept: 'Pensamiento perezoso y fake news', ref: 'Pennycook, G. & Rand, D.G. (2019). Lazy, not biased. Cognition, 188, 39-50.', url: 'https://doi.org/10.1016/j.cognition.2018.06.011' },
     { concept: 'Corrección de desinformación', ref: 'Lee, S. et al. (2025). Partisan Fact-Checkers. ICWSM 2025.', url: 'https://ojs.aaai.org/index.php/ICWSM/article/view/35862' },
@@ -486,6 +501,31 @@ document.addEventListener('DOMContentLoaded', function() {
     { concept: 'Filtrado algorítmico', ref: 'Varios (2025). Algorithmic Filtering and Social Polarization. Zenodo.', url: 'https://doi.org/10.5281/zenodo.15023821' },
     { concept: 'Deepfakes e IA', ref: 'University of British Columbia (2026). AI swarms could hijack democracy. EurekAlert.', url: 'https://www.eurekalert.org/news-releases/1120841' }
   ];
+
+  // ============================================================
+  // IDIOMA
+  // ============================================================
+  const SF_LANG = (function () {
+    var q = new URLSearchParams(location.search).get('lang');
+    if (q === 'es' || q === 'va') { try { localStorage.setItem('sf:lang', q); } catch (e) {} return q; }
+    try { var v = localStorage.getItem('sf:lang'); if (v === 'es' || v === 'va') return v; } catch (e) {}
+    return 'es';
+  })();
+  if (SF_LANG === 'va' && window.VA_MAS) {
+    Object.keys(VA_MAS.CONSTELLATIONS).forEach(function (k) {
+      if (!CONSTELLATIONS[k]) return;
+      var v = VA_MAS.CONSTELLATIONS[k];
+      v.emoji = CONSTELLATIONS[k].emoji;
+      v.tag = CONSTELLATIONS[k].tag;
+      v.color = CONSTELLATIONS[k].color;
+      CONSTELLATIONS[k] = v;
+    });
+    GLOSSARY = VA_MAS.GLOSSARY;
+    REFERENCES = REFERENCES.map(function (r, i) {
+      var t = VA_MAS.REFERENCES[i];
+      return { concept: t ? t.concept : r.concept, ref: r.ref, url: r.url };
+    });
+  }
 
   // ============================================================
   // RENDER
@@ -622,6 +662,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
   console.log('[Constelaciones] Render completo.');
 });
+</script>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search).get('lang');
+  var l = (q === 'va' || q === 'es') ? q : '';
+  if (!l) { try { l = localStorage.getItem('sf:lang') || 'es'; } catch (e) { l = 'es'; } }
+  if (window.SF_MAS) { SF_MAS.wire(l); if (l === 'va') SF_MAS.apply(); }
+})();
 </script>
 </body>
 </html>
