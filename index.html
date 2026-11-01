@@ -25,7 +25,7 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/favicon-32x32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="stylesheet" href="css/estilos.css?v=18">
+<link rel="stylesheet" href="css/estilos.css?v=24">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -316,10 +316,9 @@
   </div>
   <div class="checklist reveal" id="checklist" role="group" aria-label="Las 12 preguntas universales"></div>
   <div class="qs-bar" id="qsBar">
-    <button class="qs-btn qs-prev" id="qsPrev" type="button">&#8592; Anterior</button>
+    <button class="qs-btn qs-prev" id="qsPrev" type="button">&#8592; Atr&aacute;s</button>
     <span class="qs-count" id="qsCount" role="status" aria-live="polite">Pregunta 1 de 12</span>
-    <button class="qs-btn qs-yes" id="qsYes" type="button">S&iacute;, me la he hecho</button>
-    <button class="qs-btn qs-no" id="qsNo" type="button">Todav&iacute;a no</button>
+    <button class="qs-btn qs-next" id="qsNext" type="button">Siguiente &#8594;</button>
   </div>
   <div class="qs-done" id="qsDone" hidden>
     <p class="qs-done-num" id="qsScore">0 de 12</p>
@@ -1184,8 +1183,7 @@ setupFilter('searchFalacias', 'gridFalacias', '[data-target="falacias"]', 'count
 const checklistEl = document.getElementById('checklist');
 checklistEl.innerHTML = preguntasUniversales.map((q, i) => `
   <div class="check-item" data-i="${i}" role="checkbox" tabindex="0" aria-checked="false">
-    <span class="check-num" aria-hidden="true">${i + 1}</span>
-    <span class="check-box" aria-hidden="true"></span>
+    <span class="check-mark" aria-hidden="true">${i + 1}</span>
     <span class="check-text">${q}</span>
   </div>
 `).join('');
@@ -1211,8 +1209,7 @@ const qsBar = document.getElementById('qsBar');
 const qsDone = document.getElementById('qsDone');
 const qsCount = document.getElementById('qsCount');
 const qsPrev = document.getElementById('qsPrev');
-const qsYes = document.getElementById('qsYes');
-const qsNo = document.getElementById('qsNo');
+  const qsNext = document.getElementById('qsNext');
 const qsAgain = document.getElementById('qsAgain');
 let qsIdx = 0;
 const QS_TOTAL = qsItems.length;
@@ -1262,8 +1259,7 @@ qsItems.forEach((item, i) => {
     updateCheckProgress();
   });
 });
-qsYes.addEventListener('click', () => answer(true));
-qsNo.addEventListener('click', () => answer(false));
+  if (qsNext) qsNext.addEventListener('click', () => { if (qsIdx < QS_TOTAL) { qsIdx++; renderStep(); } });
 qsPrev.addEventListener('click', () => { if (qsIdx > 0) { qsIdx--; renderStep(); } });
 qsAgain.addEventListener('click', () => { qsIdx = 0; renderStep(); });
 document.addEventListener('keydown', e => {

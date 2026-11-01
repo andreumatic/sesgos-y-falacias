@@ -770,3 +770,143 @@ body.is-compact .nav-links a{padding-top:7px;padding-bottom:7px}
 .detector-card .dc-title{line-height:1.25}
 .antidote-tabs{flex-wrap:wrap}
 @media (max-width:600px){.protocol-step p,.redflag p{max-width:none}}
+
+/* ==========================================================================
+   v3.5 · cuestionario como tarjeta (una pregunta, un gesto)
+   ========================================================================== */
+.checklist{display:grid;gap:16px;justify-items:center}
+.check-item{
+  display:block!important;position:relative;width:100%;max-width:720px;
+  margin:0 auto;padding:46px 34px 38px;border-radius:20px;
+  background:var(--card);border:1px solid var(--line);
+  box-shadow:0 10px 30px rgba(15,46,41,.07);
+  cursor:pointer;transition:border-color .2s,box-shadow .25s,transform .25s,background .2s;
+}
+.check-item:hover{border-color:rgba(232,163,61,.75);transform:translateY(-2px);box-shadow:0 16px 36px rgba(15,46,41,.12)}
+.check-item:focus-visible{outline:3px solid var(--amber);outline-offset:4px}
+.check-item[aria-checked="true"]{border-color:var(--amber);background:#fffdf6;box-shadow:0 16px 38px rgba(232,163,61,.22)}
+.check-mark{
+  position:absolute;top:16px;left:16px;width:36px;height:36px;border-radius:50%;
+  display:grid;place-items:center;background:#fff;color:var(--muted);
+  border:1.5px solid var(--line);font:700 12.5px/1 'Space Mono',monospace;
+  transition:background .2s,color .2s,border-color .2s,transform .25s;
+}
+.check-item[aria-checked="true"] .check-mark{background:var(--teal);border-color:var(--teal);color:transparent;transform:scale(1.04)}
+.check-item[aria-checked="true"] .check-mark::after{
+  content:'';width:7px;height:12px;border:solid var(--mint);border-width:0 2.5px 2.5px 0;
+  transform:rotate(45deg) translateY(-1px);
+}
+.check-text{
+  display:block;grid-area:auto!important;max-width:30ch;margin:0 auto;text-align:center;
+  font-size:1.22rem;line-height:1.45;color:var(--teal);font-weight:500;
+}
+.check-item[aria-checked="true"] .check-text{color:var(--teal3)}
+.check-item .check-num,.check-item .check-box{display:none!important}
+
+.qs-bar{
+  display:flex!important;align-items:center;justify-content:space-between;gap:14px;
+  max-width:720px;margin:20px auto 0;padding:0;
+}
+.qs-count{
+  font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--muted);white-space:nowrap;
+}
+.qs-btn{
+  min-height:44px;padding:11px 22px;border-radius:999px;cursor:pointer;
+  font-family:'Space Mono',monospace;font-size:11.5px;font-weight:700;
+  letter-spacing:.07em;text-transform:uppercase;
+  transition:background .18s,color .18s,border-color .18s,transform .18s;
+}
+.qs-prev{background:transparent;border:1.5px solid var(--line);color:var(--teal2)}
+.qs-prev:hover:not(:disabled){border-color:var(--teal2);background:var(--cream2)}
+.qs-next{background:var(--teal);border:1.5px solid var(--teal);color:var(--cream)}
+.qs-next:hover{background:var(--teal2);border-color:var(--teal2)}
+.qs-btn:disabled{opacity:.35;cursor:not-allowed}
+.qs-btn:active:not(:disabled){transform:translateY(1px)}
+.qs-done{
+  max-width:720px;margin:0 auto;padding:32px 30px;border-radius:20px;
+  background:var(--card);border:1px solid var(--line);text-align:center;
+}
+.qs-done-num{font-family:'Space Mono',monospace;font-size:2rem;font-weight:700;color:var(--teal)}
+.qs-done-msg{margin-top:8px;color:var(--muted)}
+.qs-done-list{text-align:left;margin:16px auto 0;max-width:52ch;color:var(--muted);font-size:.92rem}
+.qs-done-list li{margin-bottom:6px}
+.qs-done .qs-yes{margin-top:18px;background:var(--teal);color:var(--cream);border:0}
+
+@media (max-width:600px){
+  .check-item{padding:44px 20px 32px;border-radius:16px}
+  .check-text{font-size:1.08rem;max-width:none}
+  .qs-bar{flex-wrap:wrap;justify-content:center}
+  .qs-count{order:-1;width:100%;text-align:center;margin-bottom:4px}
+  .qs-btn{flex:1 1 auto;justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){
+  .check-item,.check-mark,.qs-btn{transition:none}
+  .check-item:hover{transform:none}
+}
+
+/* ============ v3.6 · solo la tarjeta del paso actual ============ */
+.check-item[hidden]{display:none!important}
+.checklist{scroll-margin-top:calc(var(--header-h,104px) + 40px)!important}
+
+/* ============ v3.7 · cuestionario en móvil ============ */
+@media (max-width:700px){
+  .checklist{justify-items:stretch!important}
+  .check-item{max-width:100%!important;width:100%!important;padding:26px 20px 22px!important;border-radius:16px!important;display:block!important}
+  .check-mark{display:block!important;margin:0 0 12px!important}
+  .check-text{font-size:1.05rem!important;line-height:1.5!important;max-width:none!important}
+  .qs-bar{justify-content:space-between!important;gap:8px!important}
+  .qs-count{order:-1;flex:1 0 100%;text-align:center}
+  .qs-btn{flex:1 1 auto;min-height:44px}
+}
+
+/* ============ v3.8 · cuestionario limpio ============ */
+/* La insignia numerada sobraba: el contador "Pregunta N de 12" ya lo dice y en
+   movil quedaba pegada al texto. El texto va a la izquierda y el foco no pinta
+   un marco grueso. */
+.check-mark{display:none!important}
+.check-item{text-align:left!important}
+.check-text{text-align:left!important;line-height:1.5!important}
+.check-item:focus-visible{outline:2px dashed var(--amber)!important;outline-offset:3px!important;border-radius:16px}
+@media (max-width:700px){
+  .check-item{padding:24px 18px!important}
+  .check-text{font-size:1.08rem!important}
+}
+
+
+/* ===== v3.9 · cuestionario: texto a la izquierda y foco discreto ===== */
+.check-item .check-text,
+.check-item{ text-align:left!important }
+.check-item .check-text{ line-height:1.55!important; max-width:56ch!important }
+.check-item:focus-visible{
+  outline:2px solid rgba(232,163,61,.45)!important;
+  outline-offset:6px!important;
+  border-radius:18px!important;
+}
+.check-item:focus:not(:focus-visible){ outline:none!important }
+
+/* ============ v3.10 · cuestionario: foco discreto y afordancia ============ */
+.check-item:focus-visible{
+  outline:1.5px solid rgba(232,163,61,.35)!important;
+  outline-offset:6px!important;
+}
+.check-item::after{
+  content:"Toca la tarjeta si ya te la has hecho";
+  display:block;margin-top:16px;
+  font-family:'Space Mono',monospace;font-size:10.5px;font-weight:700;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--muted);
+  transition:color .2s ease;
+}
+.check-item[aria-checked="true"]{
+  background:rgba(143,217,196,.16)!important;
+  border-color:rgba(26,69,60,.35)!important;
+}
+.check-item[aria-checked="true"]::after{
+  content:"✓ Marcada como hecha";color:var(--teal2);
+}
+@media (max-width:700px){
+  .check-item::after{font-size:10px;margin-top:12px}
+}
+@media (prefers-reduced-motion:reduce){
+  .check-item::after{transition:none}
+}
