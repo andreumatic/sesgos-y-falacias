@@ -25,7 +25,7 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/favicon-32x32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="stylesheet" href="css/estilos.css?v=15">
+<link rel="stylesheet" href="css/estilos.css?v=18">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -315,6 +315,18 @@
     <span id="checkCount">0/12</span>
   </div>
   <div class="checklist reveal" id="checklist" role="group" aria-label="Las 12 preguntas universales"></div>
+  <div class="qs-bar" id="qsBar">
+    <button class="qs-btn qs-prev" id="qsPrev" type="button">&#8592; Anterior</button>
+    <span class="qs-count" id="qsCount" role="status" aria-live="polite">Pregunta 1 de 12</span>
+    <button class="qs-btn qs-yes" id="qsYes" type="button">S&iacute;, me la he hecho</button>
+    <button class="qs-btn qs-no" id="qsNo" type="button">Todav&iacute;a no</button>
+  </div>
+  <div class="qs-done" id="qsDone" hidden>
+    <p class="qs-done-num" id="qsScore">0 de 12</p>
+    <p class="qs-done-msg" id="qsMsg"></p>
+    <ul class="qs-done-list" id="qsPend"></ul>
+    <button class="qs-btn qs-yes" id="qsAgain" type="button">Repetir el cuestionario</button>
+  </div>
 
   <div class="section-head reveal" style="margin-top:2.5rem;margin-bottom:1.2rem;">
     <h3 style="font-size:1.15rem;color:var(--red);">🚩 Señales de alarma universales</h3>
@@ -1172,8 +1184,9 @@ setupFilter('searchFalacias', 'gridFalacias', '[data-target="falacias"]', 'count
 const checklistEl = document.getElementById('checklist');
 checklistEl.innerHTML = preguntasUniversales.map((q, i) => `
   <div class="check-item" data-i="${i}" role="checkbox" tabindex="0" aria-checked="false">
+    <span class="check-num" aria-hidden="true">${i + 1}</span>
     <span class="check-box" aria-hidden="true"></span>
-    <span class="check-text"><strong>${i + 1}.</strong> ${q}</span>
+    <span class="check-text">${q}</span>
   </div>
 `).join('');
 
@@ -1193,16 +1206,73 @@ function updateCheckProgress() {
   bar.setAttribute('aria-label', 'Preguntas marcadas');
 }
 
-$$('.check-item', checklistEl).forEach(item => {
-  const toggle = () => {
-    const i = parseInt(item.dataset.i, 10);
+const qsItems = $$('.check-item', checklistEl);
+const qsBar = document.getElementById('qsBar');
+const qsDone = document.getElementById('qsDone');
+const qsCount = document.getElementById('qsCount');
+const qsPrev = document.getElementById('qsPrev');
+const qsYes = document.getElementById('qsYes');
+const qsNo = document.getElementById('qsNo');
+const qsAgain = document.getElementById('qsAgain');
+let qsIdx = 0;
+const QS_TOTAL = qsItems.length;
+
+function paintCheck(item, i) {
+  item.classList.toggle('checked', checkState[i]);
+  item.setAttribute('aria-checked', checkState[i] ? 'true' : 'false');
+}
+
+function renderStep() {
+  const finished = qsIdx >= QS_TOTAL;
+  qsItems.forEach((el, i) => { el.hidden = finished || i !== qsIdx; });
+  qsBar.hidden = finished;
+  qsDone.hidden = !finished;
+  qsCount.textContent = 'Pregunta ' + Math.min(qsIdx + 1, QS_TOTAL) + ' de ' + QS_TOTAL;
+  qsPrev.disabled = qsIdx === 0;
+  if (finished) {
+    const n = checkState.filter(Boolean).length;
+    document.getElementById('qsScore').textContent = n + ' de ' + QS_TOTAL;
+    document.getElementById('qsMsg').textContent = n === QS_TOTAL
+      ? 'Las has comprobado todas. Ese es el hábito que protege del sesgo.'
+      : (n >= QS_TOTAL / 2 ? 'Vas por buen camino: repasa las que te faltan antes de compartir.'
+                           : 'Te faltan bastantes. Con un mensaje que te indigne, haz al menos las seis primeras.');
+    const pend = document.getElementById('qsPend');
+    const faltan = preguntasUniversales.map((q, i) => checkState[i] ? null : (i + 1) + '. ' + q).filter(Boolean);
+    pend.innerHTML = faltan.length ? '<li>' + faltan.join('</li><li>') + '</li>' : '';
+    pend.hidden = !faltan.length;
+    qsAgain.focus();
+  } else {
+    qsItems[qsIdx].focus();
+  }
+}
+
+function answer(value) {
+  if (qsIdx >= QS_TOTAL) return;
+  checkState[qsIdx] = value;
+  paintCheck(qsItems[qsIdx], qsIdx);
+  updateCheckProgress();
+  qsIdx++;
+  renderStep();
+}
+
+qsItems.forEach((item, i) => {
+  onActivate(item, () => {
     checkState[i] = !checkState[i];
-    item.classList.toggle('checked', checkState[i]);
-    item.setAttribute('aria-checked', checkState[i] ? 'true' : 'false');
+    paintCheck(item, i);
     updateCheckProgress();
-  };
-  onActivate(item, toggle);
+  });
 });
+qsYes.addEventListener('click', () => answer(true));
+qsNo.addEventListener('click', () => answer(false));
+qsPrev.addEventListener('click', () => { if (qsIdx > 0) { qsIdx--; renderStep(); } });
+qsAgain.addEventListener('click', () => { qsIdx = 0; renderStep(); });
+document.addEventListener('keydown', e => {
+  if (!qsBar.hidden && (e.key === 'ArrowRight' || e.key === 'ArrowLeft') && document.activeElement !== document.getElementById('searchSesgos')) {
+    if (e.key === 'ArrowRight') { qsIdx = Math.min(QS_TOTAL, qsIdx + 1); renderStep(); }
+    else { qsIdx = Math.max(0, qsIdx - 1); renderStep(); }
+  }
+});
+renderStep();
 updateCheckProgress();
 
 /* ==================== DETECTOR POR CONCEPTO ==================== */
