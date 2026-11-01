@@ -449,11 +449,6 @@ main section[id],main [id]{scroll-margin-top:calc(var(--header-h,108px) + 18px)}
 }
 
 /* ============ MEJORAS v2.2: enlaces, progreso y sin-JS ============ */
-.card-link{margin-top:12px;align-self:flex-start;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.04em;
-  background:transparent;color:var(--teal);border:1.5px solid var(--line);border-radius:8px;padding:7px 11px;cursor:pointer;
-  transition:background .15s ease,border-color .15s ease,color .15s ease}
-.card-link:hover{border-color:var(--teal);background:var(--cream2)}
-.card-link.done{border-color:var(--mint);background:rgba(143,217,196,.28);color:var(--teal3)}
 .reset-progress{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.04em;background:transparent;color:var(--muted);
   border:1px solid var(--line);border-radius:7px;padding:5px 9px;cursor:pointer}
 .reset-progress:hover{color:var(--ember-d);border-color:var(--ember-d)}
@@ -464,7 +459,7 @@ main section[id],main [id]{scroll-margin-top:calc(var(--header-h,108px) + 18px)}
 @media (max-width:600px){.nojs-list{columns:1}}
 .card:focus{outline:none}
 .card:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
-@media print{.card-link,.reset-progress{display:none!important}}
+@media print{.reset-progress{display:none!important}}
 
 
 /* ==========================================================================
@@ -474,7 +469,10 @@ main section[id],main [id]{scroll-margin-top:calc(var(--header-h,108px) + 18px)}
 
 /* contraste del ámbar sobre crema (2,81:1 -> ~5:1) */
 .hero h1 .hl,.hl{ color:var(--amber-text) }
-.card-example .label,.hero-card-h,.pair-pill,.section-tag.tag-orange{ color:var(--amber-text) }
+.card-example .label,.hero-card-h{ color:var(--amber-text) }
+.section-tag.tag-orange{ color:#ffe9e1 }
+.pair-pill.pill-purple{ color:var(--mint) }
+.pair-pill.pill-orange{ color:#fff5f1 }
 .card-example .label,.hero-card-h{ font-size:11.5px }
 
 /* tarjetas: el control es un botón real dentro del h3 */
@@ -546,3 +544,45 @@ html{ scroll-behavior:auto }
   .cards-grid .card.expanded .card-def,.cards-grid .card.expanded .card-example,
   .cards-grid .card.expanded .deep-block p{ max-width:88ch }
 }
+
+
+/* ============ MEJORAS v2.4: cabecera compacta, citas y formulario ============ */
+.cite-link{display:inline-block;margin-top:6px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.04em;color:var(--teal2);border-bottom:1px dotted var(--amber-d);text-decoration:none}
+.cite-link:hover{color:var(--amber-text);border-bottom-style:solid}
+
+.brand-sub{max-width:220px;transition:opacity .2s ease,max-width .25s ease;overflow:hidden;white-space:nowrap}
+.header-in{transition:padding .22s ease}
+.brand-logo{transition:width .22s ease,height .22s ease}
+.brand{transition:font-size .22s ease}
+.nav-links a{transition:padding .22s ease,background-color .15s ease,color .15s ease}
+body.is-compact .header-in{padding-top:5px;padding-bottom:5px}
+body.is-compact .brand-logo{width:26px;height:26px}
+body.is-compact .brand{font-size:15px}
+body.is-compact .brand-sub{opacity:0;max-width:0;margin-left:0}
+body.is-compact .nav-links a{padding-top:6px;padding-bottom:6px}
+
+.footer-contact .cf{margin-top:14px;max-width:320px}
+.footer-contact .cf label{display:block;font-size:.78rem;letter-spacing:.02em;color:rgba(244,238,221,.82);margin-bottom:6px}
+.footer-contact .cf textarea{width:100%;min-height:76px;background:var(--cream);color:var(--ink);border:1px solid rgba(244,238,221,.26);border-radius:10px;padding:9px 11px;font:inherit;font-size:.85rem;line-height:1.45;resize:vertical}
+.footer-contact .cf textarea:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.footer-contact .cf-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.footer-contact .cf-btn{margin-top:10px;font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.04em;background:var(--amber);color:var(--teal);border:0;border-radius:9px;padding:10px 16px;min-height:40px;cursor:pointer;transition:background-color .15s ease}
+.footer-contact .cf-btn:hover{background:var(--cream)}
+.footer-contact .cf-btn[disabled]{opacity:.55;cursor:progress}
+.cf-status{font-size:.78rem;margin-top:7px;min-height:1.1em;color:rgba(244,238,221,.72)}
+.cf-status.ok{color:var(--mint)}
+.cf-status.err{color:#ffb9a6}
+@media (prefers-reduced-motion:reduce){.brand-sub,.header-in,.brand-logo,.brand,.nav-links a{transition:none}}
+
+/* --- v2.4b: contraste garantizado en etiquetas y pildoras --- */
+.section-tag.tag-orange{ color:#ffe9e1 !important }
+.pair-pill.pill-purple{ color:var(--mint) !important }
+.pair-pill.pill-orange{ color:#fff5f1 !important }
+
+/* ============ v2.4c · cabecera compacta (refuerzo) ============ */
+body.is-compact .header-in{padding-top:5px!important;padding-bottom:5px!important}
+body.is-compact .brand-logo{width:26px!important;height:26px!important}
+body.is-compact .brand{font-size:15px!important}
+body.is-compact .brand-sub{max-width:0!important;opacity:0!important;margin-left:0!important}
+body.is-compact .nav-links a{padding-top:6px!important;padding-bottom:6px!important}
+body.is-compact .nav-row{padding-top:0;padding-bottom:0}

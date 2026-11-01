@@ -1,5 +1,5 @@
 /* Sesgos y Falacias · capa de mejoras
-   - enlaces directos a cada concepto (#sesgo-x / #falacia-x) + botón copiar enlace
+   - enlaces directos a cada concepto (#sesgo-x / #falacia-x) + enlaces permanentes
    - búsqueda global mediante ?q=
    - progreso guardado en localStorage (checklist, analizador, modo estudio, test)
    - botón para reiniciar el progreso
@@ -103,34 +103,6 @@
     window.scrollTo({ top: top, behavior: 'auto' });
   }
 
-  function addCopyButtons() {
-    $$('.card').forEach(function (card) {
-      var panel = card.querySelector('.card-expand');
-      if (!panel || panel.querySelector('.card-link')) return;
-      var btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'card-link';
-      btn.innerHTML = '<span aria-hidden="true">🔗</span> Copiar enlace del concepto';
-      btn.addEventListener('click', function (ev) {
-        ev.stopPropagation();
-        var url = location.origin + location.pathname + '#' + card.id;
-        var done = function () {
-          btn.classList.add('done');
-          btn.innerHTML = '<span aria-hidden="true">✓</span> Enlace copiado';
-          setTimeout(function () {
-            btn.classList.remove('done');
-            btn.innerHTML = '<span aria-hidden="true">🔗</span> Copiar enlace del concepto';
-          }, 2200);
-        };
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(url).then(done, function () { window.prompt('Copia el enlace:', url); });
-        } else {
-          window.prompt('Copia el enlace:', url);
-        }
-      });
-      panel.appendChild(btn);
-    });
-  }
 
   /* ---------- 3. búsqueda global ?q= ---------- */
   function globalSearch() {
@@ -186,8 +158,8 @@
 
   /* ---------- arranque ---------- */
   function start() {
-    addCopyButtons();
     addResetButton();
+  initContact();
     restoreProgress();
     globalSearch();
 
@@ -203,3 +175,59 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
   else start();
 })();
+
+
+  /* 5. Formulario de contacto (Turnstile + Pages Function) */
+  function initContact() {
+    var form = $('#cf');
+    if (!form) return;
+    var status = $('#cfStatus');
+    var btn = form.querySelector('.cf-btn');
+    var area = $('#cf-msg');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var msg = (area.value || '').trim();
+      if (msg.length < 10) {
+        status.className = 'cf-status err';
+        status.textContent = 'Escribe al menos 10 caracteres.';
+        area.focus();
+        return;
+      }
+      var token = (form.querySelector('[name="cf-turnstile-response"]') || {}).value || '';
+      btn.disabled = true;
+      status.className = 'cf-status';
+      status.textContent = 'Enviando…';
+      fetch('/api/contacto', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ mensaje: msg, token: token, empresa: (form.empresa || {}).value || '' })
+      }).then(function (r) { return r.json().catch(function () { return { ok: false, error: 'red' }; }); })
+        .then(function (res) {
+          if (res.ok) {
+            status.className = 'cf-status ok';
+            status.textContent = 'Mensaje enviado. Te contesto en breve.';
+            form.reset();
+            if (window.turnstile) window.turnstile.reset();
+          } else if (res.error === 'no-provider') {
+            status.className = 'cf-status err';
+            var link = document.createElement('a');
+            link.href = 'mailto:info@andreumatic.com?subject=Sesgos%20y%20falacias&body=' + encodeURIComponent(msg);
+            link.textContent = 'abrir tu correo';
+            status.textContent = 'El envío directo aún no está activo. ';
+            status.appendChild(link);
+            status.appendChild(document.createTextNode('.'));
+          } else if (res.error === 'captcha') {
+            status.className = 'cf-status err';
+            status.textContent = 'No se pudo verificar que no eres un bot. Recarga la página e inténtalo de nuevo.';
+          } else {
+            status.className = 'cf-status err';
+            status.textContent = 'No se pudo enviar. Escríbeme a info@andreumatic.com.';
+          }
+        })
+        .catch(function () {
+          status.className = 'cf-status err';
+          status.textContent = 'Fallo de red. Escríbeme a info@andreumatic.com.';
+        })
+        .then(function () { btn.disabled = false; });
+    });
+  }

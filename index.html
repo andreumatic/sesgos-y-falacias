@@ -25,7 +25,7 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/favicon-32x32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="stylesheet" href="css/estilos.css?v=7">
+<link rel="stylesheet" href="css/estilos.css?v=9">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -476,8 +476,17 @@
       <a href="#detector">Detector</a>
       <a href="#test">Tests</a>
     </div>
-    <div class="footer-col">
+    <div class="footer-col footer-contact">
       <h2 class="footer-title">Contacto</h2>
+      <form class="cf" id="cf" novalidate>
+        <label class="cf-label" for="cf-msg">Cuéntame qué necesitas</label>
+        <textarea id="cf-msg" name="mensaje" rows="3" maxlength="1200" required
+          placeholder="Escribe tu mensaje…"></textarea>
+        <input class="cf-hp" type="text" name="empresa" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAFvcNWyB9CMXz-3-" data-theme="light" data-size="flexible"></div>
+        <button class="cf-btn" type="submit">Enviar mensaje</button>
+        <p class="cf-status" id="cfStatus" role="status" aria-live="polite"></p>
+      </form>
       <a href="mailto:info@andreumatic.com">info@andreumatic.com</a>
       <a href="https://andreumatic.com" target="_blank" rel="noopener">andreumatic.com</a>
     </div>
@@ -976,7 +985,7 @@ function renderCards(data, gridId, type) {
         </div>
         <div class="deep-block">
           <h4 class="evid">📚 Evidencia académica</h4>
-          <div class="cite">${item.evid}</div>
+          <div class="cite">${item.evid}${/<a\s/i.test(item.evid) ? '' : ' <a class="cite-link" href="#fuentes">Ver la fuente en la bibliografía →</a>'}</div>
         </div>
       </div>
       <div class="expand-hint" aria-hidden="true"><span class="arrow">▼</span> Ver análisis completo y fuente</div>
@@ -1393,6 +1402,23 @@ function syncHeaderHeight() {
 }
 syncHeaderHeight();
 addEventListener('resize', syncHeaderHeight);
+
+/* Cabecera compacta: se encoge al bajar y vuelve al subir */
+let isCompact = null;
+function updateCompact() {
+  const next = window.scrollY > 120;
+  if (next === isCompact) return;
+  isCompact = next;
+  document.body.classList.toggle('is-compact', next);
+  syncHeaderHeight();
+}
+let rafCompact = false;
+addEventListener('scroll', () => {
+  if (rafCompact) return;
+  rafCompact = true;
+  requestAnimationFrame(() => { rafCompact = false; updateCompact(); });
+}, { passive: true });
+updateCompact();
 addEventListener('load', syncHeaderHeight);
 addEventListener('orientationchange', syncHeaderHeight);
 
@@ -1484,5 +1510,6 @@ if ('serviceWorker' in navigator && location.protocol === 'https:') {
   });
 }
 </script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </body>
 </html>
