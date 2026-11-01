@@ -1,0 +1,23 @@
+{
+  "name": "Sesgos y Falacias · AndreuMatic",
+  "short_name": "Sesgos",
+  "description": "Guía interactiva de sesgos cognitivos y falacias lógicas con fuentes académicas, detector de manipulación y tests.",
+  "lang": "es",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f4eedd",
+  "theme_color": "#0f2e29",
+  "categories": ["education", "reference"],
+  "icons": [
+    { "src": "/assets/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Detector de manipulación", "url": "/#detector" },
+    { "name": "Tests", "url": "/#test" },
+    { "name": "Fuentes", "url": "/#fuentes" }
+  ]
+}

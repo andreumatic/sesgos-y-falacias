@@ -447,3 +447,21 @@ main section[id],main [id]{scroll-margin-top:calc(var(--header-h,108px) + 18px)}
   .analyzer-reset:active,.sec-nav a:active,.study-toggle:active,
   .nav-links a:active,.analyzer-item:active,.check-item:active,.card:active{transform:none}
 }
+
+/* ============ MEJORAS v2.2: enlaces, progreso y sin-JS ============ */
+.card-link{margin-top:12px;align-self:flex-start;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.04em;
+  background:transparent;color:var(--teal);border:1.5px solid var(--line);border-radius:8px;padding:7px 11px;cursor:pointer;
+  transition:background .15s ease,border-color .15s ease,color .15s ease}
+.card-link:hover{border-color:var(--teal);background:var(--cream2)}
+.card-link.done{border-color:var(--mint);background:rgba(143,217,196,.28);color:var(--teal3)}
+.reset-progress{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.04em;background:transparent;color:var(--muted);
+  border:1px solid var(--line);border-radius:7px;padding:5px 9px;cursor:pointer}
+.reset-progress:hover{color:var(--ember-d);border-color:var(--ember-d)}
+.nojs-note{max-width:760px;padding:24px 0 8px}
+.nojs-note p{margin:10px 0 18px}
+.nojs-list{columns:2;column-gap:28px;margin:8px 0 22px;padding-left:18px}
+.nojs-list li{margin:0 0 6px;break-inside:avoid}
+@media (max-width:600px){.nojs-list{columns:1}}
+.card:focus{outline:none}
+.card:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+@media print{.card-link,.reset-progress{display:none!important}}

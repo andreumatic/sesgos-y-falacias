@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Más allá de los sesgos · Constelaciones temáticas | AndreuMatic</title>
+<meta name="description" content="Expansión de la guía: 5 constelaciones y más de 20 temas sobre desinformación, tribalismo, epistemología, emoción y retórica, cada uno con evidencia académica.">
+<link rel="canonical" href="https://sesgosyfalacias.andreumatic.com/mas-alla-de-los-sesgos.html">
+<meta name="theme-color" content="#0f2e29">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Más allá de los sesgos: el ecosistema de la manipulación">
+<meta property="og:description" content="5 constelaciones y más de 20 temas con evidencia académica: tecnología, tribu, filosofía y emoción.">
+<meta property="og:url" content="https://sesgosyfalacias.andreumatic.com/mas-alla-de-los-sesgos.html">
+<meta property="og:image" content="https://sesgosyfalacias.andreumatic.com/assets/og-sesgos.png">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<style>
+@font-face{font-family:'Space Mono';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/SpaceMono-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Space Mono';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/SpaceMono-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Space Mono';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/SpaceMono-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Space Mono';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/SpaceMono-700-latin-ext.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Work Sans';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/WorkSans-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Work Sans';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/WorkSans-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Work Sans';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/WorkSans-600-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Work Sans';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/WorkSans-600-latin-ext.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+  :root {
+    --bg: #f4eedd; --surface: #ece2c8; --card: #fffdf4; --card-hover: #f8f2e6;
+    --border: rgba(43,38,32,0.16); --text: #2b2620; --muted: #5f5748;
+    --red: #b8401f; --red-bg: rgba(184,64,31,0.08);
+    --orange: #c67f1e; --orange-bg: rgba(232,163,61,0.16);
+    --green: #1a6b52; --green-bg: rgba(26,107,82,0.09);
+    --yellow: #8a6a12; --teal: #0f2e29;
+    --purple: #5b4a7a; --purple-bg: rgba(91,74,122,0.09);
+    --cyan: #0f6b62; --cyan-bg: rgba(15,107,98,0.09);
+    --cream: #f4eedd; --ink: #2b2620; --amber: #e8a33d; --amber-d: #c67f1e;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  body { font-family: 'Work Sans', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; overflow-x: hidden;
+         background-image: radial-gradient(rgba(43,38,32,0.055) 1px, transparent 1px); background-size: 22px 22px; }
+  h1, h2, h3, h4 { font-family: 'Space Mono', ui-monospace, monospace; letter-spacing: -0.01em; line-height: 1.22; }
+  body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse 50% 40% at 10% 0%, rgba(232,163,61,0.16), transparent 60%), radial-gradient(ellipse 50% 40% at 90% 100%, rgba(143,217,196,0.20), transparent 60%); pointer-events: none; z-index: 0; }
+
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(15,46,41,0.98); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(244,238,221,0.14); padding: 0.7rem 1.2rem; display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; flex-wrap: wrap; }
+  .logo { font-family: 'Space Mono', monospace; font-weight: 700; font-size: 0.95rem; color: var(--cream); text-decoration: none; display: flex; align-items: center; gap: 0.45rem; white-space: nowrap; }
+  .logo:hover { color: var(--amber); }
+  .logo::before { content: '🌌'; font-size: 1.1rem; }
+  .nav-links { display: flex; gap: 0.1rem; flex-wrap: wrap; align-items: center; }
+  .nav-links a { font-family: 'Space Mono', monospace; color: rgba(244,238,221,0.76); text-decoration: none; font-size: 0.72rem; padding: 0.35rem 0.55rem; border-radius: 7px; transition: color .18s, background-color .18s; font-weight: 700; }
+  .nav-links a:hover, .nav-links a:focus-visible { color: var(--teal3, #0b211d); background: var(--amber); }
+
+  .hero { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 3rem 1.5rem 2rem; }
+  .hero .badge { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.35rem 0.9rem; border-radius: 6px; background: var(--cyan-bg); color: var(--cyan); border: 1px solid rgba(34,211,238,0.3); margin-bottom: 1rem; }
+  .hero h1 { font-size: clamp(1.6rem, 4.2vw, 2.5rem); font-weight: 700; line-height: 1.18; margin-bottom: 1rem; letter-spacing: -0.02em; color: var(--teal); }
+  .hero h1 .accent { color: var(--amber-d); }
+  .hero p { color: var(--muted); max-width: 750px; font-size: 1rem; }
+
+  .constellation-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.8rem; margin-top: 1.8rem; }
+  .const-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.1rem; cursor: pointer; transition: all 0.2s; position: relative; overflow: hidden; }
+  .const-card:hover { transform: translateY(-2px); background: var(--card-hover); }
+  .const-card .cc-emoji { font-size: 1.4rem; margin-bottom: 0.3rem; }
+  .const-card .cc-title { font-size: 0.9rem; font-weight: 800; margin-bottom: 0.2rem; }
+  .const-card .cc-sub { font-size: 0.75rem; color: var(--muted); }
+  .const-card.digital { border-left: 4px solid var(--cyan); }
+  .const-card.social { border-left: 4px solid var(--orange); }
+  .const-card.filo { border-left: 4px solid var(--purple); }
+  .const-card.emocional { border-left: 4px solid var(--red); }
+  .const-card.extra { border-left: 4px solid var(--green); }
+
+  section { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+  .const-section { border-top: 1px solid var(--border); padding-top: 2.5rem; margin-top: 1rem; }
+  .const-header { margin-bottom: 1.5rem; }
+  .const-header .const-tag { display: inline-block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.3rem 0.7rem; border-radius: 6px; margin-bottom: 0.5rem; }
+  .tag-cyan { background: var(--cyan-bg); color: var(--cyan); border: 1px solid rgba(34,211,238,0.25); }
+  .tag-orange { background: var(--orange-bg); color: var(--orange); border: 1px solid rgba(251,146,60,0.25); }
+  .tag-purple { background: var(--purple-bg); color: var(--purple); border: 1px solid rgba(167,139,250,0.25); }
+  .tag-red { background: var(--red-bg); color: var(--red); border: 1px solid rgba(239,68,68,0.25); }
+  .tag-green { background: var(--green-bg); color: var(--green); border: 1px solid rgba(74,222,128,0.25); }
+  .const-header h2 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 900; margin-bottom: 0.3rem; letter-spacing: -0.01em; }
+  .const-header p { color: var(--muted); font-size: 0.92rem; max-width: 750px; }
+
+  .topic-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; margin-bottom: 1rem; overflow: hidden; transition: border-color .2s, box-shadow .2s; }
+  .topic-card:hover { border-color: var(--cyan); }
+  .topic-header { display: flex; align-items: center; gap: 0.8rem; padding: 1rem 1.2rem; cursor: pointer; user-select: none; background: linear-gradient(135deg, var(--card), var(--surface)); }
+  .topic-header:hover { background: var(--card-hover); }
+  .topic-emoji { font-size: 1.3rem; flex-shrink: 0; }
+  .topic-info { flex: 1; min-width: 0; }
+  .topic-info h3 { font-size: 1rem; font-weight: 800; margin-bottom: 0.15rem; }
+  .topic-info .topic-sub { font-size: 0.78rem; color: var(--muted); }
+  .topic-chevron { color: var(--muted); font-size: 0.8rem; transition: transform 0.3s; }
+  .topic-card.open .topic-chevron { transform: rotate(180deg); }
+  .topic-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+  .topic-card.open .topic-body { max-height: 3000px; }
+  .topic-inner { padding: 0 1.2rem 1.3rem; border-top: 1px solid var(--border); }
+  .topic-label { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.3rem; display: flex; align-items: center; gap: 0.3rem; margin-top: 1rem; }
+  .tl-what { color: var(--yellow); }
+  .tl-evidence { color: var(--green); }
+  .tl-connection { color: var(--orange); }
+  .tl-questions { color: var(--cyan); }
+  .what-box { background: rgba(250,204,21,0.05); border-left: 3px solid var(--yellow); padding: 0.7rem 0.9rem; border-radius: 0 6px 6px 0; font-size: 0.88rem; color: var(--text); }
+  .evidence-box { background: rgba(74,222,128,0.05); border-left: 3px solid var(--green); padding: 0.7rem 0.9rem; border-radius: 0 6px 6px 0; font-size: 0.88rem; color: var(--text); }
+  .connection-box { background: var(--orange-bg); border-left: 3px solid var(--orange); padding: 0.7rem 0.9rem; border-radius: 0 6px 6px 0; font-size: 0.88rem; color: var(--text); }
+  .connection-box strong { color: var(--orange); }
+  .questions-box { background: var(--cyan-bg); border-left: 3px solid var(--cyan); padding: 0.7rem 0.9rem; border-radius: 0 6px 6px 0; font-size: 0.88rem; color: var(--text); }
+  .questions-box ul { list-style: none; padding: 0; }
+  .questions-box li { padding: 0.2rem 0 0.2rem 1.2rem; position: relative; color: var(--muted); }
+  .questions-box li::before { content: '▸'; position: absolute; left: 0; color: var(--cyan); font-weight: 800; }
+
+  .controls { display: flex; gap: 0.6rem; margin-bottom: 1.5rem; flex-wrap: wrap; align-items: center; }
+  .search-box { position: relative; flex: 1; min-width: 220px; }
+  .search-box input { width: 100%; padding: 0.7rem 1rem 0.7rem 2.4rem; background: var(--card); border: 1px solid var(--border); border-radius: 10px; color: var(--text); font-size: 0.9rem; outline: none; transition: border-color 0.2s; }
+  .search-box input:focus { border-color: var(--cyan); }
+  .search-box::before { content: '🔍'; position: absolute; left: 0.9rem; top: 50%; transform: translateY(-50%); font-size: 0.9rem; opacity: 0.6; }
+  .filter-chip { padding: 0.5rem 0.9rem; background: var(--card); border: 1px solid var(--border); border-radius: 20px; color: var(--muted); font-size: 0.8rem; cursor: pointer; transition: all 0.2s; white-space: nowrap; font-weight: 600; }
+  .filter-chip:hover { border-color: var(--cyan); color: var(--text); }
+  .filter-chip.active { background: var(--cyan-bg); border-color: var(--cyan); color: var(--cyan); font-weight: 700; }
+
+  .glossary-grid { display: grid; gap: 0.7rem; }
+  .glossary-item { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 0.9rem 1.1rem; }
+  .glossary-item h4 { font-size: 0.9rem; color: var(--cyan); margin-bottom: 0.3rem; }
+  .glossary-item p { font-size: 0.84rem; color: var(--muted); }
+
+  .refs-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin-top: 1rem; }
+  .refs-table th, .refs-table td { padding: 0.7rem 0.8rem; text-align: left; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .refs-table th { color: var(--cyan); font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .refs-table td { color: var(--muted); }
+  .refs-table td:first-child { color: var(--text); font-weight: 600; }
+  .refs-table a { color: var(--teal); text-decoration: underline; text-underline-offset: 2px; }
+
+  .toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--teal); color: var(--cream); padding: 0.7rem 1.3rem; border-radius: 8px; font-weight: 800; font-size: 0.85rem; z-index: 1001; transition: transform 0.3s; }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  footer { text-align: center; padding: 2rem 1.5rem; color: var(--muted); font-size: 0.8rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+  footer strong { color: var(--cyan); }
+
+  #loadingMsg { text-align: center; color: var(--muted); padding: 2rem; font-size: 0.9rem; }
+  .error-box { background: rgba(239,68,68,0.1); border: 1px solid var(--red); color: var(--red); padding: 1rem; border-radius: 10px; margin: 1rem 0; font-family: monospace; font-size: 0.85rem; }
+
+  @media (max-width: 640px) {
+    nav { padding: 0.6rem 0.8rem; }
+    .nav-links a { font-size: 0.68rem; padding: 0.25rem 0.4rem; }
+    section { padding: 1.5rem 1rem; }
+  }
+
+  /* --- Ajustes de navegación AndreuMatic (móvil y enlace de vuelta) --- */
+  .lg-short { display: none; }
+  .nav-back { border-left: 1px solid rgba(244,238,221,0.22); margin-left: 0.35rem; padding-left: 0.85rem; }
+  @media (max-width: 720px) {
+    nav { flex-wrap: nowrap; gap: 0.6rem; padding: 0.6rem 0.85rem; align-items: center; }
+    .logo { font-size: 0.78rem; }
+    .lg-long { display: none; }
+    .lg-short { display: inline; }
+    .logo::before { display: none; }
+    .nav-links { flex: 1 1 auto; min-width: 0; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch; }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links a { flex: 0 0 auto; }
+    .nav-links .nav-back { order: -1; border-left: 0; border-right: 1px solid rgba(244,238,221,.22); margin: 0 .5rem 0 0; padding: 0 .8rem 0 0; }
+    .hero .badge { font-size: 0.56rem; letter-spacing: 0.03em; padding: 0.3rem 0.6rem; text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html"><span class="lg-long">Constelaciones Temáticas</span><span class="lg-short">Constelaciones</span></a>
+  <div class="nav-links">
+    <a href="#digital">Digital</a>
+    <a href="#social">Social</a>
+    <a href="#filosofia">Filosofía</a>
+    <a href="#emocional">Emocional</a>
+    <a href="#extra">Extra</a>
+    <a href="#glosario">Glosario</a>
+    <a href="#fuentes">Fuentes</a>
+    <a class="nav-back" href="index.html">← Guía</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <span class="badge">🌌 Expansión de la serie · 5 constelaciones · 20+ temas</span>
+  <h1>Más allá de los sesgos:<br><span class="accent">el ecosistema de la manipulación</span></h1>
+  <p>Tu serie actual explica los mecanismos internos (sesgos) y las armas externas (falacias). Esta documentación expande el mapa hacia los <strong>ecosistemas donde esos mecanismos operan</strong>: la tecnología que los amplifica, la tribu que los activa, la filosofía que los cuestiona y las emociones que los alimentan. Cada tema es un episodio potencial con su evidencia académica.</p>
+
+  <div class="constellation-grid">
+    <div class="const-card digital" onclick="document.getElementById('digital').scrollIntoView({behavior:'smooth'})">
+      <div class="cc-emoji">🌐</div>
+      <div class="cc-title">Constelación Digital</div>
+      <div class="cc-sub">Desinformación, algoritmos, IA</div>
+    </div>
+    <div class="const-card social" onclick="document.getElementById('social').scrollIntoView({behavior:'smooth'})">
+      <div class="cc-emoji">👥</div>
+      <div class="cc-title">Constelación Social</div>
+      <div class="cc-sub">Tribalismo, polarización, identidad</div>
+    </div>
+    <div class="const-card filo" onclick="document.getElementById('filosofia').scrollIntoView({behavior:'smooth'})">
+      <div class="cc-emoji">💭</div>
+      <div class="cc-title">Constelación Filosófica</div>
+      <div class="cc-sub">Epistemología, duda, ética</div>
+    </div>
+    <div class="const-card emocional" onclick="document.getElementById('emocional').scrollIntoView({behavior:'smooth'})">
+      <div class="cc-emoji">❤️‍🔥</div>
+      <div class="cc-title">Constelación Emocional</div>
+      <div class="cc-sub">Neurociencia, retórica, narrativa</div>
+    </div>
+    <div class="const-card extra" onclick="document.getElementById('extra').scrollIntoView({behavior:'smooth'})">
+      <div class="cc-emoji">🧩</div>
+      <div class="cc-title">Sesgos y Falacias Extra</div>
+      <div class="cc-sub">Catálogo ampliado</div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="controls">
+    <div class="search-box"><input type="text" id="searchTopics" placeholder="Buscar tema, sesgo o falacia..."></div>
+    <button class="filter-chip active" data-filter="all">Todos</button>
+    <button class="filter-chip" data-filter="digital">Digital</button>
+    <button class="filter-chip" data-filter="social">Social</button>
+    <button class="filter-chip" data-filter="filosofia">Filosofía</button>
+    <button class="filter-chip" data-filter="emocional">Emocional</button>
+    <button class="filter-chip" data-filter="extra">Extra</button>
+  </div>
+</section>
+
+<div id="topicsContainer">
+  <p id="loadingMsg">⏳ Cargando temas...</p>
+</div>
+
+<section id="glosario">
+  <div class="const-header">
+    <span class="const-tag tag-cyan">Referencia rápida</span>
+    <h2>Glosario de términos clave</h2>
+    <p>Los conceptos que aparecen a lo largo de esta documentación, definidos en una línea.</p>
+  </div>
+  <div class="glossary-grid" id="glossaryGrid"></div>
+</section>
+
+<section id="fuentes">
+  <div class="const-header">
+    <span class="const-tag tag-cyan">Referencias</span>
+    <h2>Fuentes académicas citadas</h2>
+    <p>Cada referencia incluye un enlace clicable a DOI, PDF o página del editor.</p>
+  </div>
+  <div style="overflow-x:auto;">
+    <table class="refs-table">
+      <thead><tr><th>Concepto</th><th>Referencia</th></tr></thead>
+      <tbody id="refsBody"></tbody>
+    </table>
+  </div>
+</section>
+
+<div class="toast" id="toast">Copiado</div>
+
+<footer>
+  <p><strong>Constelaciones Temáticas</strong> · Expansión de la serie Sesgos y Falacias</p>
+  <p style="margin-top:0.4rem;font-size:0.78rem;">Cada tema es una puerta. Elige la que más te intrigue y empieza a guionizar.</p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('[Constelaciones] DOM listo. Iniciando render...');
+
+  // ============================================================
+  // DATA
+  // ============================================================
+
+  const CONSTELLATIONS = {
+    digital: {
+      name: 'Constelación Digital',
+      emoji: '🌐',
+      tag: 'tag-cyan',
+      color: 'var(--cyan)',
+      description: 'El entorno donde tus sesgos se amplifican a escala industrial: algoritmos, desinformación, IA generativa y economía de la atención.',
+      topics: [
+        {
+          emoji: '📰', title: 'Desinformación y Fake News', sub: 'Por qué las mentiras viajan más rápido',
+          what: 'La desinformación no es un accidente: es un ecosistema diseñado para explotar tus sesgos. Las noticias falsas apelan a la emoción, la novedad y la identidad, tres cosas que tu Sistema 1 procesa antes de que el Sistema 2 pueda verificar nada.',
+          evidence: 'Vosoughi, Roy & Aral (2018) analizaron 126.000 historias en Twitter durante 11 años. Las noticias falsas tenían un 70% más de probabilidades de ser retuiteadas que las verdaderas, y las cascadas de información falsa llegaban a entre 1.000 y 100.000 personas, mientras que las verdaderas rara vez superaban las 1.000. Las noticias falsas inspiraban miedo, repulsión y sorpresa. Y al eliminar los bots, los humanos seguían siendo los principales responsables de la difusión.',
+          connection: 'Conecta con el <strong>Ep 1: La Burbuja de la Verdad</strong> (sesgo de confirmación + francotirador) y con el <strong>Ep 5: Lo que Viste Ayer</strong> (disponibilidad). La desinformación es la aplicación industrial de esos sesgos.',
+          questions: ['¿Por qué una mentira que te indigna se comparte más que una verdad que te aburre?', '¿Qué papel juega la novedad en la viralidad de lo falso?', '¿Cómo se diseña una noticia falsa para que active tu sesgo de confirmación?']
+        },
+        {
+          emoji: '🤖', title: 'Algoritmos, Cámaras de Eco y Burbujas de Filtro', sub: 'La tecnología que te encierra en tu cabeza',
+          what: 'Los algoritmos de recomendación no son neutrales: optimizan la retención. Y la retención máxima se consigue mostrándote contenido que confirma lo que ya crees. El resultado son cámaras de eco donde tus creencias se amplifican sin contrapeso.',
+          evidence: 'La investigación de 2025 sobre filtrado algorítmico confirma que los algoritmos "curan contenido basado en preferencias del usuario" y crean "cámaras de eco — entornos donde los individuos están expuestos principalmente a información que se alinea con sus creencias existentes". Esto "refuerza opiniones preexistentes y contribuye a la polarización social".',
+          connection: 'Conecta con el <strong>Ep 1: La Burbuja de la Verdad</strong> (burbuja de filtro) y con el <strong>Ep 7: La Mayoría Invisible</strong> (falso consenso). La cámara de eco es la versión tecnológica del sesgo de confirmación.',
+          questions: ['¿Quién diseña el algoritmo y qué optimiza?', '¿Puedes salir de tu burbuja si el algoritmo aprende de cada clic?', '¿Qué pasaría si el algoritmo te mostrara el 20% de contenido contrario?']
+        },
+        {
+          emoji: '🧠', title: 'IA Generativa y Deepfakes', sub: 'La próxima frontera de la manipulación',
+          what: 'La IA generativa puede producir texto, imágenes, audio y vídeo con una fluidez y credibilidad que explotan nuestra tendencia a confiar en lo que parece profesional. Los deepfakes y los LLM permiten fabricar consenso y personalizar la manipulación a escala.',
+          evidence: 'Un informe de 2026 de la Universidad de Columbia Británica advierte que "enjambres de IA" podrían ejecutar "millones de micro-pruebas para encontrar los mensajes más persuasivos, creando un consenso sintético" y manipular el discurso democrático. Los primeros signos incluyen "deepfakes generados por IA y medios de noticias fabricados que influyeron en debates electorales recientes en EE.UU. y Taiwán".',
+          connection: 'Conecta con el <strong>Ep 2: El Experto de Bar</strong> (falsa autoridad) y con el <strong>Ep 9: El Precio que No Ves</strong> (encuadre). Un deepfake es la forma más sofisticada de falsa autoridad y encuadre.',
+          questions: ['Si un vídeo parece real, ¿cómo puedes saber que no es un deepfake?', '¿Qué pasa cuando la IA puede imitar la voz de tu madre pidiendo dinero?', '¿Cómo se fabrica un consenso sintético en redes sociales?']
+        },
+        {
+          emoji: '📱', title: 'La Economía de la Atención', sub: 'Tu indignación es el producto',
+          what: 'Las plataformas digitales no venden contenido: venden tu atención a los anunciantes. Y la indignación, el miedo y la sorpresa son las emociones que más retención generan. Por eso el diseño de las plataformas premia el contenido que te altera.',
+          evidence: 'Vosoughi et al. (2018) mostraron que las noticias falsas inspiraban miedo, repulsión y sorpresa, y que las historias falsas eran percibidas como más novedosas — y la novedad es un potente predictor de retuiteo. La economía de la atención convierte tu sesgo de negatividad (Ep 6) en un modelo de negocio.',
+          connection: 'Conecta con el <strong>Ep 6: El Mundo se Acaba</strong> (efecto de negatividad). Lo que te enfada es lo que te engancha.',
+          questions: ['¿Por qué las redes sociales te muestran primero lo que te indigna?', '¿Qué pasaría si las plataformas priorizaran el contenido que te hace sentir bien?', '¿Eres el cliente o el producto?']
+        }
+      ]
+    },
+    social: {
+      name: 'Constelación Social',
+      emoji: '👥',
+      tag: 'tag-orange',
+      color: 'var(--orange)',
+      description: 'Los sesgos no operan en el vacío: se activan con una intensidad brutal cuando entran en juego la identidad de grupo y la política. Aquí exploramos el tribalismo, la polarización y la ilusión de objetividad.',
+      topics: [
+        {
+          emoji: '🦍', title: 'Tribalismo: el instinto que nos divide', sub: 'Por qué la política activa tu cerebro reptiliano',
+          what: 'Los humanos evolucionaron en grupos pequeños y en competencia intensa. La lealtad al grupo era una ventaja de supervivencia. Hoy, esa misma maquinaria psicológica se activa con la política, los equipos de fútbol y las marcas. El resultado: sesgos de endogrupo y hostilidad hacia el exogrupo.',
+          evidence: 'Clark, Liu, Winegard & Ditto (2019) argumentan que "los humanos evolucionaron en el contexto de una intensa competencia intergrupal, y los grupos compuestos por miembros leales tenían más éxito". Su conclusión es contundente: "el sesgo tribal es una característica natural y casi erradicable de la cognición humana, y ningún grupo —ni siquiera el propio— es inmune". Además, liberales y conservadores muestran niveles similares de sesgo partidista.',
+          connection: 'Conecta con el <strong>Ep 4: El Muñeco</strong> (error de atribución + hombre de paja) y con el <strong>Ep 7: La Mayoría Invisible</strong> (manada). El tribalismo es el caldo de cultivo de ambos.',
+          questions: ['¿Por qué defiendes a tu grupo incluso cuando se equivoca?', '¿Qué pasa en tu cerebro cuando ves al líder del grupo rival?', '¿Es posible ser leal a un grupo sin ser tribal?']
+        },
+        {
+          emoji: '🪞', title: 'La Ilusión de Objetividad', sub: 'Mi lado ve la realidad, el tuyo está sesgado',
+          what: 'La ilusión de objetividad es la creencia de que tu lado ve el mundo tal como es, mientras que el lado opuesto lo ve a través de sus sesgos. Es una de las fuerzas más potentes de la polarización porque no solo te hace sentir superior: te hace sentir epistémicamente superior.',
+          evidence: 'Un estudio publicado en PNAS (2020) midió la ilusión de objetividad en votantes de Trump y Clinton durante las elecciones de 2016. Ambos grupos mostraron "una tendencia grande y generalmente simétrica a calificar a los partidarios del candidato que personalmente favorecían como más influenciados por consideraciones apropiadas y menos influenciados por sesgos que los partidarios del candidato opuesto". La ilusión de objetividad predijo el sesgo posterior y la polarización, incluyendo "mayor partidismo, cerrazón y antipatía hacia los adversarios políticos".',
+          connection: 'Conecta con el <strong>Ep 4: El Muñeco</strong> (error de atribución) y con el <strong>Ep 1: La Burbuja de la Verdad</strong> (punto ciego del sesgo). La ilusión de objetividad es la versión política del "yo soy objetivo, tú estás sesgado".',
+          questions: ['¿Crees que tu lado político es más objetivo que el contrario?', '¿Qué evidencia te haría admitir que tu lado está sesgado?', '¿Cómo se puede tener una conversación con alguien que cree que tú eres el malvado?']
+        },
+        {
+          emoji: '🔇', title: 'Ignorancia Pluralista y Espiral del Silencio', sub: 'Cuando todos callan, nadie sabe lo que todos piensan',
+          what: 'La ignorancia pluralista ocurre cuando cada individuo de un grupo rechaza privadamente una norma, pero cree que los demás la aceptan. El resultado: todos actúan como si estuvieran de acuerdo con algo que nadie apoya. La espiral del silencio es su consecuencia: los que disienten callan porque creen que son minoría.',
+          evidence: 'La investigación clásica define la ignorancia pluralista como "un error de percepción de la norma grupal que resulta de observar a personas que actúan en desacuerdo con sus creencias privadas por preocupación por las consecuencias sociales — acciones que refuerzan la norma grupal errónea". El fenómeno está relacionado con el efecto de falso consenso.',
+          connection: 'Conecta con el <strong>Ep 7: La Mayoría Invisible</strong> (falso consenso + ad populum). La ignorancia pluralista es la versión grupal del "todo el mundo piensa como yo".',
+          questions: ['¿Cuándo fue la última vez que callaste porque creías que eras el único que pensaba así?', '¿Qué pasaría si todos los que disienten en silencio hablaran a la vez?', '¿Cómo se rompe una espiral del silencio?']
+        }
+      ]
+    },
+    filosofia: {
+      name: 'Constelación Filosófica',
+      emoji: '💭',
+      tag: 'tag-purple',
+      color: 'var(--purple)',
+      description: 'La serie no solo es psicología: es epistemología aplicada. Aquí exploramos la ética de la duda, la diferencia entre creencia y conocimiento, y las virtudes intelectuales que nos protegen del dogmatismo.',
+      topics: [
+        {
+          emoji: '⚖️', title: 'La Ética de la Duda', sub: '¿Es tu obligación moral dudar?',
+          what: 'La duda no es solo una herramienta cognitiva: es una posición ética. El escepticismo clásico, desde Sócrates hasta la virtud epistémica contemporánea, no propone la parálisis, sino una actitud de vigilancia crítica frente a las pretensiones de conocimiento definitivo. La duda legítima nos aleja del dogmatismo y el fanatismo.',
+          evidence: 'La epistemología de la virtud defiende que la duda excesiva y la credulidad son vicios intelectuales. El "coraje doxástico" es la virtud que media entre ambos: "un ejercicio de control doxástico que media entre los vicios de la duda excesiva y la creencia imprudente". La duda hiperbólica es un exceso: "no accede al objetivo de prosperidad cognitiva". La credulidad es el defecto opuesto.',
+          connection: 'Conecta con el <strong>Ep 12: El Origen</strong> (la pereza de pensar) y con el <strong>Ep 11: La Verdad Incómoda</strong> (sesgo de creencia). La ética de la duda es el marco filosófico de toda la serie.',
+          questions: ['¿Tienes la obligación moral de dudar de tus propias creencias?', '¿Cuándo la duda se convierte en cobardía intelectual?', '¿Qué diferencia hay entre ser escéptico y ser cobarde?']
+        },
+        {
+          emoji: '📚', title: 'Creencia, Fe y Conocimiento', sub: 'La diferencia que lo cambia todo',
+          what: 'No es lo mismo creer algo que saberlo. La definición clásica de conocimiento exige tres condiciones: creencia, verdad y justificación. La fe es creencia sin justificación suficiente. La opinión es creencia sin garantía de verdad. Entender esta distinción es la base para exigir pruebas y detectar la manipulación.',
+          evidence: 'La epistemología contemporánea debate los límites de la justificación. La "paradoja de la lotería" y el problema de Gettier muestran que la justificación no siempre es suficiente para convertir una creencia verdadera en conocimiento. Pero el consenso práctico es claro: si alguien afirma algo, debe aportar razones. La carga de la prueba recae en quien afirma, no en quien niega.',
+          connection: 'Conecta con el <strong>Ep 10: La Bata Blanca</strong> (ad ignorantiam: "nadie ha probado que sea falso") y con el <strong>Ep 11: La Verdad Incómoda</strong> (petición de principio). La distinción entre creencia y conocimiento es el antídoto contra ambas falacias.',
+          questions: ['¿Cuál es la diferencia entre "creo que" y "sé que"?', '¿Qué evidencia necesitas para pasar de creencia a conocimiento?', '¿Es la fe una forma de conocimiento o una apuesta?']
+        },
+        {
+          emoji: '🎭', title: 'La Ilusión de la Objetividad en la Filosofía', sub: 'Cuando el filósofo también está sesgado',
+          what: 'La filosofía no está libre de sesgos. La ilusión de objetividad también afecta a los filósofos: cada escuela cree ver la realidad con más claridad que las demás. La historia de la filosofía está llena de sistemas que se creyeron definitivos y fueron refutados por la siguiente generación.',
+          evidence: 'La investigación sobre la ilusión de objetividad política (PNAS, 2020) mostró que el fenómeno es "grande y simétrico" entre partidarios de ambos bandos. La filosofía, como actividad humana, no es inmune a los mismos sesgos que estudia. La virtud epistémica no es exclusiva de ninguna escuela.',
+          connection: 'Conecta con el <strong>Ep 4: El Muñeco</strong> (punto ciego del sesgo) y con el <strong>Ep 9: El Precio que No Ves</strong> (encuadre). Incluso los que estudian los sesgos pueden ser víctimas de ellos.',
+          questions: ['¿Puede un filósofo ser objetivo sobre su propia escuela?', '¿Qué sesgos afectan a los que estudian los sesgos?', '¿Cómo se sale de la ilusión de objetividad filosófica?']
+        }
+      ]
+    },
+    emocional: {
+      name: 'Constelación Emocional',
+      emoji: '❤️‍🔥',
+      tag: 'tag-red',
+      color: 'var(--red)',
+      description: 'La razón no basta porque la emoción secuestra el juicio. Aquí exploramos la neurociencia del encuadre, la retórica de la manipulación y el poder de las narrativas para bypassar el pensamiento crítico.',
+      topics: [
+        {
+          emoji: '🧬', title: 'Neurociencia de la Emoción en el Razonamiento', sub: 'La amígdala contra la corteza prefrontal',
+          what: 'El efecto encuadre no es solo psicología: tiene una firma neuronal. La amígdala, el centro emocional del cerebro, media la susceptibilidad al encuadre. La corteza prefrontal orbital y medial, la parte más "racional", predice una menor susceptibilidad. Cuando la emoción domina, el juicio se distorsiona.',
+          evidence: 'De Martino et al. (2006, Science) demostraron que "el efecto encuadre estaba específicamente asociado con la actividad de la amígdala, sugiriendo un papel clave para un sistema emocional en la mediación de los sesgos de decisión". Además, "la actividad en la corteza prefrontal orbital y medial predecía una menor susceptibilidad al efecto encuadre".',
+          connection: 'Conecta con el <strong>Ep 9: El Precio que No Ves</strong> (efecto encuadre) y con el <strong>Ep 1: La Burbuja de la Verdad</strong> (Sistema 1 vs Sistema 2). La neurociencia demuestra que el encuadre no es una metáfora: es un secuestro de la amígdala.',
+          questions: ['¿Por qué una misma información presentada de dos formas te hace decidir diferente?', '¿Se puede entrenar la corteza prefrontal para resistir el encuadre?', '¿Qué pasa en tu cerebro cuando un político usa el miedo?']
+        },
+        {
+          emoji: '🎤', title: 'Retórica y Persuasión Manipuladora', sub: 'Cómo te cuentan una historia para que no pienses',
+          what: 'La retórica clásica (ethos, pathos, logos) se ha industrializado. El storytelling, el priming y el framing narrativo se usan para dirigir tu atención y tus emociones antes de que puedas analizar los hechos. La propaganda más efectiva no miente: encuadra.',
+          evidence: 'La investigación sobre comunicación estratégica señala que "donde la propaganda antes contaba una sola historia para todos, la comunicación estratégica ahora construye innumerables micro-narrativas, dirigidas a diferentes audiencias y actualizadas en tiempo real". "El storytelling emocional puede inspirar, pero también puede manipular. El framing puede organizar la información claramente, pero también puede dirigirla de maneras que evitan el pensamiento crítico".',
+          connection: 'Conecta con el <strong>Ep 6: El Mundo se Acaba</strong> (falsa analogía + negatividad) y con el <strong>Ep 9: El Precio que No Ves</strong> (encuadre). La narrativa es el vehículo emocional de la manipulación.',
+          questions: ['¿Qué historia te están contando para que no veas los datos?', '¿Cómo se usa el priming para preparar tu decisión?', '¿Puedes detectar el framing en un titular?']
+        },
+        {
+          emoji: '🎭', title: 'El Sesgo de Creencia y la Emoción', sub: 'Si la conclusión te gusta, el argumento te parece válido',
+          what: 'El sesgo de creencia (dejar que tus creencias sobre la verdad de una conclusión influyan en tu evaluación de la lógica del argumento) es sensible a la carga emocional. Cuanto más te importa el tema, más difícil es evaluar el argumento con frialdad.',
+          evidence: 'La investigación sobre razonamiento motivado muestra que "las cuentas motivacionales sostienen que la deliberación debería reforzar el sesgo de creencia ideológica porque el razonamiento sirve principalmente para defender y racionalizar la propia posición". Una cuenta opuesta, basada en la teoría del doble proceso, "asume que la deliberación atenúa el sesgo de creencia ideológica al facilitar una evaluación imparcial de la nueva información". La evidencia empírica apoya la segunda: el pensamiento analítico reduce la creencia en información falsa.',
+          connection: 'Conecta con el <strong>Ep 11: La Verdad Incómoda</strong> (sesgo de creencia + petición de principio). La emoción es el combustible del sesgo de creencia.',
+          questions: ['¿Puedes evaluar la lógica de un argumento si la conclusión te enfada?', '¿Por qué aceptas argumentos flojos cuando defienden lo que quieres creer?', '¿Cómo se separa la emoción del argumento?']
+        }
+      ]
+    },
+    extra: {
+      name: 'Sesgos y Falacias Extra',
+      emoji: '🧩',
+      tag: 'tag-green',
+      color: 'var(--green)',
+      description: 'El catálogo ampliado para episodios individuales. Cada uno es una puerta de entrada a un aspecto distinto de la manipulación.',
+      topics: [
+        {
+          emoji: '🪞', title: 'Sesgo de Punto Ciego', sub: 'Ves los sesgos de todos menos los tuyos',
+          what: 'La tendencia a creer que uno es menos susceptible a los sesgos cognitivos que los demás. Es un "meta-sesgo" que impide corregir los propios sesgos porque ni siquiera los reconoces.',
+          evidence: 'Pronin y colaboradores describieron el fenómeno: "las personas creen que son menos sesgadas en sus juicios y comportamiento que la población general — es decir, son ciegas a sus propios sesgos cognitivos". Dos fuentes principales: la sobrevaloración de la introspección y la convicción de que "mis percepciones reflejan directamente la realidad".',
+          connection: 'Conecta con el <strong>Ep 4: El Muñeco</strong> (error de atribución) y con el <strong>Ep 12: El Origen</strong>. El punto ciego es el sesgo que impide ver los demás sesgos.',
+          questions: ['¿Por qué crees que tú eres más objetivo que la media?', '¿Cómo puedes detectar un sesgo que no sabes que tienes?', '¿Qué pasaría si aceptaras que estás tan sesgado como los demás?']
+        },
+        {
+          emoji: '🎰', title: 'Falacia del Jugador', sub: 'La ruleta no tiene memoria',
+          what: 'La creencia de que los eventos aleatorios tienen memoria: que después de una racha de rojos, "toca" negro. En realidad, cada tirada es independiente. La falacia del jugador confunde la probabilidad global con la probabilidad condicionada.',
+          evidence: 'La investigación sobre la falacia del jugador y la "mano caliente" muestra que ambas surgen del heurístico de representatividad. La falacia del jugador "resulta de la experiencia de la recencia negativa característica en secuencias de eventos naturales", mientras que la mano caliente es su opuesto. Ambas son errores en la percepción de la aleatoriedad.',
+          connection: 'Conecta con el <strong>Ep 5: Lo que Viste Ayer</strong> (disponibilidad + post hoc). La falacia del jugador es un error de probabilidad basado en la memoria de lo reciente.',
+          questions: ['Si han salido cinco rojos, ¿es más probable que salga negro?', '¿Por qué crees que un jugador de baloncesto "está en racha"?', '¿Cómo se enseña a la gente a pensar en probabilidades independientes?']
+        },
+        {
+          emoji: '🪟', title: 'La Ventana de Overton', sub: 'Cómo se desplaza lo que es aceptable pensar',
+          what: 'No es una falacia lógica, sino una estrategia política: introducir ideas extremas, dejar que el escándalo se diluya, y convertir lo impensable en el nuevo punto de partida del debate. Lo que antes era inaceptable se convierte en "sentido común".',
+          evidence: 'El concepto fue teorizado por Joseph P. Overton en los años 90. Describe "un espectro, una ventana de ideas que pueden ser audibles por el público". La estrategia consiste en "introducir una idea que genera escándalo, permitir que ese escándalo se diluya en el ciclo informativo y, con ello, convertir lo impensable en el nuevo punto de partida del debate". Modelos de opinión de 2025 estudian cómo "agentes manipuladores" pueden "mover la ventana de Overton" para influir en la opinión pública.',
+          connection: 'Conecta con el <strong>Ep 3: La Trampa del Siempre</strong> (tradición) y con el <strong>Ep 8: El Dolor de Perder</strong> (coste hundido). La ventana de Overton es la manipulación del marco de lo aceptable.',
+          questions: ['¿Qué ideas que antes eran impensables ahora son "sentido común"?', '¿Cómo se normaliza una idea extrema sin que nadie la defienda abiertamente?', '¿Puedes detectar cuándo te están moviendo la ventana?']
+        },
+        {
+          emoji: '🏰', title: 'Falacia Motte and Bailey', sub: 'La táctica de defender lo indefendible escondiéndose en lo obvio',
+          what: 'Una táctica de debate donde el argumentador defiende una posición controvertida (el "bailey" o castillo), pero cuando es atacado retrocede a una posición modesta y fácil de defender (la "motte" o empalizada). Confunde dos posiciones distintas para evitar la refutación.',
+          evidence: 'La falacia, nombrada por el filósofo Nicholas Shackel, ocurre cuando "un argumentador conflaciona dos posiciones que comparten similitudes, una modesta y fácil de defender (la motte) y otra mucho más controvertida (el bailey)". El argumentador "avanza la posición controvertida, pero cuando es desafiado, insiste en que solo está avanzando la posición más modesta". Es una forma de equivocación que permite "evitar el escrutinio" de la posición real.',
+          connection: 'Conecta con el <strong>Ep 4: El Muñeco</strong> (hombre de paja) y con el <strong>Ep 11: La Verdad Incómoda</strong> (petición de principio). El Motte and Bailey es una forma sofisticada de evitar el fondo del debate.',
+          questions: ['¿Cuándo alguien defiende una idea extrema y luego dice "solo digo que..."?', '¿Cómo se distingue una posición moderada genuina de una retirada táctica?', '¿Puedes detectar el Motte and Bailey en un debate político?']
+        },
+        {
+          emoji: '📊', title: 'Falacia de la Tasa Base', sub: 'Ignoras lo común por lo llamativo',
+          what: 'Ignorar la probabilidad general de un evento (la tasa base) y centrarte en información específica y llamativa. Por ejemplo, alarmarte por un riesgo rarísimo tras ver una noticia, olvidando que la probabilidad de que te pase es ínfima.',
+          evidence: 'El ejemplo clásico es el problema del taxi: en una ciudad donde el 85% de los taxis son verdes y el 15% azules, un testigo identifica un taxi azul. La gente ignora la tasa base (85% verdes) y se concentra en la fiabilidad del testigo. Los sujetos "ignoraron el hecho de que el 85 por ciento de los taxis de la ciudad eran verdes y el 15 por ciento eran azules". La falacia de la tasa base es la negligencia de la probabilidad previa.',
+          connection: 'Conecta con el <strong>Ep 5: Lo que Viste Ayer</strong> (disponibilidad) y con el <strong>Ep 6: El Mundo se Acaba</strong> (negatividad). La tasa base es lo que ignoras cuando te asustas por una noticia impactante.',
+          questions: ['¿Cuál es la probabilidad real de que te pase lo que viste en las noticias?', '¿Por qué ignoras la tasa base cuando algo te asusta?', '¿Cómo se calcula la tasa base de un riesgo?']
+        },
+        {
+          emoji: '🔁', title: 'Efecto de Ilusión de Verdad', sub: 'Si lo has oído muchas veces, parece verdad',
+          what: 'La tendencia a creer que una afirmación es verdadera simplemente porque la has escuchado repetidamente. La familiaridad se confunde con veracidad. Es la base psicológica de la propaganda por repetición.',
+          evidence: 'La revisión de la ilusión de verdad confirma que "la repetición aumenta la creencia en la información, un fenómeno conocido como el efecto de ilusión de verdad". El efecto "ocurre con muchos tipos diferentes de afirmaciones (datos de trivia, titulares de noticias, anuncios), e incluso ocurre cuando la afirmación falsa contradice el conocimiento previo de los participantes". La repetición hace que lo falso parezca familiar, y lo familiar se siente verdadero.',
+          connection: 'Conecta con el <strong>Ep 7: La Mayoría Invisible</strong> (ad populum) y con el <strong>Ep 10: La Bata Blanca</strong> (autoridad). La repetición es la forma más simple de fabricar consenso.',
+          questions: ['¿Cuántas veces has oído esa afirmación? ¿La has verificado?', '¿Por qué lo familiar se siente más verdadero?', '¿Cómo se usa la repetición en publicidad y propaganda?']
+        },
+        {
+          emoji: '⚡', title: 'Efecto Backfire (o su ausencia)', sub: 'Cuando corregir una mentira la refuerza',
+          what: 'La creencia popular de que corregir una falsedad puede reforzar la creencia en ella (efecto backfire). La evidencia reciente es mixta: el backfire existe en algunos contextos, pero no es universal. Lo importante es cómo se corrige: repetir el mito dentro de la corrección puede reforzarlo.',
+          evidence: 'La investigación de 2025 sobre correcciones de desinformación señala que "la cuenta de backfire de familiaridad propone que los recordatorios obstaculizan la corrección (aumentando la interferencia)", mientras que "las cuentas basadas en la integración argumentan que los recordatorios facilitan la corrección (promoviendo la integración de la memoria)". Un estudio de 2024 encontró que "la exposición repetida de mitos dentro de la información correctiva aumentó" las percepciones erróneas, sugiriendo que "los procesos de desmentido deben evitar el encuadre dominante de las afirmaciones falsas originales y las repeticiones innecesarias de la corrección".',
+          connection: 'Conecta con el <strong>Ep 1: La Burbuja de la Verdad</strong> (confirmación) y con el <strong>Ep 11: La Verdad Incómoda</strong> (creencia). El backfire es la resistencia del cerebro a admitir que se equivocó.',
+          questions: ['¿Es mejor ignorar una mentira o desmentirla?', '¿Cómo se corrige una falsedad sin reforzarla?', '¿Por qué a veces la evidencia contraria nos hace aferrarnos más a nuestra creencia?']
+        }
+      ]
+    }
+  };
+
+  const GLOSSARY = [
+    { term: 'Cámara de eco', def: 'Entorno digital donde solo recibes información que confirma tus creencias, reforzando el sesgo de confirmación.' },
+    { term: 'Sesgo de endogrupo', def: 'Tendencia a favorecer y confiar más en los miembros de tu grupo que en los de fuera.' },
+    { term: 'Ilusión de objetividad', def: 'Creer que tu lado ve la realidad tal como es, mientras que el lado opuesto está sesgado.' },
+    { term: 'Ignorancia pluralista', def: 'Creer que los demás aceptan una norma que tú rechazas en privado, cuando en realidad muchos la rechazan también.' },
+    { term: 'Coraje doxástico', def: 'Virtud intelectual que media entre la duda excesiva y la credulidad, permitiendo creer con la justificación adecuada.' },
+    { term: 'Deepfake', def: 'Vídeo, audio o imagen generado por IA que suplanta la identidad de una persona real.' },
+    { term: 'Consenso sintético', def: 'Apariencia de acuerdo mayoritario fabricada por bots o IA, no por personas reales.' },
+    { term: 'Tasa base', def: 'Probabilidad general de que ocurra un evento en una población, antes de considerar información específica.' },
+    { term: 'Ilusión de verdad', def: 'Tendencia a creer que una afirmación es verdadera porque la has escuchado muchas veces.' },
+    { term: 'Efecto backfire', def: 'Fenómeno por el que corregir una creencia falsa puede reforzarla, aunque la evidencia reciente es mixta.' },
+    { term: 'Motte and Bailey', def: 'Táctica de debate que consiste en defender una posición controvertida y retroceder a una modesta cuando se es atacado.' },
+    { term: 'Ventana de Overton', def: 'Rango de ideas aceptables en el debate público; se puede desplazar para normalizar lo antes impensable.' }
+  ];
+
+  const REFERENCES = [
+    { concept: 'Desinformación en Twitter', ref: 'Vosoughi, S., Roy, D. & Aral, S. (2018). The spread of true and false news online. Science.', url: 'https://doi.org/10.1126/science.aap9559' },
+    { concept: 'Pensamiento perezoso y fake news', ref: 'Pennycook, G. & Rand, D.G. (2019). Lazy, not biased. Cognition, 188, 39-50.', url: 'https://doi.org/10.1016/j.cognition.2018.06.011' },
+    { concept: 'Corrección de desinformación', ref: 'Lee, S. et al. (2025). Partisan Fact-Checkers. ICWSM 2025.', url: 'https://ojs.aaai.org/index.php/ICWSM/article/view/35862' },
+    { concept: 'Tribalismo evolutivo', ref: 'Clark, C.J., Liu, B.S., Winegard, B.M. & Ditto, P.H. (2019). Tribalism Is Human Nature. Current Directions in Psychological Science.', url: 'https://doi.org/10.1177/0963721419862289' },
+    { concept: 'Ilusión de objetividad', ref: 'Ross, L.D. et al. (2020). The objectivity illusion and voter polarization. PNAS, 117(35), 21218-21229.', url: 'https://doi.org/10.1073/pnas.1912301117' },
+    { concept: 'Ética de la duda', ref: 'Ranganathan, R. Doxastic Courage: Virtue Epistemology and the Ethics of Belief. PhilArchive.', url: 'https://philarchive.org/archive/RANATOv1' },
+    { concept: 'Neurociencia del encuadre', ref: 'De Martino, B. et al. (2006). Frames, Biases, and Rational Decision-Making. Science, 313(5787), 684-687.', url: 'https://doi.org/10.1126/science.1128356' },
+    { concept: 'Retórica y persuasión', ref: 'Varios (2024). Features of media impact on the audience. Zenodo.', url: 'https://doi.org/10.5281/zenodo.14528372' },
+    { concept: 'Sesgo de punto ciego', ref: 'Pronin, E. et al. (2002). The Bias Blind Spot. Personality and Social Psychology Bulletin.', url: 'https://doi.org/10.1177/0146167202286008' },
+    { concept: 'Falacia del jugador', ref: 'Barron, G. & Leider, S. (2010). The role of experience in the gambler\'s fallacy. Journal of Behavioral Decision Making.', url: 'https://doi.org/10.1002/bdm.676' },
+    { concept: 'Ventana de Overton', ref: 'Overton, J.P. The Overton Window. Mackinac Center for Public Policy.', url: 'https://www.mackinac.org/OvertonWindow' },
+    { concept: 'Motte and Bailey', ref: 'Shackel, N. (2005). The Vacuity of Postmodernist Methodology. Metaphilosophy, 36(3), 295-320.', url: 'https://doi.org/10.1111/j.1467-9973.2005.00370.x' },
+    { concept: 'Falacia de la tasa base', ref: 'Tversky, A. & Kahneman, D. (1974). Judgment under Uncertainty. Science, 185(4157), 1124-1131.', url: 'https://doi.org/10.1126/science.185.4157.1124' },
+    { concept: 'Ilusión de verdad', ref: 'Dechêne, A. et al. (2010). The Truth About the Truth. Personality and Social Psychology Review, 14(2), 238-257.', url: 'https://doi.org/10.1177/1088868309352251' },
+    { concept: 'Efecto backfire', ref: 'Lee, S. et al. (2025). Sustaining corrected beliefs. Memory & Cognition.', url: 'https://doi.org/10.3758/s13421-025-01760-7' },
+    { concept: 'Ignorancia pluralista', ref: 'Prentice, D.A. & Miller, D.T. (1996). Pluralistic Ignorance. Psychological Inquiry, 7(2), 155-159.', url: 'https://doi.org/10.1207/s15327965pli0702_10' },
+    { concept: 'Filtrado algorítmico', ref: 'Varios (2025). Algorithmic Filtering and Social Polarization. Zenodo.', url: 'https://doi.org/10.5281/zenodo.15023821' },
+    { concept: 'Deepfakes e IA', ref: 'University of British Columbia (2026). AI swarms could hijack democracy. EurekAlert.', url: 'https://www.eurekalert.org/news-releases/1120841' }
+  ];
+
+  // ============================================================
+  // RENDER
+  // ============================================================
+
+  const container = document.getElementById('topicsContainer');
+  const searchInput = document.getElementById('searchTopics');
+  let activeFilter = 'all';
+
+  console.log('[Constelaciones] container:', container ? 'OK' : 'NULL');
+  console.log('[Constelaciones] searchInput:', searchInput ? 'OK' : 'NULL');
+
+  if (!container) {
+    document.body.innerHTML = '<div class="error-box">Error: no se encontró el contenedor #topicsContainer. Revisa que el HTML no esté truncado.</div>';
+    return;
+  }
+
+  function buildTopicHTML(topic, constelColor) {
+    const questionsHTML = topic.questions.map(function(q) { return '<li>' + q + '</li>'; }).join('');
+    return '<div class="topic-card" style="--accent:' + constelColor + '">' +
+      '<div class="topic-header" onclick="this.parentElement.classList.toggle(\'open\')">' +
+        '<span class="topic-emoji">' + topic.emoji + '</span>' +
+        '<div class="topic-info">' +
+          '<h3>' + topic.title + '</h3>' +
+          '<div class="topic-sub">' + topic.sub + '</div>' +
+        '</div>' +
+        '<span class="topic-chevron">▼</span>' +
+      '</div>' +
+      '<div class="topic-body">' +
+        '<div class="topic-inner">' +
+          '<div class="topic-label tl-what">📖 Qué es</div>' +
+          '<div class="what-box">' + topic.what + '</div>' +
+          '<div class="topic-label tl-evidence">📊 Evidencia académica</div>' +
+          '<div class="evidence-box">' + topic.evidence + '</div>' +
+          '<div class="topic-label tl-connection">🔗 Conexión con la serie</div>' +
+          '<div class="connection-box">' + topic.connection + '</div>' +
+          '<div class="topic-label tl-questions">❓ Preguntas para el episodio</div>' +
+          '<div class="questions-box"><ul>' + questionsHTML + '</ul></div>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }
+
+  function renderTopics() {
+    try {
+      const q = (searchInput ? searchInput.value : '').toLowerCase().trim();
+      let html = '';
+      let count = 0;
+
+      for (const key in CONSTELLATIONS) {
+        if (!CONSTELLATIONS.hasOwnProperty(key)) continue;
+        if (activeFilter !== 'all' && activeFilter !== key) continue;
+
+        const constel = CONSTELLATIONS[key];
+        let topicsHTML = '';
+
+        for (let i = 0; i < constel.topics.length; i++) {
+          const topic = constel.topics[i];
+          const hay = (topic.title + ' ' + topic.sub + ' ' + topic.what).toLowerCase();
+          if (q && hay.indexOf(q) === -1) continue;
+          topicsHTML += buildTopicHTML(topic, constel.color);
+          count++;
+        }
+
+        if (!topicsHTML) continue;
+
+        html += '<section class="const-section" id="' + key + '">' +
+          '<div class="const-header">' +
+            '<span class="const-tag ' + constel.tag + '">' + constel.emoji + ' ' + constel.name + '</span>' +
+            '<h2>' + constel.name + '</h2>' +
+            '<p>' + constel.description + '</p>' +
+          '</div>' +
+          topicsHTML +
+        '</section>';
+      }
+
+      container.innerHTML = html || '<p style="text-align:center;color:var(--muted);padding:2rem;">No hay resultados para tu búsqueda.</p>';
+      console.log('[Constelaciones] Renderizados ' + count + ' temas.');
+    } catch (err) {
+      console.error('[Constelaciones] Error:', err);
+      container.innerHTML = '<div class="error-box">Error al renderizar: ' + err.message + '<br><br>Revisa la consola (F12) para más detalles.</div>';
+    }
+  }
+
+  // Listeners
+  if (searchInput) {
+    searchInput.addEventListener('input', renderTopics);
+  }
+
+  const chips = document.querySelectorAll('.filter-chip');
+  for (let i = 0; i < chips.length; i++) {
+    chips[i].addEventListener('click', function() {
+      for (let j = 0; j < chips.length; j++) chips[j].classList.remove('active');
+      this.classList.add('active');
+      activeFilter = this.getAttribute('data-filter');
+      renderTopics();
+    });
+  }
+
+  // Initial render
+  renderTopics();
+
+  // Glossary
+  try {
+    const glossaryEl = document.getElementById('glossaryGrid');
+    if (glossaryEl) {
+      let gHtml = '';
+      for (let i = 0; i < GLOSSARY.length; i++) {
+        gHtml += '<div class="glossary-item"><h4>' + GLOSSARY[i].term + '</h4><p>' + GLOSSARY[i].def + '</p></div>';
+      }
+      glossaryEl.innerHTML = gHtml;
+    }
+  } catch (e) { console.error('[Glosario] Error:', e); }
+
+  // References
+  try {
+    const refsEl = document.getElementById('refsBody');
+    if (refsEl) {
+      let rHtml = '';
+      for (let i = 0; i < REFERENCES.length; i++) {
+        const r = REFERENCES[i];
+        rHtml += '<tr><td>' + r.concept + '</td><td>' + r.ref + ' <a href="' + r.url + '" target="_blank" rel="noopener">🔗 Enlace</a></td></tr>';
+      }
+      refsEl.innerHTML = rHtml;
+    }
+  } catch (e) { console.error('[Referencias] Error:', e); }
+
+  console.log('[Constelaciones] Render completo.');
+});
+</script>
+</body>
+</html>
