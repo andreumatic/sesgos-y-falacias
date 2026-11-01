@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sesgos y falacias · Guía interactiva con evidencia | AndreuMatic</title>
+<meta name="description" content="Guía interactiva de sesgos cognitivos y falacias lógicas con fuentes académicas citadas, un detector de manipulación en 60 segundos y tres tests de autoevaluación.">
+<link rel="canonical" href="https://sesgosyfalacias.andreumatic.com/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="AndreuMatic">
+<meta property="og:title" content="Sesgos y falacias · Guía interactiva con evidencia">
+<meta property="og:description" content="Tu cerebro te miente. La evidencia lo demuestra. Sesgos, falacias, detector de manipulación y tests, con fuentes citadas.">
+<meta property="og:url" content="https://sesgosyfalacias.andreumatic.com/">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0f2e29">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="css/estilos.css?v=1">
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="header-in">
+    <a class="brand" href="https://andreumatic.com" target="_blank" rel="noopener">
+      <span class="brand-logo"><img src="assets/icono-firma.png" alt=""></span>
+      <b>Andreu<span class="lit">Matic</span></b>
+      <span class="brand-sub">Sesgos &amp; Falacias</span>
+    </a>
+    <button class="study-toggle" id="studyToggle" type="button"><span aria-hidden="true">◉</span> Modo estudio</button>
+  </div>
+  <div class="nav-row">
+    <nav class="nav-links" aria-label="Secciones de la guía">
+      <a href="#marco">Marco</a>
+      <a href="#sesgos">Sesgos</a>
+      <a href="#falacias">Falacias</a>
+      <a href="#conexiones">Conexiones</a>
+      <a href="#detector">Detector</a>
+      <a href="#antidotos">Antídotos</a>
+      <a href="#fuentes">Fuentes</a>
+      <a href="#test">Tests</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido">
+
+<section class="hero" id="inicio">
+  <div class="hero-copy">
+    <p class="eyebrow">Guía interactiva · evidencia académica</p>
+    <h1>Tu cerebro te miente.<br><span class="hl">La evidencia lo demuestra.</span></h1>
+    <p class="sub">Sesgos cognitivos y falacias lógicas explicados con estudios citados, un detector de manipulación en 60 segundos y tres tests para comprobar si distingues un argumento de un truco.</p>
+    <div class="hero-points">
+      <span class="pill">Fuentes con DOI</span>
+      <span class="pill">Detector en 60 s</span>
+      <span class="pill">12 preguntas clave</span>
+      <span class="pill alt">3 tests</span>
+    </div>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="#sesgos">Empezar por los sesgos</a>
+      <a class="btn btn-ghost" href="#detector">Probar el detector</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="num" id="statSesgos">0</div><div class="lbl">Sesgos</div></div>
+      <div class="stat"><div class="num" id="statFalacias">0</div><div class="lbl">Falacias</div></div>
+      <div class="stat"><div class="num" id="statPares">0</div><div class="lbl">Conexiones</div></div>
+      <div class="stat"><div class="num">3</div><div class="lbl">Tests</div></div>
+    </div>
+  </div>
+  <div class="hero-side">
+  <div class="term" aria-hidden="true">
+    <div class="term-bar"><i></i><i></i><i></i><span>andreu@matic: ~/sesgos</span></div>
+    <div class="term-body">
+      <div><span class="prompt">andreu@matic:~$</span> <span class="cmd">analiza --mensaje "todos lo dicen, es obvio"</span></div>
+      <div class="out">→ apelación a la mayoría (ad populum)</div>
+      <div class="out">→ sesgo de falso consenso</div>
+      <div class="bad">⚠ sin fuente · sin dato · presión social</div>
+      <div class="good">✓ 3 antídotos disponibles más abajo</div>
+      <div><span class="prompt">andreu@matic:~$</span> <span class="term-caret"></span></div>
+    </div>
+  </div>
+  <aside class="hero-card">
+    <p class="hero-card-h">Cómo se usa</p>
+    <ol class="steps">
+      <li><strong>Entiende el mecanismo</strong> en el marco: Sistema 1, metacognición y debiasing.</li>
+      <li><strong>Reconoce el patrón</strong> en las fichas de sesgos y falacias, con su fuente.</li>
+      <li><strong>Ponlo a prueba</strong> con el detector de 60 segundos y los tres tests.</li>
+    </ol>
+  </aside>
+  </div>
+</section>
+
+<section id="marco">
+  <div class="section-head reveal">
+    <span class="section-tag tag-purple">Fundamentos con evidencia</span>
+    <h2>El marco: por qué tu mente falla</h2>
+    <p>Los sesgos no son defectos de carácter: son el resultado de cómo está cableado el cerebro. La distinción entre Sistema 1 y Sistema 2 tiene correlatos neuronales medibles, y la investigación sobre debiasing muestra que se pueden reducir con entrenamiento.</p>
+  </div>
+  <div class="grid-2">
+    <div class="concept-card reveal">
+      <div class="icon">⚡</div>
+      <h3>Doble proceso: Sistema 1 y Sistema 2</h3>
+      <p><strong>Sistema 1:</strong> rápido, automático, sin esfuerzo, asociativo, emocional. <strong>Sistema 2:</strong> lento, deliberado, secuencial, esforzado. Kahneman y Tversky demostraron que los juicios se apoyan en heurísticos que producen errores sistemáticos. ~96% de las decisiones diarias las gobierna el Sistema 1.</p>
+      <div class="example"><strong>Evidencia:</strong> <a href="https://doi.org/10.1126/science.185.4157.1124" target="_blank" rel="noopener">Tversky & Kahneman (1974)</a>; <a href="https://www.worldcat.org/title/thinking-fast-and-slow/oclc/701015396" target="_blank" rel="noopener">Kahneman (2011)</a>.</div>
+    </div>
+    <div class="concept-card reveal">
+      <div class="icon">🧬</div>
+      <h3>Firmas neuronales distintas</h3>
+      <p>El Sistema 1 se asocia con <strong>potencia alfa parietal</strong>; el Sistema 2, con <strong>potencia theta frontal</strong>. El efecto encuadre correlaciona con la <strong>amígdala</strong>; la corteza prefrontal orbital/medial predice menor susceptibilidad.</p>
+      <div class="example"><strong>Evidencia:</strong> <a href="https://doi.org/10.1016/j.neuroimage.2019.116096" target="_blank" rel="noopener">Büchel et al. (2019)</a>; <a href="https://doi.org/10.1126/science.1128356" target="_blank" rel="noopener">De Martino et al. (2006)</a>.</div>
+    </div>
+    <div class="concept-card reveal">
+      <div class="icon">🪞</div>
+      <h3>Metacognición: la base del pensamiento crítico</h3>
+      <p>La metacognición regula la conciencia intelectual: planificar, monitorear y evaluar el propio pensamiento. Pensamiento crítico y metacognición son competencias interdependientes que deben entrenarse juntas.</p>
+      <div class="example"><strong>Evidencia:</strong> Revisión sistemática (2025) sobre metacognición y pensamiento crítico.</div>
+    </div>
+    <div class="concept-card reveal">
+      <div class="icon">🛡️</div>
+      <h3>Debiasing: ¿se puede entrenar?</h3>
+      <p>Sí, con matices. Un meta-análisis de 2025 (53 estudios) encontró una <strong>mejora pequeña pero significativa</strong> (<strong>g = 0.26</strong>). Las intervenciones más efectivas incluyen "considerar lo opuesto" y feedback.</p>
+      <div class="example"><strong>Evidencia:</strong> <a href="https://doi.org/10.1007/s10648-025-09999-5" target="_blank" rel="noopener">Swaryandini et al. (2025)</a>.</div>
+    </div>
+  </div>
+</section>
+
+<section id="sesgos">
+  <div class="section-head reveal">
+    <span class="section-tag tag-purple">El enemigo interno · Evidencia académica</span>
+    <h2>Sesgos cognitivos</h2>
+    <p>Cada tarjeta incluye <strong style="color:#facc15;">Evidencia académica</strong> con enlace clicable a la fuente. Haz clic para desplegar el análisis, el antídoto y la cita.</p>
+  </div>
+  <div class="controls">
+    <div class="search-box"><input type="text" id="searchSesgos" placeholder="Buscar sesgo..."></div>
+    <button class="filter-chip active" data-filter="all" data-target="sesgos">Todos</button>
+    <button class="filter-chip" data-filter="creencia" data-target="sesgos">Creencia</button>
+    <button class="filter-chip" data-filter="memoria" data-target="sesgos">Memoria</button>
+    <button class="filter-chip" data-filter="ego" data-target="sesgos">Ego</button>
+    <button class="filter-chip" data-filter="decision" data-target="sesgos">Decisión</button>
+    <button class="filter-chip" data-filter="grupo" data-target="sesgos">Grupo</button>
+  </div>
+  <div class="study-banner">👁️ Modo estudio: definiciones y ejemplos difuminados. Pasa el cursor para revelarlos.</div>
+  <div class="cards-grid" id="gridSesgos"></div>
+</section>
+
+<section id="falacias">
+  <div class="section-head reveal">
+    <span class="section-tag tag-orange">El enemigo externo · Lógica informal</span>
+    <h2>Falacias lógicas</h2>
+    <p>La tradición de Hamblin (1970) y Walton (1995) muestra que una falacia es una técnica de argumentación mal utilizada que obstaculiza el diálogo. Walton advierte que el <em>ad hominem</em> no siempre es falaz; lo es cuando desplaza la carga de la prueba.</p>
+  </div>
+  <div class="controls">
+    <div class="search-box"><input type="text" id="searchFalacias" placeholder="Buscar falacia..."></div>
+    <button class="filter-chip active" data-filter="all" data-target="falacias">Todas</button>
+    <button class="filter-chip" data-filter="relevancia" data-target="falacias">Relevancia</button>
+    <button class="filter-chip" data-filter="causa" data-target="falacias">Causa</button>
+    <button class="filter-chip" data-filter="lenguaje" data-target="falacias">Lenguaje</button>
+    <button class="filter-chip" data-filter="induccion" data-target="falacias">Inducción</button>
+    <button class="filter-chip" data-filter="presuncion" data-target="falacias">Presunción</button>
+  </div>
+  <div class="study-banner">👁️ Modo estudio activo.</div>
+  <div class="cards-grid" id="gridFalacias"></div>
+</section>
+
+<section id="conexiones">
+  <div class="section-head reveal">
+    <span class="section-tag tag-orange">La fórmula del canal</span>
+    <h2>Conexiones: el sesgo abre la puerta, la falacia entra</h2>
+    <p>Los manipuladores diseñan falacias para activar tus sesgos. Estas son las parejas con mayor respaldo en la literatura sobre desinformación y polarización.</p>
+  </div>
+  <div class="pairs-grid" id="gridPares"></div>
+</section>
+
+<section id="detector">
+  <div class="section-head reveal">
+    <span class="section-tag tag-green">Herramienta práctica</span>
+    <h2>Detector: cómo saber si te están manipulando</h2>
+    <p>Protocolo de 60 segundos, 12 preguntas universales, señales de alarma, detector por concepto y analizador interactivo.</p>
+  </div>
+
+  <div class="section-head reveal" style="margin-bottom:1.2rem;">
+    <h3 style="font-size:1.15rem;color:var(--green);">⏱️ Protocolo de 60 segundos</h3>
+    <p style="font-size:0.9rem;">Aplícalo ante cualquier mensaje que te provoque una reacción fuerte o que vayas a compartir.</p>
+  </div>
+  <div class="protocol-grid reveal">
+    <div class="protocol-step"><span class="time">0-10s</span><div class="step-num">1</div><h4>Pausa emocional</h4><p>¿Qué emoción siento? Si es fuerte (ira, miedo, satisfacción), es señal de alarma.</p></div>
+    <div class="protocol-step"><span class="time">10-25s</span><div class="step-num">2</div><h4>Fuente</h4><p>¿Quién lo dice? ¿Es experto en ESTE tema? ¿Qué gana si le creo?</p></div>
+    <div class="protocol-step"><span class="time">25-40s</span><div class="step-num">3</div><h4>Evidencia</h4><p>¿Dónde están los datos? ¿Qué falta? ¿Se ataca a alguien en vez del argumento?</p></div>
+    <div class="protocol-step"><span class="time">40-50s</span><div class="step-num">4</div><h4>Inversión</h4><p>¿Qué evidencia me haría cambiar de opinión? ¿La he buscado?</p></div>
+    <div class="protocol-step"><span class="time">50-60s</span><div class="step-num">5</div><h4>Metacognición</h4><p>¿Busco la verdad o solo tener razón? ¿Proceso o reacciono?</p></div>
+  </div>
+
+  <div class="section-head reveal" style="margin-top:2.5rem;margin-bottom:1.2rem;">
+    <h3 style="font-size:1.15rem;color:var(--green);">✅ Las 12 preguntas universales</h3>
+    <p style="font-size:0.9rem;">Marca las que te hayas hecho antes de aceptar o compartir un mensaje.</p>
+  </div>
+  <div class="check-progress reveal">
+    <div class="check-progress-bar"><div class="check-progress-fill" id="checkFill"></div></div>
+    <span id="checkCount">0/12</span>
+  </div>
+  <div class="checklist reveal" id="checklist"></div>
+
+  <div class="section-head reveal" style="margin-top:2.5rem;margin-bottom:1.2rem;">
+    <h3 style="font-size:1.15rem;color:var(--red);">🚩 Señales de alarma universales</h3>
+    <p style="font-size:0.9rem;">Si detectas varias en un mismo mensaje, sospecha y verifica.</p>
+  </div>
+  <div class="redflags-grid reveal">
+    <div class="redflag"><h4><span class="rf-emoji">😱</span>Emoción intensa</h4><p>Miedo, indignación, urgencia o euforia. El Sistema 1 secuestra el juicio.</p></div>
+    <div class="redflag"><h4><span class="rf-emoji">👥</span>"Todos", "nadie", "es obvio"</h4><p>Apelación a la mayoría o al sentido común sin evidencia.</p></div>
+    <div class="redflag"><h4><span class="rf-emoji">👊</span>Ataques personales</h4><p>Se ataca a la persona o al grupo en vez de al argumento.</p></div>
+    <div class="redflag"><h4><span class="rf-emoji">🎭</span>Exageración del rival</h4><p>"Así que quieres...". Distorsión de la posición contraria.</p></div>
+    <div class="redflag"><h4><span class="rf-emoji">🎓</span>Autoridades irrelevantes</h4><p>Un actor, un deportista o un experto fuera de su campo.</p></div>
+    <div class="redflag"><h4><span class="rf-emoji">📊</span>Datos sin fuente</h4><p>"Estudios dicen", "expertos afirman", cifras sin origen.</p></div>
+    <div class="redflag"><h4><span class="rf-emoji">⏱️</span>Urgencia para decidir</h4><p>"Solo hoy", "comparte antes de que lo borren".</p></div>
+    <div class="redflag"><h4><span class="rf-emoji">📖</span>Anécdota como prueba</h4><p>Un caso personal presentado como evidencia general.</p></div>
+    <div class="redflag"><h4><span class="rf-emoji">🗿</span>"Siempre se ha hecho así"</h4><p>Tradición como argumento de autoridad.</p></div>
+    <div class="redflag"><h4><span class="rf-emoji">❓</span>Preguntas con presuposición</h4><p>"¿Por qué X es tan malo?" asume que X es malo.</p></div>
+    <div class="redflag"><h4><span class="rf-emoji">🎯</span>Solo datos que confirman</h4><p>Se omite la evidencia contraria. Cherry picking.</p></div>
+    <div class="redflag"><h4><span class="rf-emoji">🔁</span>Conclusión repetida como prueba</h4><p>El argumento es circular: asume lo que quiere demostrar.</p></div>
+  </div>
+
+  <div class="section-head reveal" style="margin-top:2.5rem;margin-bottom:1.2rem;">
+    <h3 style="font-size:1.15rem;color:var(--purple);">🔬 Detector por concepto</h3>
+    <p style="font-size:0.9rem;">Señales específicas y pregunta clave para cada sesgo y falacia.</p>
+  </div>
+  <div class="detector-controls reveal">
+    <div class="search-box"><input type="text" id="searchDetector" placeholder="Buscar en el detector..."></div>
+    <button class="filter-chip active" data-dfilter="all">Todos</button>
+    <button class="filter-chip" data-dfilter="sesgo">Sesgos</button>
+    <button class="filter-chip" data-dfilter="falacia">Falacias</button>
+  </div>
+  <div class="detector-grid" id="detectorGrid"></div>
+
+  <div class="section-head reveal" style="margin-top:3rem;margin-bottom:1.2rem;">
+    <h3 style="font-size:1.15rem;color:var(--orange);">🧪 Analizador interactivo de mensajes</h3>
+    <p style="font-size:0.9rem;">Piensa en un mensaje concreto. Marca las señales que detectes y obtén una evaluación del riesgo de manipulación.</p>
+  </div>
+  <div class="analyzer reveal">
+    <p class="analyzer-intro">El resultado es orientativo: no prueba que el mensaje sea falso, pero indica cuánta cautela deberías aplicar.</p>
+    <div class="analyzer-list" id="analyzerList"></div>
+    <div class="analyzer-result" id="analyzerResult">
+      <div class="ar-score" id="arScore">0</div>
+      <div class="ar-label" id="arLabel"></div>
+      <div class="ar-desc" id="arDesc"></div>
+    </div>
+    <button class="analyzer-reset" id="analyzerReset">🔄 Reiniciar análisis</button>
+  </div>
+</section>
+
+<section id="antidotos">
+  <div class="section-head reveal">
+    <span class="section-tag tag-purple">Defensa basada en evidencia</span>
+    <h2>Antídotos: qué funciona según la investigación</h2>
+    <p>No puedes "desactivar" los sesgos, pero la evidencia meta-analítica muestra que el entrenamiento con estrategias concretas produce mejoras medibles.</p>
+  </div>
+  <div class="antidote-tabs">
+    <button class="tab-btn active" data-tab="mental">🧠 Entrenar la mente</button>
+    <button class="tab-btn" data-tab="social">🌍 Entrenar el entorno</button>
+    <button class="tab-btn" data-tab="practica">🛠️ Práctica diaria</button>
+  </div>
+  <div class="tab-panel active" id="tab-mental">
+    <div class="antidote-list">
+      <div class="antidote-item"><h4>1. "Considerar lo opuesto"</h4><p>Obliga al Sistema 2 a generar razones contra la propia posición, contrarrestando el <em>myside bias</em>. Es una de las estrategias con mayor efecto en el meta-análisis de 2025.</p><div class="how"><strong>Evidencia:</strong> Swaryandini et al. (2025). <strong>Cómo:</strong> Escribe tu opinión y tres razones por las que podrías estar equivocado.</div></div>
+      <div class="antidote-item"><h4>2. Dar tiempo para deliberar</h4><p>El pensamiento rápido es un motor de la creencia en desinformación. Dar tiempo reduce la creencia en titulares falsos.</p><div class="how"><strong>Evidencia:</strong> Efstratiou (2023). <strong>Cómo:</strong> Regla de los 10 minutos antes de compartir algo que te indigna.</div></div>
+      <div class="antidote-item"><h4>3. Recordatorios de precisión</h4><p>Simples recordatorios sobre la importancia de la precisión mejoran la distinción verdad/falsedad, incluso en experimentos de campo en Twitter.</p><div class="how"><strong>Evidencia:</strong> Efstratiou (2023). <strong>Cómo:</strong> Antes de compartir: "¿Es esto preciso? ¿Lo he verificado?".</div></div>
+    </div>
+  </div>
+  <div class="tab-panel" id="tab-social">
+    <div class="antidote-list">
+      <div class="antidote-item"><h4>1. Discernimiento de fuentes</h4><p>No aceptes información sin verificar su origen. La fuente primaria siempre es mejor que la interpretación.</p><div class="how"><strong>Cómo:</strong> ¿Quién lo dice? ¿Es fuente primaria? ¿Cuál es su interés? ¿Qué dicen fuentes opuestas?</div></div>
+      <div class="antidote-item"><h4>2. Escapar de la burbuja de filtro</h4><p>Los algoritmos amplifican el sesgo de confirmación. La exposición selectiva es casi el doble de probable hacia información congenial.</p><div class="how"><strong>Evidencia:</strong> Hart et al. (2009). <strong>Cómo:</strong> Sigue a personas rigurosas con puntos de vista diferentes.</div></div>
+      <div class="antidote-item"><h4>3. Diario de sesgos</h4><p>La autoobservación entrena la metacognición, la base del pensamiento crítico.</p><div class="how"><strong>Evidencia:</strong> Revisión sistemática (2025). <strong>Cómo:</strong> Cada noche, anota una situación y el sesgo que pudo operar.</div></div>
+    </div>
+  </div>
+  <div class="tab-panel" id="tab-practica">
+    <div class="antidote-list">
+      <div class="antidote-item"><h4>1. La regla de las tres fuentes</h4><p>Antes de formarte una opinión importante, consulta al menos tres fuentes con perspectivas distintas.</p><div class="how"><strong>Cómo:</strong> Medio afín, medio contrario y medio internacional. Compara hechos e interpretaciones.</div></div>
+      <div class="antidote-item"><h4>2. El test de la inversión</h4><p>Pregúntate qué tendría que ser verdad para que tu decisión sea un error.</p><div class="how"><strong>Cómo:</strong> Si vas a comprar por impulso, espera 48 horas. Si ya no lo quieres, era un sesgo.</div></div>
+      <div class="antidote-item"><h4>3. Etiquetar la falacia en voz alta</h4><p>Ponerle nombre a la falacia activa el Sistema 2 y te da distancia crítica. La teoría de Walton permite distinguir cuándo un ataque es legítimo y cuándo es falaz.</p><div class="how"><strong>Evidencia:</strong> Walton (1995). <strong>Cómo:</strong> "Eso es un ad hominem", "Eso es cherry picking".</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="fuentes">
+  <div class="section-head reveal">
+    <span class="section-tag tag-purple">Referencias</span>
+    <h2>Fuentes académicas citadas</h2>
+    <p>Cada referencia incluye un enlace clicable a DOI, PDF o página del editor.</p>
+  </div>
+  <div style="overflow-x:auto;">
+    <table class="refs-table">
+      <thead><tr><th>Concepto</th><th>Referencia</th></tr></thead>
+      <tbody>
+        <tr><td>Heurísticos y sesgos</td><td><a href="https://doi.org/10.1126/science.185.4157.1124" target="_blank" rel="noopener">Tversky, A. & Kahneman, D. (1974). Judgment under Uncertainty: Heuristics and Biases. <em>Science</em>.</a></td></tr>
+        <tr><td>Doble proceso (S1/S2)</td><td><a href="https://www.worldcat.org/title/thinking-fast-and-slow/oclc/701015396" target="_blank" rel="noopener">Kahneman, D. (2011). <em>Thinking, Fast and Slow</em>.</a></td></tr>
+        <tr><td>Base neurocientífica S1/S2</td><td><a href="https://doi.org/10.1016/j.neuroimage.2019.116096" target="_blank" rel="noopener">Büchel et al. (2019). Thinking theta and alpha. <em>NeuroImage</em>.</a></td></tr>
+        <tr><td>Encuadre y amígdala</td><td><a href="https://doi.org/10.1126/science.1128356" target="_blank" rel="noopener">De Martino et al. (2006). Frames, biases, and rational decision-making in the human brain. <em>Science</em>.</a></td></tr>
+        <tr><td>Confirmación (meta-análisis)</td><td><a href="https://doi.org/10.1037/a0015701" target="_blank" rel="noopener">Hart et al. (2009). Feeling validated versus being correct: A meta-analysis of selective exposure to information. <em>Psychological Bulletin</em>.</a></td></tr>
+        <tr><td>Razonamiento motivado</td><td><a href="https://doi.org/10.1037/0033-2909.108.3.480" target="_blank" rel="noopener">Kunda, Z. (1990). The case for motivated reasoning. <em>Psychological Bulletin</em>.</a></td></tr>
+        <tr><td>Dunning-Kruger (original)</td><td><a href="https://doi.org/10.1037/0022-3514.77.6.1121" target="_blank" rel="noopener">Kruger, J. & Dunning, D. (1999). Unskilled and unaware of it. <em>JPSP</em>, 77(6), 1121-1134.</a> (<a href="https://www.avaresearch.com/files/UnskilledAndUnawareOfIt.pdf" target="_blank" rel="noopener">PDF</a>)</td></tr>
+        <tr><td>Dunning-Kruger (crítica)</td><td><a href="https://www.bps.org.uk/psychologist/persistent-irony-dunning-kruger-effect" target="_blank" rel="noopener">McIntosh, R.D. & Della Sala, S. (2022). The persistent irony of the Dunning-Kruger Effect. <em>The Psychologist</em>.</a></td></tr>
+        <tr><td>Efecto de negatividad</td><td><a href="https://doi.org/10.1037/1089-2680.5.4.323" target="_blank" rel="noopener">Baumeister et al. (2001). Bad is stronger than good. <em>Review of General Psychology</em>, 5(4), 323-370.</a> (<a href="http://www.csom.umn.edu/Assets/71516.pdf" target="_blank" rel="noopener">PDF</a>)</td></tr>
+        <tr><td>Coste hundido</td><td><a href="https://uvadoc.uva.es/handle/10324/60664" target="_blank" rel="noopener">Cuesta Álvarez, M. & de la Fuente Herrero, G. (2023). Universidad de Valladolid.</a></td></tr>
+        <tr><td>Falacias (tratamiento estándar)</td><td><a href="https://www.worldcat.org/title/fallacies/oclc/114968" target="_blank" rel="noopener">Hamblin, C.L. (1970). <em>Fallacies</em>.</a></td></tr>
+        <tr><td>Falacias (pragma-dialéctica)</td><td><a href="https://www.worldcat.org/title/pragmatic-theory-of-fallacy/oclc/32924744" target="_blank" rel="noopener">Walton, D.N. (1995). <em>A Pragmatic Theory of Fallacy</em>.</a>; <a href="https://www.worldcat.org/title/ad-hominem-arguments/oclc/38286514" target="_blank" rel="noopener">Walton (1998). <em>Ad Hominem Arguments</em>.</a></td></tr>
+        <tr><td>Debiasing (meta-análisis)</td><td><a href="https://doi.org/10.1007/s10648-025-09999-5" target="_blank" rel="noopener">Swaryandini et al. (2025). Systematic review and meta-analysis of educational approaches to reduce cognitive biases.</a></td></tr>
+        <tr><td>Desinformación y redes</td><td><a href="https://royalsociety.org/topics-policy/projects/online-information-environment/" target="_blank" rel="noopener">Royal Society (2020). <em>The online information environment</em>.</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="test">
+  <div class="section-head reveal">
+    <span class="section-tag tag-orange">Autoevaluación</span>
+    <h2>Tests: ¿detectarías la manipulación?</h2>
+    <p>Elige el modo. Cada test tiene preguntas distintas, retroalimentación explicada y referencias clicables.</p>
+  </div>
+  <div class="test-selector reveal">
+    <button class="test-btn active" data-test="sesgos">🧠 Test de Sesgos</button>
+    <button class="test-btn falacia" data-test="falacias">⚖️ Test de Falacias</button>
+    <button class="test-btn deteccion" data-test="deteccion">🕵️ Test de Detección</button>
+  </div>
+  <div class="quiz-box">
+    <div class="quiz-progress"><div class="quiz-progress-bar" id="quizBar"></div></div>
+    <div id="quizContent">
+      <div class="quiz-q" id="quizQ"></div>
+      <div class="quiz-options" id="quizOptions"></div>
+      <div class="quiz-feedback" id="quizFeedback"></div>
+      <button class="quiz-next" id="quizNext">Siguiente →</button>
+    </div>
+    <div class="quiz-result" id="quizResult">
+      <div class="score" id="quizScore">0/0</div>
+      <div class="msg" id="quizMsg"></div>
+      <button class="quiz-next show" id="quizRestart">🔄 Repetir test</button>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-in">
+    <div>
+      <a class="footer-brand" href="https://andreumatic.com" target="_blank" rel="noopener">
+        <span class="brand-logo"><img src="assets/icono-firma.png" alt=""></span>
+        <span>Andreu<span class="lit">Matic</span></span>
+      </a>
+      <p class="footer-lema">Paz mental en tu mundo digital.</p>
+      <p class="footer-note">Guía educativa sobre sesgos cognitivos y falacias lógicas. Cada tarjeta cita su fuente académica: la credibilidad también se construye con evidencia.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Guía</h4>
+      <a href="#marco">El marco</a>
+      <a href="#sesgos">Sesgos cognitivos</a>
+      <a href="#falacias">Falacias lógicas</a>
+      <a href="#detector">Detector</a>
+      <a href="#test">Tests</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <a href="tel:+34654225831">654 225 831</a>
+      <a href="mailto:info@andreumatic.com">info@andreumatic.com</a>
+      <a href="https://andreumatic.com" target="_blank" rel="noopener">andreumatic.com</a>
+      <p>Valencia · España</p>
+    </div>
+  </div>
+  <div class="footer-in" style="padding-top:0">
+    <div class="footer-bottom" style="grid-column:1/-1">
+      <span>© 2026 AndreuMatic</span>
+      <span>Contenido educativo · no sustituye asesoramiento profesional</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/34654225831" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp a AndreuMatic">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+/* ==================== DATA ==================== */
+
+const sesgos = [
+  { id:'confirmacion', emoji:'🔍', nombre:'Sesgo de Confirmación', cat:'creencia',
+    def:'Buscar, interpretar y recordar solo la información que confirma tus creencias previas.',
+    ejemplo:'Solo lees las reseñas positivas del producto que ya quieres comprar e ignoras las negativas.',
+    profundo:'Se desglosa en exposición selectiva y myside bias. El motor es la motivación por la defensa del ego: la disonancia cognitiva activa el sesgo, más fuerte cuando la información contraria desafía una creencia recién expresada. Cuando el motivo de precisión domina, el sesgo se reduce.',
+    antidoto:'Antes de compartir o decidir, pregúntate: "¿Qué evidencia haría que cambiara de opinión?". Busca activamente la fuente que te contradice.',
+    conexion:'Falacia del Francotirador — el manipulador te da datos sesgados para que sientas que tienes razón.',
+    evid:'<a href="https://doi.org/10.1037/a0015701" target="_blank">Hart et al. (2009)</a>: meta-análisis de 67 estudios; las personas son casi el doble de propensas a seleccionar información congenial. <a href="https://doi.org/10.1037/0033-2909.108.3.480" target="_blank">Kunda (1990)</a>: razonamiento motivado.' },
+
+  { id:'puntociego', emoji:'🕳️', nombre:'Punto Ciego del Sesgo', cat:'creencia',
+    def:'Detectar fácilmente los sesgos en los demás, pero ser incapaz de verlos en uno mismo.',
+    ejemplo:'"Yo soy objetivo, tú estás sesgado por tu ideología".',
+    profundo:'La experiencia protege contra algunos sesgos (como el retrospectivo), pero no contra el punto ciego. Saber mucho sobre sesgos no te inmuniza; puede hacerte más arrogante.',
+    antidoto:'Asume como principio que TÚ también estás sesgado. Pregúntate: "¿En qué podría estar equivocado ahora mismo?".',
+    conexion:'Ad Hominem — si crees que el otro está sesgado y tú no, descalificas en vez de analizar.',
+    evid:'MacLean et al., revisión (2024): el punto ciego del sesgo persiste incluso en expertos.' },
+
+  { id:'creenciasesgo', emoji:'💭', nombre:'Sesgo de Creencia', cat:'creencia',
+    def:'Permitir que tus creencias sobre la veracidad de una conclusión influyan en tu evaluación de la validez lógica del argumento.',
+    ejemplo:'Si la conclusión te gusta, te parece que el argumento que la sostiene es válido aunque tenga fallos.',
+    profundo:'El cerebro evalúa primero si la conclusión es agradable y luego busca justificaciones.',
+    antidoto:'Separa la conclusión del argumento. Pregúntate: "Si esta misma estructura defendiera lo contrario, ¿la aceptaría?".',
+    conexion:'Petición de Principio — asumir como premisa lo que quieres demostrar.',
+    evid:'Literatura clásica de psicología del razonamiento sobre sesgo de creencia en silogismos.' },
+
+  { id:'disponibilidad', emoji:'✈️', nombre:'Sesgo de Disponibilidad', cat:'memoria',
+    def:'Juzgar la probabilidad de un evento por la facilidad con que recuerdas ejemplos.',
+    ejemplo:'Tras ver una noticia de un accidente aéreo, crees que volar es peligrosísimo.',
+    profundo:'El cerebro confunde "fácil de recordar" con "frecuente".',
+    antidoto:'Busca datos objetivos, no impresiones. Pregúntate: "¿Lo creo porque es común o porque lo recuerdo fácilmente?".',
+    conexion:'Falsa Causa (Post Hoc) — como recuerdas un evento reciente, asumes que causó el siguiente.',
+    evid:'<a href="https://doi.org/10.1016/0010-0285(73)90033-9" target="_blank">Tversky & Kahneman (1973)</a>: el heurístico de disponibilidad.' },
+
+  { id:'retrospectivo', emoji:'🔮', nombre:'Sesgo Retrospectivo', cat:'memoria',
+    def:'La ilusión de que un evento pasado era predecible antes de que ocurriera. "Lo sabía todo el tiempo".',
+    ejemplo:'Tras una inversión fallida: "Sabía que era mala idea".',
+    profundo:'Impide aprender de los errores. Tiene dos fuentes: distorsión de la memoria y sobreestimación de la previsibilidad.',
+    antidoto:'Antes de un evento, escribe tus predicciones y razones. Después, compáralas con lo que pasó.',
+    conexion:'Falsa Causa — ver la causa después del efecto es fácil cuando la memoria se reescribe.',
+    evid:'Meta-análisis sobre diferencias de edad en sesgo retrospectivo; estudio en Wikipedia sobre desastres.' },
+
+  { id:'negatividad', emoji:'😨', nombre:'Efecto de Negatividad', cat:'memoria',
+    def:'Dar un peso desproporcionado a las experiencias, noticias o críticas negativas.',
+    ejemplo:'Recibes 10 comentarios buenos y 1 malo, y solo piensas en el malo.',
+    profundo:'El cerebro está diseñado para detectar amenazas primero. "Lo malo es más fuerte que lo bueno" en múltiples dominios.',
+    antidoto:'Pregúntate: "¿Cuál es la proporción real de lo negativo frente a lo positivo?".',
+    conexion:'Hombre de Paja — el manipulador exagera lo negativo del rival.',
+    evid:'<a href="https://doi.org/10.1037/1089-2680.5.4.323" target="_blank">Baumeister et al. (2001)</a>, "Bad is stronger than good", <em>Review of General Psychology</em>, 5(4), 323-370.' },
+
+  { id:'atribucion', emoji:'🎭', nombre:'Error Fundamental de Atribución', cat:'ego',
+    def:'Explicar los errores de los demás por su carácter y los tuyos por las circunstancias.',
+    ejemplo:'Si otro llega tarde: "es un irresponsable". Si tú llegas tarde: "había un atasco".',
+    profundo:'Protege el ego: tú eres bueno, lo que haces mal es culpa del contexto; los demás son malos cuando fallan.',
+    antidoto:'Cuando juzgues a alguien, pregúntate: "¿Qué circunstancias podría estar viviendo que no veo?".',
+    conexion:'Ad Hominem — si crees que el otro falla por su carácter, atacas a la persona.',
+    evid:'Literatura clásica de psicología social sobre atribución (Heider, Kelley).' },
+
+  { id:'autocomplacencia', emoji:'🏆', nombre:'Sesgo de Autocomplacencia', cat:'ego',
+    def:'Atribuir tus éxitos a factores internos y tus fracasos a factores externos.',
+    ejemplo:'Apruebas: "soy inteligente". Suspendo: "el examen era injusto".',
+    profundo:'Protege la autoestima pero impide aprender.',
+    antidoto:'Ante un éxito: "¿Qué parte fue suerte?". Ante un fracaso: "¿Qué parte fue mi responsabilidad?".',
+    conexion:'Ad Verecundiam — si te crees experto por tus éxitos, aceptas más fácilmente argumentos de autoridad que te halaguen.',
+    evid:'Literatura clásica sobre self-serving bias en psicología social.' },
+
+  { id:'dunning', emoji:'📈', nombre:'Efecto Dunning-Kruger', cat:'ego',
+    def:'Las personas con poca habilidad sobreestiman su competencia porque no tienen la capacidad metacognitiva de reconocer sus deficiencias.',
+    ejemplo:'Quien ve un video de YouTube y cree saber más que un físico.',
+    profundo:'La incompetencia es invisible para el incompetente. Kruger y Dunning lo describieron como un "análogo psicológico de la anosognosia". La representación popular del "Monte Stupid" es una invención artística.',
+    antidoto:'Asume que en cualquier tema nuevo tu primera impresión es ingenua. Pregúntate: "¿Qué no sé de esto?".',
+    conexion:'Ad Verecundiam — te vuelve blanco fácil para influencers que hablan con seguridad de temas que no dominan.',
+    evid:'<a href="https://doi.org/10.1037/0022-3514.77.6.1121" target="_blank">Kruger, J. & Dunning, D. (1999)</a>. <em>JPSP</em>, 77(6), 1121-1134. Crítica: <a href="https://www.bps.org.uk/psychologist/persistent-irony-dunning-kruger-effect" target="_blank">McIntosh & Della Sala (2022)</a>.' },
+
+  { id:'control', emoji:'🎲', nombre:'Ilusión de Control', cat:'ego',
+    def:'Creer que puedes controlar eventos que son, en gran medida, aleatorios o externos.',
+    ejemplo:'Creer que un ritual hace que tu equipo gane. Los dados "calientes" en el casino.',
+    profundo:'El cerebro odia el azar. Prefiere creer que controla para reducir la ansiedad.',
+    antidoto:'Distingue entre lo que controlas (tu esfuerzo, tus decisiones) y lo que no (el resultado, la suerte).',
+    conexion:'Falsa Causa — si crees que tu ritual causó el resultado, confundes correlación con causalidad.',
+    evid:'Blanco (2017), <em>Psicologia: Reflexão e Crítica</em>; estudios experimentales sobre persistencia e ilusión de control.' },
+
+  { id:'anclaje', emoji:'⚓', nombre:'Sesgo de Anclaje', cat:'decision',
+    def:'Confiar demasiado en la primera información que recibes (el "ancla") al tomar decisiones.',
+    ejemplo:'Ves una camiseta a 100€ tachada y a 40€, y crees que es una ganga.',
+    profundo:'El cerebro usa el primer dato como referencia y ajusta, pero el ajuste es insuficiente.',
+    antidoto:'Pregúntate: "¿Cuál sería un precio justo si no hubiera visto ninguna cifra antes?".',
+    conexion:'Ad Populum — si el ancla es "todo el mundo lo hace", se refuerzan.',
+    evid:'<a href="https://doi.org/10.1126/science.185.4157.1124" target="_blank">Tversky & Kahneman (1974)</a>: experimento de la multiplicación.' },
+
+  { id:'conservadurismo', emoji:'🗿', nombre:'Sesgo de Conservadurismo', cat:'decision',
+    def:'Revisar tus creencias demasiado lentamente cuando aparece nueva evidencia.',
+    ejemplo:'Sigues creyendo que un producto es bueno aunque las reseñas recientes sean malas.',
+    profundo:'El cerebro prefiere la coherencia a la verdad. Cambiar de opinión se siente como perder una batalla.',
+    antidoto:'Pregúntate: "Si esta evidencia nueva la hubiera visto antes de formar mi opinión, ¿qué habría pensado?".',
+    conexion:'Ad Antiquitatem — el conservadurismo te hace preferir lo antiguo aunque haya algo mejor.',
+    evid:'Literatura clásica sobre actualización de creencias y conservadurismo bayesiano.' },
+
+  { id:'aversion', emoji:'💸', nombre:'Aversión a la Pérdida', cat:'decision',
+    def:'Preferir evitar una pérdida antes que obtener una ganancia equivalente.',
+    ejemplo:'No vendes una acción que baja porque vender es "aceptar la pérdida".',
+    profundo:'Las pérdidas duelen aproximadamente el doble de lo que alegran las ganancias.',
+    antidoto:'Pregúntate: "Si no tuviera esto ahora, ¿lo compraría de nuevo a este precio?".',
+    conexion:'Coste Hundido — seguir invirtiendo en algo perdedor es la aplicación de esta aversión.',
+    evid:'<a href="https://doi.org/10.2307/1914185" target="_blank">Kahneman & Tversky (1979)</a>, prospect theory; <a href="https://doi.org/10.1126/science.1128356" target="_blank">De Martino et al. (2006)</a>.' },
+
+  { id:'costehundido', emoji:'🕳️', nombre:'Sesgo del Coste Hundido', cat:'decision',
+    def:'Continuar con una decisión perdedora porque ya has invertido tiempo, dinero o esfuerzo.',
+    ejemplo:'Sigues viendo una serie mala porque "ya he visto 5 temporadas".',
+    profundo:'El cerebro odia el desperdicio. Pero el dinero y el tiempo pasados no se recuperan. El conocimiento financiero previo puede aumentar el sesgo.',
+    antidoto:'Pregúntate: "Si empezara esto hoy desde cero, ¿lo haría?".',
+    conexion:'Aversión a la Pérdida — el coste hundido es su aplicación a proyectos en marcha.',
+    evid:'<a href="https://uvadoc.uva.es/handle/10324/60664" target="_blank">Cuesta Álvarez & de la Fuente Herrero (2023)</a>; estudio en el mercado inmobiliario (<em>Management Science</em>, 2022).' },
+
+  { id:'dotacion', emoji:'🎁', nombre:'Efecto Dotación', cat:'decision',
+    def:'Valorar más un objeto simplemente porque lo posees.',
+    ejemplo:'No venderías tu viejo móvil por 100€, pero no pagarías 100€ por uno igual.',
+    profundo:'La posesión crea un vínculo emocional que distorsiona el valor. Base del marketing de prueba gratuita.',
+    antidoto:'Imagina que no lo tienes. Pregúntate: "¿Cuánto pagaría por esto si no fuera mío?".',
+    conexion:'Aversión a la Pérdida — deshacerte de lo que tienes se siente como una pérdida.',
+    evid:'Literatura de economía conductual (Thaler, Kahneman, Knetsch).' },
+
+  { id:'encuadre', emoji:'🖼️', nombre:'Efecto Encuadre (Framing)', cat:'decision',
+    def:'Tomar decisiones diferentes dependiendo de cómo se presenta la misma información.',
+    ejemplo:'"90% de supervivencia" se elige más que "10% de mortalidad", aunque sean idénticos.',
+    profundo:'El cerebro procesa narrativas, no datos puros. La amígdala media el efecto; la corteza prefrontal predice menor susceptibilidad.',
+    antidoto:'Traduce siempre el mensaje a su forma inversa. Si te dicen "90% de éxito", pregúntate "¿y el 10% qué?".',
+    conexion:'Equívoco — cambiar el sentido de una palabra es una forma de enmarcar a conveniencia.',
+    evid:'<a href="https://doi.org/10.1126/science.7455683" target="_blank">Tversky & Kahneman (1981)</a>, problema de la enfermedad asiática; <a href="https://doi.org/10.1126/science.1128356" target="_blank">De Martino et al. (2006)</a>.' },
+
+  { id:'falsoconsenso', emoji:'🗣️', nombre:'Efecto de Falso Consenso', cat:'grupo',
+    def:'Sobrestimar el grado en que los demás están de acuerdo con tus creencias.',
+    ejemplo:'Crees que tu opinión política es la mayoritaria porque tu círculo la comparte.',
+    profundo:'Vivimos en burbujas que nos hacen creer que nuestra visión es la norma. Refuerza la polarización.',
+    antidoto:'Busca datos objetivos de opinión, no impresiones de tu entorno.',
+    conexion:'Ad Populum — si crees que la mayoría piensa como tú, aceptas argumentos de mayoría.',
+    evid:'Ross, Greene & House (1977): literatura clásica sobre falso consenso.' },
+
+  { id:'manada', emoji:'🐑', nombre:'Efecto Manada', cat:'grupo',
+    def:'Adoptar el comportamiento o las creencias de un grupo mayoritario por comodidad, no por análisis.',
+    ejemplo:'Comprar un producto porque "todo el mundo lo tiene".',
+    profundo:'Seguir a la manada reduce el coste cognitivo y el riesgo social. Pero la popularidad no es evidencia de verdad.',
+    antidoto:'Pregúntate: "¿Lo creo porque es verdad o porque es popular?".',
+    conexion:'Ad Populum — "es verdad porque mucha gente lo cree".',
+    evid:'Asch (1951): estudios sobre conformidad; influencia social informativa/normativa.' },
+
+  { id:'autoridad', emoji:'👔', nombre:'Sesgo de Autoridad', cat:'grupo',
+    def:'Obedecer o creer a una figura de autoridad incluso cuando va contra tu propio juicio.',
+    ejemplo:'El experimento de Milgram: personas normales aplicaban descargas porque un "científico" se lo ordenaba.',
+    profundo:'Estamos socializados para obedecer. Es adaptativo, pero nos vuelve vulnerables a expertos falsos.',
+    antidoto:'Pregúntate: "¿Es experto en ESTE tema? ¿Tiene intereses ocultos?".',
+    conexion:'Ad Verecundiam — apelar a la autoridad sin verificar su competencia.',
+    evid:'Milgram (1963): estudios sobre obediencia a la autoridad.' }
+];
+
+const falacias = [
+  { id:'adhominem', emoji:'👊', nombre:'Ad Hominem', cat:'relevancia',
+    def:'Atacar a la persona que hace el argumento en lugar de responder al argumento mismo.',
+    ejemplo:'"No le hagas caso, es un hipócrita" (aunque lo que diga sea cierto).',
+    profundo:'La validez de un argumento no depende de quién lo dice. Walton advierte que no todo ataque personal es falaz: lo es cuando desplaza la carga de la prueba. Clasifica cinco subtipos: abusivo, circunstancial, de sesgo, envenenar el pozo y tu quoque.',
+    antidoto:'Separa a la persona del argumento. Pregúntate: "Si esta misma frase la dijera alguien que me cae bien, ¿sería válida?".',
+    conexion:'Error Fundamental de Atribución — si crees que el otro falla por su carácter, atacas a la persona.',
+    evid:'<a href="https://www.worldcat.org/title/ad-hominem-arguments/oclc/38286514" target="_blank">Walton, D.N. (1998). <em>Ad Hominem Arguments</em></a>: cinco subtipos y criterios. Walton (1995): no es falaz per se.' },
+
+  { id:'hombrepaja', emoji:'🎭', nombre:'Hombre de Paja', cat:'relevancia',
+    def:'Distorsionar o exagerar el argumento del oponente para que sea más fácil de atacar.',
+    ejemplo:'A: "Deberíamos regular mejor la venta de armas". B: "Así que quieres quitárselas a todos".',
+    profundo:'En vez de refutar el argumento real, se construye un muñeco de paja. Se considera una falta de aplicación del principio de caridad.',
+    antidoto:'Reformula el argumento del otro con sus palabras: "Si entiendo bien, ¿dices que...?". Si no se reconoce, es un hombre de paja.',
+    conexion:'Efecto de Negatividad — exagerar lo negativo del rival es más fácil si tu cerebro ya está predispuesto.',
+    evid:'van Onselen (2012): esquema lógico de la falacia del hombre de paja.' },
+
+  { id:'adpopulum', emoji:'📢', nombre:'Ad Populum (Apelación a la Mayoría)', cat:'relevancia',
+    def:'Argumentar que algo es verdadero o bueno porque mucha gente lo cree o lo hace.',
+    ejemplo:'"Si millones de personas lo compran, será bueno".',
+    profundo:'La popularidad no es evidencia de verdad. La mayoría puede equivocarse.',
+    antidoto:'Pregúntate: "¿Es verdad porque mucha gente lo cree, o lo cree mucha gente porque es verdad?".',
+    conexion:'Efecto de Falso Consenso y Efecto Manada — creer que la mayoría piensa como tú te hace vulnerable.',
+    evid:'Literatura clásica de lógica informal: apelación a la mayoría como falacia de relevancia.' },
+
+  { id:'adverecundiam', emoji:'🎓', nombre:'Ad Verecundiam (Apelación a la Autoridad)', cat:'relevancia',
+    def:'Usar la opinión de alguien famoso o con autoridad en un campo para defender una conclusión en un tema que no es su especialidad.',
+    ejemplo:'"Lo dijo un actor en la tele, debe ser verdad".',
+    profundo:'La autoridad es un atajo útil solo si es experta en el tema concreto y no tiene intereses ocultos.',
+    antidoto:'Pregúntate: "¿Es experto en ESTE tema? ¿Tiene intereses? ¿Qué dicen otros expertos del mismo campo?".',
+    conexion:'Sesgo de Autoridad y Dunning-Kruger — confiar en quien habla con seguridad de temas que no domina.',
+    evid:'Literatura de lógica informal: apelación a la autoridad como falacia cuando la autoridad no es relevante.' },
+
+  { id:'adignorantiam', emoji:'🌫️', nombre:'Ad Ignorantiam (Apelación a la Ignorancia)', cat:'relevancia',
+    def:'Afirmar que algo es verdadero porque no se ha demostrado que sea falso, o viceversa.',
+    ejemplo:'"Nadie ha probado que los fantasmas no existan, así que existen".',
+    profundo:'La ausencia de evidencia no es evidencia de ausencia. La carga de la prueba recae en quien afirma.',
+    antidoto:'Pregúntate: "¿Quién afirma? ¿Ha aportado pruebas?".',
+    conexion:'Sesgo de Confirmación — si no buscas la evidencia contraria, su ausencia te parece confirmación.',
+    evid:'Principio clásico de lógica informal y epistemología: la carga de la prueba.' },
+
+  { id:'posthoc', emoji:'⏱️', nombre:'Post Hoc (Falsa Causa)', cat:'causa',
+    def:'Asumir que si un evento ocurrió después de otro, el primero fue la causa del segundo.',
+    ejemplo:'"Me tomé una pastilla y se me quitó el dolor, la pastilla lo curó" (quizás se quitó solo).',
+    profundo:'Correlación no implica causalidad. Base de supersticiones y bulos.',
+    antidoto:'Pregúntate: "¿Hay un mecanismo causal plausible? ¿Se ha demostrado en un estudio controlado?".',
+    conexion:'Disponibilidad y Retrospectivo — recordamos fácilmente la secuencia y creemos que era predecible.',
+    evid:'Principio fundamental de metodología científica: correlación ≠ causalidad.' },
+
+  { id:'consecuente', emoji:'🔁', nombre:'Afirmación del Consecuente', cat:'causa',
+    def:'Error formal: "Si A, entonces B. B ocurre. Por lo tanto, A".',
+    ejemplo:'"Si llueve, las calles se mojan. Las calles están mojadas, por lo tanto, llovió". Falso: un camión cisterna pudo mojarlas.',
+    profundo:'La estructura válida es modus ponens. La inversa no es válida.',
+    antidoto:'Verifica si el consecuente (B) puede tener otras causas.',
+    conexion:'Post Hoc — ambos confunden la relación causal con la secuencia o la coincidencia.',
+    evid:'Lógica formal clásica: falacias formales.' },
+
+  { id:'antecedente', emoji:'🚫', nombre:'Negación del Antecedente', cat:'causa',
+    def:'Error formal: "Si A, entonces B. No A. Por lo tanto, no B".',
+    ejemplo:'"Si llueve, las calles se mojan. No llueve, por lo tanto, las calles no están mojadas". Falso.',
+    profundo:'La estructura válida es modus tollens. Negar el antecedente no permite negar el consecuente.',
+    antidoto:'Pregúntate: "¿Puede ocurrir B sin A?".',
+    conexion:'Post Hoc — confundir la ausencia de una causa con la ausencia del efecto.',
+    evid:'Lógica formal clásica: falacias formales.' },
+
+  { id:'equivoco', emoji:'🔤', nombre:'Equívoco', cat:'lenguaje',
+    def:'Usar la misma palabra en dos sentidos diferentes dentro del mismo argumento.',
+    ejemplo:'"El ratón transmite la rabia. Mi computadora tiene un ratón. Por lo tanto, mi computadora transmite la rabia".',
+    profundo:'El lenguaje es ambiguo. El argumento se rompe si se cambia de sentido a mitad de camino.',
+    antidoto:'Define los términos clave antes de argumentar.',
+    conexion:'Efecto Encuadre — cambiar el sentido de una palabra es una forma de enmarcar.',
+    evid:'Tradición clásica de falacias de ambigüedad (Aristóteles, Hamblin).' },
+
+  { id:'composicion', emoji:'🧩', nombre:'Composición', cat:'lenguaje',
+    def:'Asumir que lo que es cierto para las partes es cierto para el todo.',
+    ejemplo:'"Esta pieza de metal es ligera, por lo tanto, la máquina entera es ligera" (falso).',
+    profundo:'Las propiedades de las partes no se suman automáticamente al todo.',
+    antidoto:'Pregúntate: "¿La propiedad de las partes se conserva al unirlas?".',
+    conexion:'Generalización Apresurada — ambas sacan conclusiones amplias de datos parciales.',
+    evid:'Falacias de composición y división en la tradición de lógica informal.' },
+
+  { id:'division', emoji:'🔪', nombre:'División', cat:'lenguaje',
+    def:'Asumir que lo que es cierto para el todo es cierto para cada parte.',
+    ejemplo:'"El equipo es excelente, por lo tanto, cada jugador es excelente" (falso).',
+    profundo:'Las propiedades del todo no se distribuyen automáticamente a las partes.',
+    antidoto:'Pregúntate: "¿La propiedad del todo se distribuye a cada parte?".',
+    conexion:'Generalización Apresurada — sacar conclusiones sobre individuos a partir de una categoría general.',
+    evid:'Falacias de composición y división en la tradición de lógica informal.' },
+
+  { id:'generalizacion', emoji:'📊', nombre:'Generalización Apresurada', cat:'induccion',
+    def:'Sacar una conclusión general a partir de una muestra insuficiente o no representativa.',
+    ejemplo:'"Mi vecino es maleducado, por lo tanto, la gente de esa ciudad es maleducada".',
+    profundo:'La inducción es útil pero peligrosa si la muestra es pequeña o sesgada.',
+    antidoto:'Pregúntate: "¿Cuántos casos he visto? ¿Son representativos?".',
+    conexion:'Sesgo de Disponibilidad — generalizamos a partir de los pocos casos que recordamos fácilmente.',
+    evid:'Metodología científica: el problema de la muestra no representativa.' },
+
+  { id:'francotirador', emoji:'🎯', nombre:'Falacia del Francotirador (Cherry Picking)', cat:'induccion',
+    def:'Seleccionar solo los datos que apoyan una conclusión, ignorando los que la contradicen.',
+    ejemplo:'Un anuncio de suplementos muestra solo el estudio que les favorece.',
+    profundo:'Como un francotirador que dispara a un granero y luego dibuja la diana alrededor de los agujeros.',
+    antidoto:'Pregúntate: "¿Qué datos faltan? ¿Hay estudios que digan lo contrario?".',
+    conexion:'Sesgo de Confirmación — el manipulador te da datos sesgados para que sientas que tienes razón.',
+    evid:'Definición académica: presentar información usando solo datos que apoyan una tesis; incluye slothful induction.' },
+
+  { id:'falsaanalogia', emoji:'🔀', nombre:'Falsa Analogía', cat:'induccion',
+    def:'Comparar dos cosas similares en algunos aspectos y concluir que deben ser similares en otros sin justificación.',
+    ejemplo:'"Un libro es bueno porque tiene una encuadernación lujosa".',
+    profundo:'Las analogías son útiles para explicar, pero peligrosas para argumentar. La analogía no es una prueba.',
+    antidoto:'Pregúntate: "¿En qué se diferencian? ¿La similitud relevante se mantiene en el aspecto que quiero concluir?".',
+    conexion:'Equívoco — la analogía mal usada cambia el sentido de un concepto para que parezca aplicable.',
+    evid:'Lógica informal: la analogía como argumento inductivo que requiere justificación de la relevancia.' },
+
+  { id:'peticion', emoji:'🔄', nombre:'Petición de Principio (Circularidad)', cat:'presuncion',
+    def:'Asumir como premisa lo que se quiere demostrar en la conclusión.',
+    ejemplo:'"Dios existe porque la Biblia lo dice, y la Biblia es verdadera porque es la palabra de Dios".',
+    profundo:'El argumento no aporta ninguna prueba externa: solo repite la conclusión con otras palabras.',
+    antidoto:'Pregúntate: "¿Hay alguna premisa que no sea ya la conclusión?".',
+    conexion:'Sesgo de Creencia — si la conclusión te gusta, no notas que el argumento es circular.',
+    evid:'Lógica informal clásica: petitio principii.' },
+
+  { id:'preguntacompleja', emoji:'❓', nombre:'Pregunta Compleja', cat:'presuncion',
+    def:'Hacer una pregunta que contiene una presuposición oculta, de modo que cualquier respuesta implique aceptarla.',
+    ejemplo:'"¿Ha dejado usted de pegarle a su mujer?" (tanto si dices sí como no, aceptas que le pegabas).',
+    profundo:'Es una trampa lingüística. La presuposición se cuela en la pregunta.',
+    antidoto:'Rechaza la presuposición antes de responder: "Esa pregunta presupone algo que no es cierto".',
+    conexion:'Hombre de Paja — la pregunta compleja construye un marco falso sobre el que el otro debe responder.',
+    evid:'Lógica informal clásica: falacia de la pregunta compleja (loaded question).' }
+];
+
+const pares = [
+  { sesgo:'Sesgo de Confirmación', sesgoPill:'purple', falacia:'Falacia del Francotirador', falaciaPill:'orange', desc:'Tu cerebro quiere tener razón y el manipulador te muestra solo la parte de la foto que le conviene. Episodio 1.' },
+  { sesgo:'Efecto Dunning-Kruger', sesgoPill:'purple', falacia:'Ad Verecundiam', falaciaPill:'orange', desc:'La incompetencia te hace arrogante; los influencers que hablan con seguridad de temas que desconocen te vuelven blanco fácil. Episodio 2.' },
+  { sesgo:'Sesgo de Conservadurismo', sesgoPill:'purple', falacia:'Ad Antiquitatem', falaciaPill:'orange', desc:'Tu cerebro teme a lo desconocido; te convencen de no cambiar usando la tradición como escudo. Episodio 3.' },
+  { sesgo:'Error de Atribución', sesgoPill:'purple', falacia:'Hombre de Paja', falaciaPill:'orange', desc:'Como te cuesta salir de tu propia mente, te crees cuando un tercero deforma el argumento del rival. Episodio 4.' },
+  { sesgo:'Sesgo de Disponibilidad', sesgoPill:'purple', falacia:'Post Hoc', falaciaPill:'orange', desc:'Recuerdas fácilmente un evento reciente y asumes que causó el siguiente.' },
+  { sesgo:'Efecto de Negatividad', sesgoPill:'purple', falacia:'Hombre de Paja', falaciaPill:'orange', desc:'Tu cerebro presta más atención a lo malo; el manipulador exagera lo malo del rival.' },
+  { sesgo:'Efecto Manada / Falso Consenso', sesgoPill:'purple', falacia:'Ad Populum', falaciaPill:'orange', desc:'Crees que todos piensan como tú y aceptas que "la mayoría" tiene razón sin evidencia independiente.' },
+  { sesgo:'Sesgo de Autoridad', sesgoPill:'purple', falacia:'Ad Verecundiam', falaciaPill:'orange', desc:'Estamos socializados para obedecer y aceptamos la opinión de un famoso como prueba.' },
+  { sesgo:'Aversión a la Pérdida / Coste Hundido', sesgoPill:'purple', falacia:'Falacia del Coste Hundido', falaciaPill:'orange', desc:'El dolor de perder te hace seguir invirtiendo en algo perdedor porque ya has invertido mucho.' },
+  { sesgo:'Sesgo de Creencia', sesgoPill:'purple', falacia:'Petición de Principio', falaciaPill:'orange', desc:'Si la conclusión te gusta, no notas que el argumento es circular.' }
+];
+
+const deteccion = {
+  confirmacion: { senales: ['Solo compartes lo que confirma tu opinión', 'Te molestan los datos contrarios', 'Tu feed es homogéneo'], pregunta: '¿Qué evidencia me haría cambiar de opinión? ¿La he buscado?' },
+  puntociego: { senales: ['Ves sesgos en todos menos en ti', '"Yo soy objetivo"', 'Culpas a la ideología ajena'], pregunta: '¿En qué podría estar equivocado ahora mismo?' },
+  creenciasesgo: { senales: ['Aceptas argumentos flojos si te gusta la conclusión', 'No notas los fallos lógicos de lo que te conviene'], pregunta: 'Si este mismo argumento defendiera lo contrario, ¿lo aceptaría?' },
+  disponibilidad: { senales: ['Generalizas por lo que recuerdas fácil', 'Miedo desproporcionado por noticias impactantes'], pregunta: '¿Lo creo porque es frecuente o porque lo recuerdo fácil?' },
+  retrospectivo: { senales: ['"Lo sabía"', 'Reescribes tu memoria para parecer más sabio'], pregunta: '¿Lo habría dicho antes de conocer el resultado?' },
+  negatividad: { senales: ['Solo ves lo malo', 'Un comentario negativo eclipsa diez positivos'], pregunta: '¿Cuál es la proporción real de lo negativo frente a lo positivo?' },
+  atribucion: { senales: ['Justificas tus errores por contexto y los ajenos por carácter', '"Es un irresponsable" vs "tuve un mal día"'], pregunta: '¿Qué circunstancias podría estar viviendo el otro?' },
+  autocomplacencia: { senales: ['Todo éxito es tuyo', 'Todo fracaso es externo'], pregunta: '¿Qué parte fue suerte y qué parte fue mi responsabilidad?' },
+  dunning: { senales: ['Opinas con seguridad de temas que no estudiaste', '"Es sentido común"', 'No reconoces tus límites'], pregunta: '¿Qué no sé de esto? ¿He estudiado lo suficiente?' },
+  control: { senales: ['Rituales o supersticiones', '"Si pienso positivo"', 'Crees que controlas el azar'], pregunta: '¿Qué controlo realmente y qué es azar?' },
+  anclaje: { senales: ['Te fijas en el primer precio o dato', 'Crees que una rebaja es ganga por el precio tachado'], pregunta: '¿Cuál sería el valor sin el primer número?' },
+  conservadurismo: { senales: ['Te cuesta cambiar de opinión aunque haya evidencia', 'Prefieres lo antiguo aunque haya algo mejor'], pregunta: '¿Si viera esto antes, habría pensado igual?' },
+  aversion: { senales: ['No vendes para no "aceptar" la pérdida', 'Miedo a perder mayor que deseo de ganar'], pregunta: 'Si no lo tuviera, ¿lo compraría?' },
+  costehundido: { senales: ['"Ya he invertido mucho"', 'Sigues por no desperdiciar lo invertido'], pregunta: 'Si empezara hoy desde cero, ¿lo haría?' },
+  dotacion: { senales: ['Sobrevaloras lo tuyo', 'No venderías algo por lo que no pagarías'], pregunta: '¿Cuánto pagaría si no fuera mío?' },
+  encuadre: { senales: ['La misma info te parece distinta según cómo se presenta', 'Te afecta más "pérdida" que "ganancia"'], pregunta: '¿Cómo se vería esto al revés (éxito→fracaso, ganancia→pérdida)?' },
+  falsoconsenso: { senales: ['Crees que "todos" piensan como tú', 'Tu círculo te parece representativo'], pregunta: '¿Mi círculo es representativo de la población?' },
+  manada: { senales: ['Haces algo porque "todo el mundo"', 'Te incomoda ir contra la mayoría'], pregunta: '¿Lo hago porque es bueno o porque es popular?' },
+  autoridad: { senales: ['Crees a famosos o expertos fuera de su campo', 'La bata blanca o el cargo te impresionan'], pregunta: '¿Es experto en ESTE tema? ¿Tiene intereses?' },
+  adhominem: { senales: ['Atacan a la persona, no al argumento', '"No le hagas caso, es un..."'], pregunta: '¿El ataque invalida el argumento o solo a la persona?' },
+  hombrepaja: { senales: ['Exageran tu posición', '"Así que quieres..."', 'Caricaturizan al rival'], pregunta: '¿Es esto lo que realmente dije o dijo?' },
+  adpopulum: { senales: ['"Todo el mundo"', '"Millones"', '"La mayoría"'], pregunta: '¿La popularidad prueba la verdad?' },
+  adverecundiam: { senales: ['Famoso o experto fuera de su campo', '"Lo dijo X, debe ser verdad"'], pregunta: '¿Es su especialidad? ¿Tiene intereses?' },
+  adignorantiam: { senales: ['"Nadie ha probado que no"', 'Exigen que otros refuten lo que no se ha probado'], pregunta: '¿Quién afirma y qué pruebas aporta?' },
+  posthoc: { senales: ['"Desde que X, Y"', 'Secuencia presentada como causa'], pregunta: '¿Hay mecanismo causal o solo secuencia?' },
+  consecuente: { senales: ['"Si A entonces B; B, luego A"', 'Conclusión a partir del efecto'], pregunta: '¿Puede B tener otras causas?' },
+  antecedente: { senales: ['"Si A entonces B; no A, luego no B"', 'Negar la causa para negar el efecto'], pregunta: '¿Puede B ocurrir sin A?' },
+  equivoco: { senales: ['Misma palabra, sentidos distintos', 'El argumento cambia de significado'], pregunta: '¿Usamos la palabra en el mismo sentido?' },
+  composicion: { senales: ['"Las partes son X, el todo es X"', 'Propiedades sumadas sin justificación'], pregunta: '¿La propiedad se conserva al unir las partes?' },
+  division: { senales: ['"El todo es X, cada parte es X"', 'Propiedades distribuidas sin justificación'], pregunta: '¿La propiedad del todo se distribuye a cada parte?' },
+  generalizacion: { senales: ['Conclusión amplia de pocos casos', 'Anécdota convertida en norma'], pregunta: '¿La muestra es suficiente y representativa?' },
+  francotirador: { senales: ['Solo muestran datos que apoyan', 'Omiten la evidencia contraria'], pregunta: '¿Qué datos faltan? ¿Hay estudios contrarios?' },
+  falsaanalogia: { senales: ['Comparaciones forzadas', 'Similitud superficial usada como prueba'], pregunta: '¿En qué se diferencian? ¿La similitud es relevante?' },
+  peticion: { senales: ['La conclusión se repite como premisa', 'El argumento se muerde la cola'], pregunta: '¿Hay alguna premisa que no sea ya la conclusión?' },
+  preguntacompleja: { senales: ['Pregunta con presuposición oculta', '"¿Por qué X es tan malo?"'], pregunta: '¿Qué se asume en la pregunta?' }
+};
+
+const preguntasUniversales = [
+  '¿Qué emoción me provoca esto? ¿Es una reacción fuerte?',
+  '¿Quién lo dice y qué gana si le creo?',
+  '¿Es experto en este tema concreto?',
+  '¿Dónde están los datos originales?',
+  '¿Qué información falta o se omite?',
+  '¿Hay otras explicaciones posibles?',
+  '¿Se ataca a la persona en vez del argumento?',
+  '¿Se exagera o distorsiona la posición del otro?',
+  '¿Se apela a la mayoría, la tradición o la autoridad sin pruebas?',
+  '¿La conclusión se asume en las premisas?',
+  '¿Qué evidencia me haría cambiar de opinión?',
+  '¿Estoy buscando la verdad o solo tener razón?'
+];
+
+const analyzerItems = [
+  'El mensaje provoca una emoción fuerte (miedo, ira, urgencia, euforia).',
+  'Se ataca a una persona o grupo en vez de al argumento.',
+  'Se usa "todos", "nadie", "es obvio", "siempre", "nunca".',
+  'Se apela a un famoso o autoridad fuera de su campo.',
+  'Faltan fuentes o son vagas ("estudios dicen", "expertos afirman").',
+  'Se exagera o distorsiona la posición contraria.',
+  'Se presenta una anécdota como prueba general.',
+  'Se pide compartir o decidir con urgencia.',
+  'La conclusión se repite como si ya estuviera probada.',
+  'Hay una presuposición oculta en la pregunta o el titular.'
+];
+
+/* ==================== TEST BANKS ==================== */
+
+const testBanks = {
+  sesgos: [
+    { q: 'Solo lees las reseñas positivas del móvil que ya has decidido comprar e ignoras las negativas. ¿Qué sesgo opera?',
+      opts: ['Sesgo de Anclaje', 'Sesgo de Confirmación', 'Efecto Dunning-Kruger', 'Efecto de Negatividad'], correct: 1,
+      explain: 'Buscas e interpretas la información para confirmar tu decisión previa. Es el Sesgo de Confirmación (<a href="https://doi.org/10.1037/a0015701" target="_blank">Hart et al., 2009</a>).' },
+    { q: 'Tras ver una noticia de un accidente aéreo, crees que volar es peligrosísimo, aunque estadísticamente es más seguro que conducir. ¿Qué sesgo?',
+      opts: ['Sesgo de Disponibilidad', 'Sesgo Retrospectivo', 'Ilusión de Control', 'Efecto Dotación'], correct: 0,
+      explain: 'El cerebro confunde "fácil de recordar" con "frecuente". Es el Sesgo de Disponibilidad (<a href="https://doi.org/10.1016/0010-0285(73)90033-9" target="_blank">Tversky & Kahneman, 1973</a>).' },
+    { q: 'Un estudiante de primero de carrera opina con total seguridad sobre un tema complejo de física que solo ha visto en un video de YouTube. ¿Qué sesgo lo explica mejor?',
+      opts: ['Sesgo de Autoridad', 'Efecto Dunning-Kruger', 'Sesgo de Conservadurismo', 'Error Fundamental de Atribución'], correct: 1,
+      explain: 'La incompetencia metacognitiva le impide reconocer sus límites. Es el Efecto Dunning-Kruger (<a href="https://doi.org/10.1037/0022-3514.77.6.1121" target="_blank">Kruger & Dunning, 1999</a>).' },
+    { q: 'Ves una camiseta a 100€ tachada y a 40€, y crees que es una ganga. Si solo vieras 40€, te parecería cara. ¿Qué sesgo?',
+      opts: ['Sesgo de Anclaje', 'Aversión a la Pérdida', 'Efecto Encuadre', 'Sesgo del Coste Hundido'], correct: 0,
+      explain: 'El primer número (100€) actúa como ancla y distorsiona tu juicio sobre el precio real (<a href="https://doi.org/10.1126/science.185.4157.1124" target="_blank">Tversky & Kahneman, 1974</a>).' },
+    { q: 'Sigues viendo una serie que ya no te gusta porque "ya has visto cinco temporadas". ¿Qué sesgo?',
+      opts: ['Efecto Dotación', 'Sesgo del Coste Hundido', 'Sesgo de Disponibilidad', 'Efecto de Negatividad'], correct: 1,
+      explain: 'Continúas por lo invertido, aunque seguir sea peor. Es el Sesgo del Coste Hundido (<a href="https://uvadoc.uva.es/handle/10324/60664" target="_blank">Cuesta Álvarez & de la Fuente Herrero, 2023</a>).' },
+    { q: 'Tu equipo gana y crees que fue por tu talento; pierde y culpas al árbitro. ¿Qué sesgo?',
+      opts: ['Error Fundamental de Atribución', 'Sesgo de Autocomplacencia', 'Sesgo de Confirmación', 'Ilusión de Control'], correct: 1,
+      explain: 'Atribuyes éxitos a factores internos y fracasos a externos. Es el Sesgo de Autocomplacencia (self-serving bias).' }
+  ],
+  falacias: [
+    { q: 'Un político dice: "Mi rival quiere destruir la sanidad pública". Su rival solo había propuesto revisar el gasto en consultas externas. ¿Qué falacia?',
+      opts: ['Ad Hominem', 'Hombre de Paja', 'Post Hoc', 'Ad Populum'], correct: 1,
+      explain: 'Ha exagerado y distorsionado el argumento del rival para que sea más fácil de atacar. Es un Hombre de Paja (van Onselen, 2012).' },
+    { q: '"Si millones de personas lo compran, será bueno". ¿Qué falacia?',
+      opts: ['Ad Verecundiam', 'Ad Populum', 'Ad Ignorantiam', 'Post Hoc'], correct: 1,
+      explain: 'Apela a la mayoría como prueba de verdad. La popularidad no es evidencia. Es Ad Populum.' },
+    { q: '"No le hagas caso, es un hipócrita" (aunque lo que diga sea cierto). ¿Qué falacia?',
+      opts: ['Ad Hominem', 'Hombre de Paja', 'Equívoco', 'Petición de Principio'], correct: 0,
+      explain: 'Ataca a la persona en vez del argumento. Es Ad Hominem (Walton, 1998).' },
+    { q: '"Si llueve, las calles se mojan. Las calles están mojadas, por lo tanto, llovió". ¿Qué error lógico?',
+      opts: ['Negación del Antecedente', 'Afirmación del Consecuente', 'Post Hoc', 'Falsa Analogía'], correct: 1,
+      explain: 'La estructura válida es modus ponens; la inversa no es válida. Un camión cisterna pudo mojar las calles. Es Afirmación del Consecuente.' },
+    { q: '"Dios existe porque la Biblia lo dice, y la Biblia es verdadera porque es la palabra de Dios". ¿Qué falacia?',
+      opts: ['Ad Ignorantiam', 'Petición de Principio', 'Pregunta Compleja', 'Composición'], correct: 1,
+      explain: 'Asume como premisa lo que quiere demostrar. Es circular. Petición de Principio (petitio principii).' },
+    { q: '"¿Ha dejado usted de pegarle a su mujer?" ¿Qué falacia?',
+      opts: ['Pregunta Compleja', 'Ad Hominem', 'División', 'Equívoco'], correct: 0,
+      explain: 'La pregunta contiene una presuposición oculta: tanto si respondes sí como no, aceptas que le pegabas. Es Pregunta Compleja.' }
+  ],
+  deteccion: [
+    { q: 'Un titular dice: "El 90% de los usuarios nota mejoría". El estudio original era de 10 personas y sin grupo de control. ¿Qué dos problemas detectas?',
+      opts: ['Ad Populum y Ad Hominem', 'Cherry Picking y Generalización Apresurada', 'Post Hoc y Equívoco', 'Hombre de Paja y Ad Ignorantiam'], correct: 1,
+      explain: 'Seleccionan solo el dato que les conviene (Cherry Picking / Francotirador) y generalizan a partir de una muestra ridícula (Generalización Apresurada).' },
+    { q: 'Un famoso actor dice en Instagram que una crema "cura el acné". Miles la compran. ¿Qué falacia se usa y qué sesgo la amplifica?',
+      opts: ['Ad Hominem + Sesgo de Anclaje', 'Ad Verecundiam + Sesgo de Autoridad', 'Post Hoc + Ilusión de Control', 'Equívoco + Efecto Dotación'], correct: 1,
+      explain: 'Apela a la autoridad de alguien que no es experto en dermatología (Ad Verecundiam) y nuestro Sesgo de Autoridad nos hace creerle sin verificar (<a href="https://doi.org/10.1037/0022-3514.77.6.1121" target="_blank">Milgram, 1963</a>).' },
+    { q: 'Un mensaje dice: "Si no compartes esto antes de que lo borren, eres parte del problema". ¿Qué señales de manipulación detectas?',
+      opts: ['Urgencia + presión emocional + falsa dicotomía implícita', 'Solo un problema de ortografía', 'Es un argumento sólido', 'Apela a la autoridad legítima'], correct: 0,
+      explain: 'La urgencia impide deliberar, la presión emocional activa el Sistema 1 y la falsa dicotomía ("parte del problema") cierra la alternativa de no compartir.' },
+    { q: 'Alguien defiende una teoría y solo muestra los estudios que la apoyan, ignorando los que la contradicen. ¿Qué está usando?',
+      opts: ['Ad Populum', 'Falacia del Francotirador (Cherry Picking)', 'Petición de Principio', 'Equívoco'], correct: 1,
+      explain: 'Selecciona solo los datos favorables y omite el resto. Es la Falacia del Francotirador o Cherry Picking.' },
+    { q: 'Un debate: "Mi oponente quiere que los niños lean libros inapropiados". El oponente solo había propuesto ampliar la biblioteca escolar. ¿Qué falacia se usa?',
+      opts: ['Hombre de Paja', 'Ad Hominem', 'Post Hoc', 'Ad Ignorantiam'], correct: 0,
+      explain: 'Distorsiona y exagera la posición del rival para que sea más fácil de atacar. Es un Hombre de Paja.' },
+    { q: 'Un anuncio dice: "Nadie ha demostrado que este producto cause efectos secundarios, así que es seguro". ¿Qué falacia?',
+      opts: ['Ad Ignorantiam', 'Ad Populum', 'Composición', 'Falsa Analogía'], correct: 0,
+      explain: 'Afirma que algo es verdadero porque no se ha demostrado lo contrario. La ausencia de evidencia no es evidencia de ausencia. Es Ad Ignorantiam.' }
+  ]
+};
+
+/* ==================== RENDER ==================== */
+
+function renderCards(data, gridId, type) {
+  const grid = document.getElementById(gridId);
+  grid.innerHTML = data.map(item => `
+    <div class="card ${type === 'falacia' ? 'fallacy' : ''}" data-cat="${item.cat}" data-search="${(item.nombre + ' ' + item.def + ' ' + item.ejemplo).toLowerCase()}">
+      <div class="card-header">
+        <span class="card-emoji">${item.emoji}</span>
+        <span class="card-title ${type === 'falacia' ? 'orange' : 'purple'}">${item.nombre}</span>
+      </div>
+      <div class="card-def">${item.def}</div>
+      <div class="card-example">
+        <span class="label">Ejemplo</span>
+        <span class="content">${item.ejemplo}</span>
+      </div>
+      <div class="card-expand">
+        <div class="deep-block">
+          <h4 class="prof">🔬 Explicación profunda</h4>
+          <p>${item.profundo}</p>
+        </div>
+        <div class="deep-block">
+          <h4 class="anti">🛡️ Antídoto</h4>
+          <p>${item.antidoto}</p>
+        </div>
+        <div class="deep-block">
+          <h4 class="conn">🔗 Conexión</h4>
+          <p>${item.conexion}</p>
+        </div>
+        <div class="deep-block">
+          <h4 class="evid">📚 Evidencia académica</h4>
+          <div class="cite">${item.evid}</div>
+        </div>
+      </div>
+      <div class="expand-hint"><span class="arrow">▼</span> Ver análisis completo y fuente</div>
+    </div>
+  `).join('');
+
+  grid.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => {
+      card.classList.toggle('expanded');
+      const hint = card.querySelector('.expand-hint');
+      hint.innerHTML = card.classList.contains('expanded')
+        ? '<span class="arrow">▼</span> Ocultar análisis'
+        : '<span class="arrow">▼</span> Ver análisis completo y fuente';
+    });
+  });
+}
+
+renderCards(sesgos, 'gridSesgos', 'sesgo');
+renderCards(falacias, 'gridFalacias', 'falacia');
+
+document.getElementById('gridPares').innerHTML = pares.map(p => `
+  <div class="pair-card">
+    <div class="pair-top">
+      <span class="pair-pill ${p.sesgoPill === 'purple' ? 'pill-purple' : 'pill-orange'}">${p.sesgo}</span>
+      <span class="pair-arrow">→</span>
+      <span class="pair-pill ${p.falaciaPill === 'orange' ? 'pill-orange' : 'pill-purple'}">${p.falacia}</span>
+    </div>
+    <p class="pair-desc">${p.desc}</p>
+  </div>
+`).join('');
+
+document.getElementById('statSesgos').textContent = sesgos.length;
+document.getElementById('statFalacias').textContent = falacias.length;
+document.getElementById('statPares').textContent = pares.length;
+
+/* ==================== DETECTOR RENDER ==================== */
+
+const checklistEl = document.getElementById('checklist');
+checklistEl.innerHTML = preguntasUniversales.map((q, i) => `
+  <div class="check-item" data-i="${i}">
+    <div class="check-box"></div>
+    <div class="check-text"><strong>${i + 1}.</strong> ${q}</div>
+  </div>
+`).join('');
+
+let checkState = new Array(preguntasUniversales.length).fill(false);
+function updateCheckProgress() {
+  const n = checkState.filter(Boolean).length;
+  document.getElementById('checkCount').textContent = n + '/' + preguntasUniversales.length;
+  document.getElementById('checkFill').style.width = (n / preguntasUniversales.length * 100) + '%';
+}
+checklistEl.querySelectorAll('.check-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const i = parseInt(item.dataset.i);
+    checkState[i] = !checkState[i];
+    item.classList.toggle('checked', checkState[i]);
+    updateCheckProgress();
+  });
+});
+updateCheckProgress();
+
+const allConcepts = [
+  ...sesgos.map(s => ({...s, tipo:'sesgo'})),
+  ...falacias.map(f => ({...f, tipo:'falacia'}))
+];
+
+function renderDetector() {
+  const grid = document.getElementById('detectorGrid');
+  const q = document.getElementById('searchDetector').value.toLowerCase().trim();
+  const filter = document.querySelector('[data-dfilter].active')?.dataset.dfilter || 'all';
+
+  const filtered = allConcepts.filter(c => {
+    const d = deteccion[c.id];
+    if (!d) return false;
+    if (filter !== 'all' && c.tipo !== filter) return false;
+    if (q) {
+      const hay = (c.nombre + ' ' + d.senales.join(' ') + ' ' + d.pregunta).toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+
+  grid.innerHTML = filtered.map(c => {
+    const d = deteccion[c.id];
+    return `
+      <div class="detector-card ${c.tipo === 'falacia' ? 'falacia' : ''}">
+        <div class="dc-head">
+          <span class="dc-emoji">${c.emoji}</span>
+          <span class="dc-title ${c.tipo === 'falacia' ? 'orange' : 'purple'}">${c.nombre}</span>
+        </div>
+        <span class="dc-label senales">🚩 Señales</span>
+        <ul class="dc-senales">${d.senales.map(s => `<li>${s}</li>`).join('')}</ul>
+        <span class="dc-label pregunta">❓ Pregunta clave</span>
+        <div class="dc-pregunta">"${d.pregunta}"</div>
+      </div>
+    `;
+  }).join('') || '<p style="color:var(--muted);font-size:0.9rem;">No hay resultados.</p>';
+}
+
+document.getElementById('searchDetector').addEventListener('input', renderDetector);
+document.querySelectorAll('[data-dfilter]').forEach(chip => {
+  chip.addEventListener('click', () => {
+    document.querySelectorAll('[data-dfilter]').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    renderDetector();
+  });
+});
+renderDetector();
+
+const analyzerList = document.getElementById('analyzerList');
+analyzerList.innerHTML = analyzerItems.map((t, i) => `
+  <div class="analyzer-item" data-i="${i}">
+    <div class="ai-box"></div>
+    <div>${t}</div>
+  </div>
+`).join('');
+
+let analyzerState = new Array(analyzerItems.length).fill(false);
+let analyzerActive = false;
+
+function updateAnalyzer() {
+  const n = analyzerState.filter(Boolean).length;
+  const res = document.getElementById('analyzerResult');
+  if (!analyzerActive) { res.classList.remove('show'); return; }
+  res.classList.add('show');
+  res.classList.remove('low', 'mid', 'high');
+  document.getElementById('arScore').textContent = n + '/' + analyzerItems.length;
+  let label, desc, cls;
+  if (n <= 2) {
+    label = 'Riesgo bajo';
+    desc = 'Pocas señales de manipulación. Aun así, verifica la fuente y los datos antes de compartir.';
+    cls = 'low';
+  } else if (n <= 5) {
+    label = 'Riesgo medio';
+    desc = 'Hay varias señales de alarma. Aplica el protocolo de 60 segundos: pausa, fuente, evidencia, inversión y metacognición.';
+    cls = 'mid';
+  } else {
+    label = 'Riesgo alto';
+    desc = 'Muchas señales de manipulación. No compartas sin verificar. Busca la fuente primaria, la evidencia contraria y pregúntate qué gana quien lo dice.';
+    cls = 'high';
+  }
+  document.getElementById('arLabel').textContent = label;
+  document.getElementById('arDesc').textContent = desc;
+  res.classList.add(cls);
+}
+
+analyzerList.querySelectorAll('.analyzer-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const i = parseInt(item.dataset.i);
+    analyzerState[i] = !analyzerState[i];
+    item.classList.toggle('on', analyzerState[i]);
+    analyzerActive = true;
+    updateAnalyzer();
+  });
+});
+
+document.getElementById('analyzerReset').addEventListener('click', () => {
+  analyzerState = new Array(analyzerItems.length).fill(false);
+  analyzerList.querySelectorAll('.analyzer-item').forEach(i => i.classList.remove('on'));
+  analyzerActive = false;
+  document.getElementById('analyzerResult').classList.remove('show', 'low', 'mid', 'high');
+});
+
+/* ==================== SEARCH & FILTER ==================== */
+
+function setupFilter(searchId, gridId, chipSelector) {
+  const search = document.getElementById(searchId);
+  const grid = document.getElementById(gridId);
+  let activeFilter = 'all';
+  function apply() {
+    const q = search.value.toLowerCase().trim();
+    grid.querySelectorAll('.card').forEach(card => {
+      const matchCat = activeFilter === 'all' || card.dataset.cat === activeFilter;
+      const matchSearch = !q || card.dataset.search.includes(q);
+      card.style.display = (matchCat && matchSearch) ? '' : 'none';
+    });
+  }
+  search.addEventListener('input', apply);
+  document.querySelectorAll(chipSelector).forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll(chipSelector).forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      activeFilter = chip.dataset.filter;
+      apply();
+    });
+  });
+}
+setupFilter('searchSesgos', 'gridSesgos', '[data-target="sesgos"]');
+setupFilter('searchFalacias', 'gridFalacias', '[data-target="falacias"]');
+
+/* ==================== STUDY MODE ==================== */
+
+document.getElementById('studyToggle').addEventListener('click', function() {
+  document.body.classList.toggle('study-mode');
+  this.classList.toggle('on');
+  this.innerHTML = document.body.classList.contains('study-mode')
+    ? '<span>👁️</span> Estudio: ON'
+    : '<span>👁️</span> Modo estudio';
+});
+
+/* ==================== TABS ==================== */
+
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+  });
+});
+
+/* ==================== MULTI-TEST ==================== */
+
+let currentTest = 'sesgos';
+let quizIndex = 0, quizScore = 0, quizAnswered = false;
+
+function loadTest(testName) {
+  currentTest = testName;
+  quizIndex = 0;
+  quizScore = 0;
+  quizAnswered = false;
+  document.getElementById('quizContent').style.display = '';
+  document.getElementById('quizResult').classList.remove('show');
+  renderQuiz();
+}
+
+function renderQuiz() {
+  const bank = testBanks[currentTest];
+  if (quizIndex >= bank.length) {
+    document.getElementById('quizContent').style.display = 'none';
+    document.getElementById('quizResult').classList.add('show');
+    document.getElementById('quizScore').textContent = quizScore + '/' + bank.length;
+    let msg = 'Necesitas repasar. Vuelve a las tarjetas y al modo estudio.';
+    if (quizScore === bank.length) msg = '¡Perfecto! Tienes ojo crítico.';
+    else if (quizScore >= bank.length - 1) msg = 'Muy bien. Te queda un detalle por pulir.';
+    else if (quizScore >= Math.ceil(bank.length / 2)) msg = 'Aprobado justo. Repasa los conceptos donde fallaste.';
+    document.getElementById('quizMsg').textContent = msg;
+    document.getElementById('quizBar').style.width = '100%';
+    return;
+  }
+  const q = bank[quizIndex];
+  document.getElementById('quizQ').textContent = (quizIndex + 1) + '. ' + q.q;
+  document.getElementById('quizBar').style.width = (quizIndex / bank.length * 100) + '%';
+  document.getElementById('quizFeedback').classList.remove('show');
+  document.getElementById('quizNext').classList.remove('show');
+  quizAnswered = false;
+
+  const opts = document.getElementById('quizOptions');
+  opts.innerHTML = q.opts.map((o, i) => `<button class="quiz-opt" data-i="${i}">${o}</button>`).join('');
+
+  opts.querySelectorAll('.quiz-opt').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (quizAnswered) return;
+      quizAnswered = true;
+      const chosen = parseInt(btn.dataset.i);
+      const fb = document.getElementById('quizFeedback');
+      opts.querySelectorAll('.quiz-opt').forEach(b => b.disabled = true);
+      if (chosen === q.correct) {
+        btn.classList.add('correct'); quizScore++;
+        fb.className = 'quiz-feedback ok show';
+        fb.innerHTML = '✅ Correcto. ' + q.explain;
+      } else {
+        btn.classList.add('wrong');
+        opts.querySelectorAll('.quiz-opt')[q.correct].classList.add('correct');
+        fb.className = 'quiz-feedback ko show';
+        fb.innerHTML = '❌ Incorrecto. ' + q.explain;
+      }
+      document.getElementById('quizNext').classList.add('show');
+    });
+  });
+}
+
+document.querySelectorAll('.test-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.test-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    loadTest(btn.dataset.test);
+  });
+});
+
+document.getElementById('quizNext').addEventListener('click', () => { quizIndex++; renderQuiz(); });
+document.getElementById('quizRestart').addEventListener('click', () => {
+  quizIndex = 0; quizScore = 0;
+  document.getElementById('quizContent').style.display = '';
+  document.getElementById('quizResult').classList.remove('show');
+  renderQuiz();
+});
+
+loadTest('sesgos');
+
+/* ==================== NAV + REVEAL ==================== */
+
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(sec => { if (window.scrollY >= sec.offsetTop - 120) current = sec.id; });
+  navLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
+});
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+<script>
+/* Reajuste del ancla tras el render dinámico de tarjetas */
+addEventListener('load', function () {
+  if (!location.hash) return;
+  var el = document.querySelector(location.hash);
+  if (el) setTimeout(function () { el.scrollIntoView(); }, 120);
+});
+</script>
+</body>
+</html>
