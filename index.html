@@ -17,7 +17,7 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/favicon-32x32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="stylesheet" href="css/estilos.css?v=1">
+<link rel="stylesheet" href="css/estilos.css?v=2">
 </head>
 <body>
 <a class="skip" href="#contenido">Saltar al contenido</a>
@@ -29,7 +29,7 @@
       <b>Andreu<span class="lit">Matic</span></b>
       <span class="brand-sub">Sesgos &amp; Falacias</span>
     </a>
-    <button class="study-toggle" id="studyToggle" type="button"><span aria-hidden="true">◉</span> Modo estudio</button>
+    <button class="study-toggle" id="studyToggle" type="button" aria-pressed="false"><span class="st-ico" aria-hidden="true">◉</span> <span class="st-txt">Modo estudio</span></button>
   </div>
   <div class="nav-row">
     <nav class="nav-links" aria-label="Secciones de la guía">
@@ -43,13 +43,14 @@
       <a href="#test">Tests</a>
     </nav>
   </div>
+  <div class="readbar-track" role="progressbar" aria-label="Progreso de lectura" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="readbar" id="readbar"></div></div>
 </header>
 
 <main id="contenido">
 
 <section class="hero" id="inicio">
   <div class="hero-copy">
-    <p class="eyebrow">Guía interactiva · evidencia académica</p>
+    <p class="eyebrow">Guía interactiva con evidencia</p>
     <h1>Tu cerebro te miente.<br><span class="hl">La evidencia lo demuestra.</span></h1>
     <p class="sub">Sesgos cognitivos y falacias lógicas explicados con estudios citados, un detector de manipulación en 60 segundos y tres tests para comprobar si distingues un argumento de un truco.</p>
     <div class="hero-points">
@@ -130,17 +131,18 @@
   <div class="section-head reveal">
     <span class="section-tag tag-purple">El enemigo interno · Evidencia académica</span>
     <h2>Sesgos cognitivos</h2>
-    <p>Cada tarjeta incluye <strong style="color:#facc15;">Evidencia académica</strong> con enlace clicable a la fuente. Haz clic para desplegar el análisis, el antídoto y la cita.</p>
+    <p>Cada tarjeta incluye <strong class="u-amber">evidencia académica</strong> con enlace clicable a la fuente. Haz clic para desplegar el análisis, el antídoto y la cita.</p>
   </div>
   <div class="controls">
-    <div class="search-box"><input type="text" id="searchSesgos" placeholder="Buscar sesgo..."></div>
-    <button class="filter-chip active" data-filter="all" data-target="sesgos">Todos</button>
-    <button class="filter-chip" data-filter="creencia" data-target="sesgos">Creencia</button>
-    <button class="filter-chip" data-filter="memoria" data-target="sesgos">Memoria</button>
-    <button class="filter-chip" data-filter="ego" data-target="sesgos">Ego</button>
-    <button class="filter-chip" data-filter="decision" data-target="sesgos">Decisión</button>
-    <button class="filter-chip" data-filter="grupo" data-target="sesgos">Grupo</button>
+    <div class="search-box"><input type="search" id="searchSesgos" placeholder="Buscar sesgo…" autocomplete="off" spellcheck="false" aria-label="Buscar sesgo por nombre o descripción"></div>
+    <button class="filter-chip active" aria-pressed="true" data-filter="all" data-target="sesgos">Todos</button>
+    <button class="filter-chip" aria-pressed="false" data-filter="creencia" data-target="sesgos">Creencia</button>
+    <button class="filter-chip" aria-pressed="false" data-filter="memoria" data-target="sesgos">Memoria</button>
+    <button class="filter-chip" aria-pressed="false" data-filter="ego" data-target="sesgos">Ego</button>
+    <button class="filter-chip" aria-pressed="false" data-filter="decision" data-target="sesgos">Decisión</button>
+    <button class="filter-chip" aria-pressed="false" data-filter="grupo" data-target="sesgos">Grupo</button>
   </div>
+  <p class="result-count" id="countSesgos" aria-live="polite"></p>
   <div class="study-banner">👁️ Modo estudio: definiciones y ejemplos difuminados. Pasa el cursor para revelarlos.</div>
   <div class="cards-grid" id="gridSesgos"></div>
 </section>
@@ -152,14 +154,15 @@
     <p>La tradición de Hamblin (1970) y Walton (1995) muestra que una falacia es una técnica de argumentación mal utilizada que obstaculiza el diálogo. Walton advierte que el <em>ad hominem</em> no siempre es falaz; lo es cuando desplaza la carga de la prueba.</p>
   </div>
   <div class="controls">
-    <div class="search-box"><input type="text" id="searchFalacias" placeholder="Buscar falacia..."></div>
-    <button class="filter-chip active" data-filter="all" data-target="falacias">Todas</button>
-    <button class="filter-chip" data-filter="relevancia" data-target="falacias">Relevancia</button>
-    <button class="filter-chip" data-filter="causa" data-target="falacias">Causa</button>
-    <button class="filter-chip" data-filter="lenguaje" data-target="falacias">Lenguaje</button>
-    <button class="filter-chip" data-filter="induccion" data-target="falacias">Inducción</button>
-    <button class="filter-chip" data-filter="presuncion" data-target="falacias">Presunción</button>
+    <div class="search-box"><input type="search" id="searchFalacias" placeholder="Buscar falacia…" autocomplete="off" spellcheck="false" aria-label="Buscar falacia por nombre o descripción"></div>
+    <button class="filter-chip active" aria-pressed="true" data-filter="all" data-target="falacias">Todas</button>
+    <button class="filter-chip" aria-pressed="false" data-filter="relevancia" data-target="falacias">Relevancia</button>
+    <button class="filter-chip" aria-pressed="false" data-filter="causa" data-target="falacias">Causa</button>
+    <button class="filter-chip" aria-pressed="false" data-filter="lenguaje" data-target="falacias">Lenguaje</button>
+    <button class="filter-chip" aria-pressed="false" data-filter="induccion" data-target="falacias">Inducción</button>
+    <button class="filter-chip" aria-pressed="false" data-filter="presuncion" data-target="falacias">Presunción</button>
   </div>
+  <p class="result-count" id="countFalacias" aria-live="polite"></p>
   <div class="study-banner">👁️ Modo estudio activo.</div>
   <div class="cards-grid" id="gridFalacias"></div>
 </section>
@@ -200,7 +203,7 @@
     <div class="check-progress-bar"><div class="check-progress-fill" id="checkFill"></div></div>
     <span id="checkCount">0/12</span>
   </div>
-  <div class="checklist reveal" id="checklist"></div>
+  <div class="checklist reveal" id="checklist" role="group" aria-label="Las 12 preguntas universales"></div>
 
   <div class="section-head reveal" style="margin-top:2.5rem;margin-bottom:1.2rem;">
     <h3 style="font-size:1.15rem;color:var(--red);">🚩 Señales de alarma universales</h3>
@@ -226,11 +229,12 @@
     <p style="font-size:0.9rem;">Señales específicas y pregunta clave para cada sesgo y falacia.</p>
   </div>
   <div class="detector-controls reveal">
-    <div class="search-box"><input type="text" id="searchDetector" placeholder="Buscar en el detector..."></div>
-    <button class="filter-chip active" data-dfilter="all">Todos</button>
-    <button class="filter-chip" data-dfilter="sesgo">Sesgos</button>
-    <button class="filter-chip" data-dfilter="falacia">Falacias</button>
+    <div class="search-box"><input type="search" id="searchDetector" placeholder="Buscar en el detector…" autocomplete="off" spellcheck="false" aria-label="Buscar en el detector por concepto o señal"></div>
+    <button class="filter-chip active" aria-pressed="true" data-dfilter="all">Todos</button>
+    <button class="filter-chip" aria-pressed="false" data-dfilter="sesgo">Sesgos</button>
+    <button class="filter-chip" aria-pressed="false" data-dfilter="falacia">Falacias</button>
   </div>
+  <p class="result-count" id="countDetector" aria-live="polite"></p>
   <div class="detector-grid" id="detectorGrid"></div>
 
   <div class="section-head reveal" style="margin-top:3rem;margin-bottom:1.2rem;">
@@ -239,13 +243,14 @@
   </div>
   <div class="analyzer reveal">
     <p class="analyzer-intro">El resultado es orientativo: no prueba que el mensaje sea falso, pero indica cuánta cautela deberías aplicar.</p>
-    <div class="analyzer-list" id="analyzerList"></div>
-    <div class="analyzer-result" id="analyzerResult">
+    <p class="analyzer-count" id="analyzerCount" aria-live="polite">0 de 10 señales marcadas</p>
+    <div class="analyzer-list" id="analyzerList" role="group" aria-label="Señales de manipulación"></div>
+    <div class="analyzer-result" id="analyzerResult" role="status">
       <div class="ar-score" id="arScore">0</div>
       <div class="ar-label" id="arLabel"></div>
       <div class="ar-desc" id="arDesc"></div>
     </div>
-    <button class="analyzer-reset" id="analyzerReset">🔄 Reiniciar análisis</button>
+    <button class="analyzer-reset" id="analyzerReset" type="button">🔄 Reiniciar análisis</button>
   </div>
 </section>
 
@@ -255,30 +260,30 @@
     <h2>Antídotos: qué funciona según la investigación</h2>
     <p>No puedes "desactivar" los sesgos, pero la evidencia meta-analítica muestra que el entrenamiento con estrategias concretas produce mejoras medibles.</p>
   </div>
-  <div class="antidote-tabs">
-    <button class="tab-btn active" data-tab="mental">🧠 Entrenar la mente</button>
-    <button class="tab-btn" data-tab="social">🌍 Entrenar el entorno</button>
-    <button class="tab-btn" data-tab="practica">🛠️ Práctica diaria</button>
+  <div class="antidote-tabs" role="tablist" aria-label="Tipos de antídoto">
+    <button class="tab-btn active" id="tabbtn-mental" role="tab" aria-selected="true" aria-controls="tab-mental" data-tab="mental">🧠 Entrenar la mente</button>
+    <button class="tab-btn" id="tabbtn-social" role="tab" aria-selected="false" aria-controls="tab-social" tabindex="-1" data-tab="social">🌍 Entrenar el entorno</button>
+    <button class="tab-btn" id="tabbtn-practica" role="tab" aria-selected="false" aria-controls="tab-practica" tabindex="-1" data-tab="practica">🛠️ Práctica diaria</button>
   </div>
-  <div class="tab-panel active" id="tab-mental">
+  <div class="tab-panel active" id="tab-mental" role="tabpanel" aria-labelledby="tabbtn-mental" tabindex="0">
     <div class="antidote-list">
-      <div class="antidote-item"><h4>1. "Considerar lo opuesto"</h4><p>Obliga al Sistema 2 a generar razones contra la propia posición, contrarrestando el <em>myside bias</em>. Es una de las estrategias con mayor efecto en el meta-análisis de 2025.</p><div class="how"><strong>Evidencia:</strong> Swaryandini et al. (2025). <strong>Cómo:</strong> Escribe tu opinión y tres razones por las que podrías estar equivocado.</div></div>
-      <div class="antidote-item"><h4>2. Dar tiempo para deliberar</h4><p>El pensamiento rápido es un motor de la creencia en desinformación. Dar tiempo reduce la creencia en titulares falsos.</p><div class="how"><strong>Evidencia:</strong> Efstratiou (2023). <strong>Cómo:</strong> Regla de los 10 minutos antes de compartir algo que te indigna.</div></div>
-      <div class="antidote-item"><h4>3. Recordatorios de precisión</h4><p>Simples recordatorios sobre la importancia de la precisión mejoran la distinción verdad/falsedad, incluso en experimentos de campo en Twitter.</p><div class="how"><strong>Evidencia:</strong> Efstratiou (2023). <strong>Cómo:</strong> Antes de compartir: "¿Es esto preciso? ¿Lo he verificado?".</div></div>
+      <div class="antidote-item"><h3>1. "Considerar lo opuesto"</h3><p>Obliga al Sistema 2 a generar razones contra la propia posición, contrarrestando el <em>myside bias</em>. Es una de las estrategias con mayor efecto en el meta-análisis de 2025.</p><div class="how"><strong>Evidencia:</strong> Swaryandini et al. (2025). <strong>Cómo:</strong> Escribe tu opinión y tres razones por las que podrías estar equivocado.</div></div>
+      <div class="antidote-item"><h3>2. Dar tiempo para deliberar</h3><p>El pensamiento rápido es un motor de la creencia en desinformación. Dar tiempo reduce la creencia en titulares falsos.</p><div class="how"><strong>Evidencia:</strong> Efstratiou (2023). <strong>Cómo:</strong> Regla de los 10 minutos antes de compartir algo que te indigna.</div></div>
+      <div class="antidote-item"><h3>3. Recordatorios de precisión</h3><p>Simples recordatorios sobre la importancia de la precisión mejoran la distinción verdad/falsedad, incluso en experimentos de campo en Twitter.</p><div class="how"><strong>Evidencia:</strong> Efstratiou (2023). <strong>Cómo:</strong> Antes de compartir: "¿Es esto preciso? ¿Lo he verificado?".</div></div>
     </div>
   </div>
-  <div class="tab-panel" id="tab-social">
+  <div class="tab-panel" id="tab-social" role="tabpanel" aria-labelledby="tabbtn-social" tabindex="0">
     <div class="antidote-list">
-      <div class="antidote-item"><h4>1. Discernimiento de fuentes</h4><p>No aceptes información sin verificar su origen. La fuente primaria siempre es mejor que la interpretación.</p><div class="how"><strong>Cómo:</strong> ¿Quién lo dice? ¿Es fuente primaria? ¿Cuál es su interés? ¿Qué dicen fuentes opuestas?</div></div>
-      <div class="antidote-item"><h4>2. Escapar de la burbuja de filtro</h4><p>Los algoritmos amplifican el sesgo de confirmación. La exposición selectiva es casi el doble de probable hacia información congenial.</p><div class="how"><strong>Evidencia:</strong> Hart et al. (2009). <strong>Cómo:</strong> Sigue a personas rigurosas con puntos de vista diferentes.</div></div>
-      <div class="antidote-item"><h4>3. Diario de sesgos</h4><p>La autoobservación entrena la metacognición, la base del pensamiento crítico.</p><div class="how"><strong>Evidencia:</strong> Revisión sistemática (2025). <strong>Cómo:</strong> Cada noche, anota una situación y el sesgo que pudo operar.</div></div>
+      <div class="antidote-item"><h3>1. Discernimiento de fuentes</h3><p>No aceptes información sin verificar su origen. La fuente primaria siempre es mejor que la interpretación.</p><div class="how"><strong>Cómo:</strong> ¿Quién lo dice? ¿Es fuente primaria? ¿Cuál es su interés? ¿Qué dicen fuentes opuestas?</div></div>
+      <div class="antidote-item"><h3>2. Escapar de la burbuja de filtro</h3><p>Los algoritmos amplifican el sesgo de confirmación. La exposición selectiva es casi el doble de probable hacia información congenial.</p><div class="how"><strong>Evidencia:</strong> Hart et al. (2009). <strong>Cómo:</strong> Sigue a personas rigurosas con puntos de vista diferentes.</div></div>
+      <div class="antidote-item"><h3>3. Diario de sesgos</h3><p>La autoobservación entrena la metacognición, la base del pensamiento crítico.</p><div class="how"><strong>Evidencia:</strong> Revisión sistemática (2025). <strong>Cómo:</strong> Cada noche, anota una situación y el sesgo que pudo operar.</div></div>
     </div>
   </div>
-  <div class="tab-panel" id="tab-practica">
+  <div class="tab-panel" id="tab-practica" role="tabpanel" aria-labelledby="tabbtn-practica" tabindex="0">
     <div class="antidote-list">
-      <div class="antidote-item"><h4>1. La regla de las tres fuentes</h4><p>Antes de formarte una opinión importante, consulta al menos tres fuentes con perspectivas distintas.</p><div class="how"><strong>Cómo:</strong> Medio afín, medio contrario y medio internacional. Compara hechos e interpretaciones.</div></div>
-      <div class="antidote-item"><h4>2. El test de la inversión</h4><p>Pregúntate qué tendría que ser verdad para que tu decisión sea un error.</p><div class="how"><strong>Cómo:</strong> Si vas a comprar por impulso, espera 48 horas. Si ya no lo quieres, era un sesgo.</div></div>
-      <div class="antidote-item"><h4>3. Etiquetar la falacia en voz alta</h4><p>Ponerle nombre a la falacia activa el Sistema 2 y te da distancia crítica. La teoría de Walton permite distinguir cuándo un ataque es legítimo y cuándo es falaz.</p><div class="how"><strong>Evidencia:</strong> Walton (1995). <strong>Cómo:</strong> "Eso es un ad hominem", "Eso es cherry picking".</div></div>
+      <div class="antidote-item"><h3>1. La regla de las tres fuentes</h3><p>Antes de formarte una opinión importante, consulta al menos tres fuentes con perspectivas distintas.</p><div class="how"><strong>Cómo:</strong> Medio afín, medio contrario y medio internacional. Compara hechos e interpretaciones.</div></div>
+      <div class="antidote-item"><h3>2. El test de la inversión</h3><p>Pregúntate qué tendría que ser verdad para que tu decisión sea un error.</p><div class="how"><strong>Cómo:</strong> Si vas a comprar por impulso, espera 48 horas. Si ya no lo quieres, era un sesgo.</div></div>
+      <div class="antidote-item"><h3>3. Etiquetar la falacia en voz alta</h3><p>Ponerle nombre a la falacia activa el Sistema 2 y te da distancia crítica. La teoría de Walton permite distinguir cuándo un ataque es legítimo y cuándo es falaz.</p><div class="how"><strong>Evidencia:</strong> Walton (1995). <strong>Cómo:</strong> "Eso es un ad hominem", "Eso es cherry picking".</div></div>
     </div>
   </div>
 </section>
@@ -318,17 +323,18 @@
     <h2>Tests: ¿detectarías la manipulación?</h2>
     <p>Elige el modo. Cada test tiene preguntas distintas, retroalimentación explicada y referencias clicables.</p>
   </div>
-  <div class="test-selector reveal">
-    <button class="test-btn active" data-test="sesgos">🧠 Test de Sesgos</button>
-    <button class="test-btn falacia" data-test="falacias">⚖️ Test de Falacias</button>
-    <button class="test-btn deteccion" data-test="deteccion">🕵️ Test de Detección</button>
+  <div class="test-selector reveal" role="group" aria-label="Elige un test">
+    <button class="test-btn active" data-test="sesgos" aria-pressed="true">🧠 Test de Sesgos</button>
+    <button class="test-btn falacia" data-test="falacias" aria-pressed="false">⚖️ Test de Falacias</button>
+    <button class="test-btn deteccion" data-test="deteccion" aria-pressed="false">🕵️ Test de Detección</button>
   </div>
   <div class="quiz-box">
+    <p class="quiz-step" id="quizStep" aria-live="polite"></p>
     <div class="quiz-progress"><div class="quiz-progress-bar" id="quizBar"></div></div>
     <div id="quizContent">
       <div class="quiz-q" id="quizQ"></div>
-      <div class="quiz-options" id="quizOptions"></div>
-      <div class="quiz-feedback" id="quizFeedback"></div>
+      <div class="quiz-options" id="quizOptions" role="group" aria-label="Opciones de respuesta"></div>
+      <div class="quiz-feedback" id="quizFeedback" role="status" aria-live="polite"></div>
       <button class="quiz-next" id="quizNext">Siguiente →</button>
     </div>
     <div class="quiz-result" id="quizResult">
@@ -351,7 +357,7 @@
       <p class="footer-note">Guía educativa sobre sesgos cognitivos y falacias lógicas. Cada tarjeta cita su fuente académica: la credibilidad también se construye con evidencia.</p>
     </div>
     <div class="footer-col">
-      <h4>Guía</h4>
+      <h2 class="footer-title">Guía</h2>
       <a href="#marco">El marco</a>
       <a href="#sesgos">Sesgos cognitivos</a>
       <a href="#falacias">Falacias lógicas</a>
@@ -359,7 +365,7 @@
       <a href="#test">Tests</a>
     </div>
     <div class="footer-col">
-      <h4>Contacto</h4>
+      <h2 class="footer-title">Contacto</h2>
       <a href="mailto:info@andreumatic.com">info@andreumatic.com</a>
       <a href="https://andreumatic.com" target="_blank" rel="noopener">andreumatic.com</a>
     </div>
@@ -371,6 +377,8 @@
     </div>
   </div>
 </footer>
+
+<button class="to-top" id="toTop" type="button" aria-label="Volver arriba"><span aria-hidden="true">↑</span></button>
 
 <script>
 /* ==================== DATA ==================== */
@@ -805,20 +813,39 @@ const testBanks = {
 
 /* ==================== RENDER ==================== */
 
+/* ==================== UTILIDADES ==================== */
+const $ = (sel, root = document) => root.querySelector(sel);
+const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
+
+/* Activa con clic y con teclado (Enter / Espacio) cualquier elemento focusable */
+function onActivate(el, fn) {
+  el.addEventListener('click', e => fn(e));
+  el.addEventListener('keydown', e => {
+    if (e.target !== el) return;
+    if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+      e.preventDefault();
+      fn(e);
+    }
+  });
+}
+
+/* ==================== TARJETAS DE CONCEPTOS ==================== */
+
 function renderCards(data, gridId, type) {
   const grid = document.getElementById(gridId);
-  grid.innerHTML = data.map(item => `
-    <div class="card ${type === 'falacia' ? 'fallacy' : ''}" data-cat="${item.cat}" data-search="${(item.nombre + ' ' + item.def + ' ' + item.ejemplo).toLowerCase()}">
+  grid.innerHTML = data.map((item, idx) => `
+    <article class="card ${type === 'falacia' ? 'fallacy' : ''}" id="${type}-${item.id}" role="button" tabindex="0" aria-expanded="false"
+      data-cat="${item.cat}" data-search="${(item.nombre + ' ' + item.def + ' ' + item.ejemplo).toLowerCase()}">
       <div class="card-header">
-        <span class="card-emoji">${item.emoji}</span>
-        <span class="card-title ${type === 'falacia' ? 'orange' : 'purple'}">${item.nombre}</span>
+        <span class="card-emoji" aria-hidden="true">${item.emoji}</span>
+        <h3 class="card-title ${type === 'falacia' ? 'orange' : 'purple'}">${item.nombre}</h3>
       </div>
-      <div class="card-def">${item.def}</div>
+      <p class="card-def">${item.def}</p>
       <div class="card-example">
         <span class="label">Ejemplo</span>
         <span class="content">${item.ejemplo}</span>
       </div>
-      <div class="card-expand">
+      <div class="card-expand" id="${type}-${item.id}-panel">
         <div class="deep-block">
           <h4 class="prof">🔬 Explicación profunda</h4>
           <p>${item.profundo}</p>
@@ -836,17 +863,29 @@ function renderCards(data, gridId, type) {
           <div class="cite">${item.evid}</div>
         </div>
       </div>
-      <div class="expand-hint"><span class="arrow">▼</span> Ver análisis completo y fuente</div>
-    </div>
+      <div class="expand-hint" aria-hidden="true"><span class="arrow">▼</span> Ver análisis completo y fuente</div>
+    </article>
   `).join('');
 
   grid.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('click', () => {
-      card.classList.toggle('expanded');
-      const hint = card.querySelector('.expand-hint');
-      hint.innerHTML = card.classList.contains('expanded')
+    const hint = card.querySelector('.expand-hint');
+    const toggle = () => {
+      const open = card.classList.toggle('expanded');
+      card.setAttribute('aria-expanded', open ? 'true' : 'false');
+      hint.innerHTML = open
         ? '<span class="arrow">▼</span> Ocultar análisis'
         : '<span class="arrow">▼</span> Ver análisis completo y fuente';
+    };
+    card.addEventListener('click', e => {
+      if (e.target.closest('a, button')) return;
+      toggle();
+    });
+    card.addEventListener('keydown', e => {
+      if (e.target !== card) return;
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+        e.preventDefault();
+        toggle();
+      }
     });
   });
 }
@@ -858,7 +897,7 @@ document.getElementById('gridPares').innerHTML = pares.map(p => `
   <div class="pair-card">
     <div class="pair-top">
       <span class="pair-pill ${p.sesgoPill === 'purple' ? 'pill-purple' : 'pill-orange'}">${p.sesgo}</span>
-      <span class="pair-arrow">→</span>
+      <span class="pair-arrow" aria-hidden="true">→</span>
       <span class="pair-pill ${p.falaciaPill === 'orange' ? 'pill-orange' : 'pill-purple'}">${p.falacia}</span>
     </div>
     <p class="pair-desc">${p.desc}</p>
@@ -869,35 +908,103 @@ document.getElementById('statSesgos').textContent = sesgos.length;
 document.getElementById('statFalacias').textContent = falacias.length;
 document.getElementById('statPares').textContent = pares.length;
 
-/* ==================== DETECTOR RENDER ==================== */
+/* ==================== BUSCADOR + FILTROS ==================== */
+
+function setupFilter(searchId, gridId, chipSelector, countId) {
+  const search = document.getElementById(searchId);
+  const grid = document.getElementById(gridId);
+  const countEl = document.getElementById(countId);
+  const cards = $$('.card', grid);
+  let activeFilter = 'all';
+
+  function apply() {
+    const q = search.value.toLowerCase().trim();
+    let shown = 0;
+    cards.forEach(card => {
+      const matchCat = activeFilter === 'all' || card.dataset.cat === activeFilter;
+      const matchSearch = !q || card.dataset.search.includes(q);
+      const visible = matchCat && matchSearch;
+      card.style.display = visible ? '' : 'none';
+      if (visible) shown++;
+    });
+    if (countEl) {
+      countEl.textContent = shown === 0
+        ? 'Ningún concepto coincide. Prueba otra palabra o quita el filtro.'
+        : shown === cards.length
+          ? cards.length + ' conceptos'
+          : shown + ' de ' + cards.length + ' conceptos';
+    }
+  }
+
+  let t;
+  search.addEventListener('input', () => {
+    clearTimeout(t);
+    t = setTimeout(apply, 90);
+  });
+  search.addEventListener('search', apply);
+
+  $$(chipSelector).forEach(chip => {
+    chip.addEventListener('click', () => {
+      $$(chipSelector).forEach(c => {
+        c.classList.remove('active');
+        c.setAttribute('aria-pressed', 'false');
+      });
+      chip.classList.add('active');
+      chip.setAttribute('aria-pressed', 'true');
+      activeFilter = chip.dataset.filter;
+      apply();
+    });
+  });
+
+  apply();
+}
+
+setupFilter('searchSesgos', 'gridSesgos', '[data-target="sesgos"]', 'countSesgos');
+setupFilter('searchFalacias', 'gridFalacias', '[data-target="falacias"]', 'countFalacias');
+
+/* ==================== CHECKLIST DE 12 PREGUNTAS ==================== */
 
 const checklistEl = document.getElementById('checklist');
 checklistEl.innerHTML = preguntasUniversales.map((q, i) => `
-  <div class="check-item" data-i="${i}">
-    <div class="check-box"></div>
-    <div class="check-text"><strong>${i + 1}.</strong> ${q}</div>
+  <div class="check-item" data-i="${i}" role="checkbox" tabindex="0" aria-checked="false">
+    <span class="check-box" aria-hidden="true"></span>
+    <span class="check-text"><strong>${i + 1}.</strong> ${q}</span>
   </div>
 `).join('');
 
 let checkState = new Array(preguntasUniversales.length).fill(false);
+
 function updateCheckProgress() {
   const n = checkState.filter(Boolean).length;
-  document.getElementById('checkCount').textContent = n + '/' + preguntasUniversales.length;
-  document.getElementById('checkFill').style.width = (n / preguntasUniversales.length * 100) + '%';
+  const total = preguntasUniversales.length;
+  const count = document.getElementById('checkCount');
+  count.textContent = n + ' de ' + total;
+  document.getElementById('checkFill').style.width = (n / total * 100) + '%';
+  const bar = document.querySelector('.check-progress-bar');
+  bar.setAttribute('role', 'progressbar');
+  bar.setAttribute('aria-valuemin', '0');
+  bar.setAttribute('aria-valuemax', String(total));
+  bar.setAttribute('aria-valuenow', String(n));
+  bar.setAttribute('aria-label', 'Preguntas marcadas');
 }
-checklistEl.querySelectorAll('.check-item').forEach(item => {
-  item.addEventListener('click', () => {
-    const i = parseInt(item.dataset.i);
+
+$$('.check-item', checklistEl).forEach(item => {
+  const toggle = () => {
+    const i = parseInt(item.dataset.i, 10);
     checkState[i] = !checkState[i];
     item.classList.toggle('checked', checkState[i]);
+    item.setAttribute('aria-checked', checkState[i] ? 'true' : 'false');
     updateCheckProgress();
-  });
+  };
+  onActivate(item, toggle);
 });
 updateCheckProgress();
 
+/* ==================== DETECTOR POR CONCEPTO ==================== */
+
 const allConcepts = [
-  ...sesgos.map(s => ({...s, tipo:'sesgo'})),
-  ...falacias.map(f => ({...f, tipo:'falacia'}))
+  ...sesgos.map(s => ({ ...s, tipo: 'sesgo' })),
+  ...falacias.map(f => ({ ...f, tipo: 'falacia' }))
 ];
 
 function renderDetector() {
@@ -921,8 +1028,8 @@ function renderDetector() {
     return `
       <div class="detector-card ${c.tipo === 'falacia' ? 'falacia' : ''}">
         <div class="dc-head">
-          <span class="dc-emoji">${c.emoji}</span>
-          <span class="dc-title ${c.tipo === 'falacia' ? 'orange' : 'purple'}">${c.nombre}</span>
+          <span class="dc-emoji" aria-hidden="true">${c.emoji}</span>
+          <h4 class="dc-title ${c.tipo === 'falacia' ? 'orange' : 'purple'}">${c.nombre}</h4>
         </div>
         <span class="dc-label senales">🚩 Señales</span>
         <ul class="dc-senales">${d.senales.map(s => `<li>${s}</li>`).join('')}</ul>
@@ -930,37 +1037,56 @@ function renderDetector() {
         <div class="dc-pregunta">"${d.pregunta}"</div>
       </div>
     `;
-  }).join('') || '<p style="color:var(--muted);font-size:0.9rem;">No hay resultados.</p>';
+  }).join('');
+
+  const countEl = document.getElementById('countDetector');
+  countEl.textContent = filtered.length === 0
+    ? 'Ningún concepto coincide. Prueba otra palabra o quita el filtro.'
+    : filtered.length + ' de ' + allConcepts.length + ' conceptos';
 }
 
 document.getElementById('searchDetector').addEventListener('input', renderDetector);
 document.querySelectorAll('[data-dfilter]').forEach(chip => {
   chip.addEventListener('click', () => {
-    document.querySelectorAll('[data-dfilter]').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('[data-dfilter]').forEach(c => {
+      c.classList.remove('active');
+      c.setAttribute('aria-pressed', 'false');
+    });
     chip.classList.add('active');
+    chip.setAttribute('aria-pressed', 'true');
     renderDetector();
   });
 });
 renderDetector();
 
+/* ==================== ANALIZADOR INTERACTIVO ==================== */
+
 const analyzerList = document.getElementById('analyzerList');
+const AZ_TOTAL = analyzerItems.length;
+
 analyzerList.innerHTML = analyzerItems.map((t, i) => `
-  <div class="analyzer-item" data-i="${i}">
-    <div class="ai-box"></div>
-    <div>${t}</div>
+  <div class="analyzer-item" data-i="${i}" role="checkbox" tabindex="0" aria-checked="false">
+    <span class="ai-box" aria-hidden="true"></span>
+    <span class="ai-text">${t}</span>
   </div>
 `).join('');
 
-let analyzerState = new Array(analyzerItems.length).fill(false);
+let analyzerState = new Array(AZ_TOTAL).fill(false);
 let analyzerActive = false;
 
 function updateAnalyzer() {
   const n = analyzerState.filter(Boolean).length;
   const res = document.getElementById('analyzerResult');
-  if (!analyzerActive) { res.classList.remove('show'); return; }
+  const countEl = document.getElementById('analyzerCount');
+  if (countEl) countEl.textContent = n + ' de ' + AZ_TOTAL + ' señales marcadas';
+
+  if (!analyzerActive || n === 0) {
+    res.classList.remove('show', 'low', 'mid', 'high');
+    return;
+  }
   res.classList.add('show');
   res.classList.remove('low', 'mid', 'high');
-  document.getElementById('arScore').textContent = n + '/' + analyzerItems.length;
+  document.getElementById('arScore').textContent = n + '/' + AZ_TOTAL;
   let label, desc, cls;
   if (n <= 2) {
     label = 'Riesgo bajo';
@@ -980,72 +1106,72 @@ function updateAnalyzer() {
   res.classList.add(cls);
 }
 
-analyzerList.querySelectorAll('.analyzer-item').forEach(item => {
-  item.addEventListener('click', () => {
-    const i = parseInt(item.dataset.i);
+$$('.analyzer-item', analyzerList).forEach(item => {
+  const toggle = () => {
+    const i = parseInt(item.dataset.i, 10);
     analyzerState[i] = !analyzerState[i];
-    item.classList.toggle('on', analyzerState[i]);
+    item.classList.toggle('checked', analyzerState[i]);
+    item.setAttribute('aria-checked', analyzerState[i] ? 'true' : 'false');
     analyzerActive = true;
     updateAnalyzer();
-  });
+  };
+  onActivate(item, toggle);
 });
 
 document.getElementById('analyzerReset').addEventListener('click', () => {
-  analyzerState = new Array(analyzerItems.length).fill(false);
-  analyzerList.querySelectorAll('.analyzer-item').forEach(i => i.classList.remove('on'));
+  analyzerState = new Array(AZ_TOTAL).fill(false);
+  $$('.analyzer-item', analyzerList).forEach(i => {
+    i.classList.remove('checked');
+    i.setAttribute('aria-checked', 'false');
+  });
   analyzerActive = false;
   document.getElementById('analyzerResult').classList.remove('show', 'low', 'mid', 'high');
+  updateAnalyzer();
+  const first = $('.analyzer-item', analyzerList);
+  if (first) first.focus();
 });
 
-/* ==================== SEARCH & FILTER ==================== */
+updateAnalyzer();
 
-function setupFilter(searchId, gridId, chipSelector) {
-  const search = document.getElementById(searchId);
-  const grid = document.getElementById(gridId);
-  let activeFilter = 'all';
-  function apply() {
-    const q = search.value.toLowerCase().trim();
-    grid.querySelectorAll('.card').forEach(card => {
-      const matchCat = activeFilter === 'all' || card.dataset.cat === activeFilter;
-      const matchSearch = !q || card.dataset.search.includes(q);
-      card.style.display = (matchCat && matchSearch) ? '' : 'none';
-    });
-  }
-  search.addEventListener('input', apply);
-  document.querySelectorAll(chipSelector).forEach(chip => {
-    chip.addEventListener('click', () => {
-      document.querySelectorAll(chipSelector).forEach(c => c.classList.remove('active'));
-      chip.classList.add('active');
-      activeFilter = chip.dataset.filter;
-      apply();
-    });
+/* ==================== MODO ESTUDIO ==================== */
+
+document.getElementById('studyToggle').addEventListener('click', function () {
+  const on = document.body.classList.toggle('study-mode');
+  this.classList.toggle('on', on);
+  this.setAttribute('aria-pressed', on ? 'true' : 'false');
+  const label = this.querySelector('.st-txt');
+  if (label) label.textContent = on ? 'Estudio: ON' : 'Modo estudio';
+});
+
+/* ==================== PESTAÑAS DE ANTÍDOTOS ==================== */
+
+const tabBtns = $$('.tab-btn');
+function selectTab(btn, focus) {
+  tabBtns.forEach(b => {
+    const on = b === btn;
+    b.classList.toggle('active', on);
+    b.setAttribute('aria-selected', on ? 'true' : 'false');
+    b.setAttribute('tabindex', on ? '0' : '-1');
+    const panel = document.getElementById('tab-' + b.dataset.tab);
+    if (panel) panel.classList.toggle('active', on);
   });
+  if (focus) btn.focus();
 }
-setupFilter('searchSesgos', 'gridSesgos', '[data-target="sesgos"]');
-setupFilter('searchFalacias', 'gridFalacias', '[data-target="falacias"]');
-
-/* ==================== STUDY MODE ==================== */
-
-document.getElementById('studyToggle').addEventListener('click', function() {
-  document.body.classList.toggle('study-mode');
-  this.classList.toggle('on');
-  this.innerHTML = document.body.classList.contains('study-mode')
-    ? '<span>👁️</span> Estudio: ON'
-    : '<span>👁️</span> Modo estudio';
-});
-
-/* ==================== TABS ==================== */
-
-document.querySelectorAll('.tab-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+tabBtns.forEach((btn, idx) => {
+  btn.addEventListener('click', () => selectTab(btn));
+  btn.addEventListener('keydown', e => {
+    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft' && e.key !== 'Home' && e.key !== 'End') return;
+    e.preventDefault();
+    let next = idx;
+    if (e.key === 'ArrowRight') next = (idx + 1) % tabBtns.length;
+    if (e.key === 'ArrowLeft') next = (idx - 1 + tabBtns.length) % tabBtns.length;
+    if (e.key === 'Home') next = 0;
+    if (e.key === 'End') next = tabBtns.length - 1;
+    selectTab(tabBtns[next], true);
   });
 });
 
-/* ==================== MULTI-TEST ==================== */
+/* ==================== TESTS ==================== */
 
 let currentTest = 'sesgos';
 let quizIndex = 0, quizScore = 0, quizAnswered = false;
@@ -1062,7 +1188,9 @@ function loadTest(testName) {
 
 function renderQuiz() {
   const bank = testBanks[currentTest];
+  const step = document.getElementById('quizStep');
   if (quizIndex >= bank.length) {
+    step.textContent = 'Resultado final · ' + bank.length + ' preguntas';
     document.getElementById('quizContent').style.display = 'none';
     document.getElementById('quizResult').classList.add('show');
     document.getElementById('quizScore').textContent = quizScore + '/' + bank.length;
@@ -1072,9 +1200,11 @@ function renderQuiz() {
     else if (quizScore >= Math.ceil(bank.length / 2)) msg = 'Aprobado justo. Repasa los conceptos donde fallaste.';
     document.getElementById('quizMsg').textContent = msg;
     document.getElementById('quizBar').style.width = '100%';
+    document.getElementById('quizRestart').focus();
     return;
   }
   const q = bank[quizIndex];
+  step.textContent = 'Pregunta ' + (quizIndex + 1) + ' de ' + bank.length;
   document.getElementById('quizQ').textContent = (quizIndex + 1) + '. ' + q.q;
   document.getElementById('quizBar').style.width = (quizIndex / bank.length * 100) + '%';
   document.getElementById('quizFeedback').classList.remove('show');
@@ -1082,17 +1212,18 @@ function renderQuiz() {
   quizAnswered = false;
 
   const opts = document.getElementById('quizOptions');
-  opts.innerHTML = q.opts.map((o, i) => `<button class="quiz-opt" data-i="${i}">${o}</button>`).join('');
+  opts.innerHTML = q.opts.map((o, i) => `<button class="quiz-opt" data-i="${i}" type="button">${o}</button>`).join('');
 
   opts.querySelectorAll('.quiz-opt').forEach(btn => {
     btn.addEventListener('click', () => {
       if (quizAnswered) return;
       quizAnswered = true;
-      const chosen = parseInt(btn.dataset.i);
+      const chosen = parseInt(btn.dataset.i, 10);
       const fb = document.getElementById('quizFeedback');
       opts.querySelectorAll('.quiz-opt').forEach(b => b.disabled = true);
       if (chosen === q.correct) {
-        btn.classList.add('correct'); quizScore++;
+        btn.classList.add('correct');
+        quizScore++;
         fb.className = 'quiz-feedback ok show';
         fb.innerHTML = '✅ Correcto. ' + q.explain;
       } else {
@@ -1101,22 +1232,29 @@ function renderQuiz() {
         fb.className = 'quiz-feedback ko show';
         fb.innerHTML = '❌ Incorrecto. ' + q.explain;
       }
-      document.getElementById('quizNext').classList.add('show');
+      const next = document.getElementById('quizNext');
+      next.classList.add('show');
+      next.focus();
     });
   });
 }
 
-document.querySelectorAll('.test-btn').forEach(btn => {
+$$('.test-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    document.querySelectorAll('.test-btn').forEach(b => b.classList.remove('active'));
+    $$('.test-btn').forEach(b => {
+      b.classList.remove('active');
+      b.setAttribute('aria-pressed', 'false');
+    });
     btn.classList.add('active');
+    btn.setAttribute('aria-pressed', 'true');
     loadTest(btn.dataset.test);
   });
 });
 
 document.getElementById('quizNext').addEventListener('click', () => { quizIndex++; renderQuiz(); });
 document.getElementById('quizRestart').addEventListener('click', () => {
-  quizIndex = 0; quizScore = 0;
+  quizIndex = 0;
+  quizScore = 0;
   document.getElementById('quizContent').style.display = '';
   document.getElementById('quizResult').classList.remove('show');
   renderQuiz();
@@ -1124,19 +1262,85 @@ document.getElementById('quizRestart').addEventListener('click', () => {
 
 loadTest('sesgos');
 
-/* ==================== NAV + REVEAL ==================== */
+/* ==================== NAVEGACIÓN ==================== */
+/* Altura real del header en una variable CSS: anclas, scrollspy y foco dependen de ella */
+const headerEl = document.querySelector('.site-header');
+function syncHeaderHeight() {
+  document.documentElement.style.setProperty('--header-h', headerEl.offsetHeight + 'px');
+}
+syncHeaderHeight();
+addEventListener('resize', syncHeaderHeight);
+addEventListener('load', syncHeaderHeight);
+addEventListener('orientationchange', syncHeaderHeight);
 
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(sec => { if (window.scrollY >= sec.offsetTop - 120) current = sec.id; });
-  navLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
+const sections = $$('main section[id]');
+const navLinks = $$('.nav-links a');
+
+function updateSpy() {
+  const line = scrollY + headerEl.offsetHeight + 48;
+  let current = sections[0];
+  sections.forEach(sec => { if (sec.offsetTop <= line) current = sec; });
+  if (current) {
+    navLinks.forEach(a => {
+      const on = a.getAttribute('href') === '#' + current.id;
+      a.classList.toggle('active', on);
+      if (on) a.setAttribute('aria-current', 'true');
+      else a.removeAttribute('aria-current');
+    });
+    const active = navLinks.find(a => a.classList.contains('active'));
+    if (active && active.parentElement) {
+      const rail = active.parentElement;
+      const railRect = rail.getBoundingClientRect();
+      const aRect = active.getBoundingClientRect();
+      const delta = (aRect.left - railRect.left) - (railRect.width - aRect.width) / 2;
+      if (Math.abs(delta) > 40) rail.scrollTo({ left: rail.scrollLeft + delta, behavior: 'smooth' });
+    }
+  }
+  updateReadProgress();
+}
+
+let ticking = false;
+addEventListener('scroll', () => {
+  if (ticking) return;
+  ticking = true;
+  requestAnimationFrame(() => { updateSpy(); ticking = false; });
+}, { passive: true });
+
+/* Barra de progreso de lectura + botón de volver arriba */
+const readbar = document.getElementById('readbar');
+const toTop = document.getElementById('toTop');
+function updateReadProgress() {
+  const max = document.documentElement.scrollHeight - innerHeight;
+  const pct = max > 0 ? Math.min(100, Math.max(0, scrollY / max * 100)) : 0;
+  readbar.style.width = pct + '%';
+  readbar.parentElement.setAttribute('aria-valuenow', String(Math.round(pct)));
+  toTop.classList.toggle('show', scrollY > 700);
+}
+toTop.addEventListener('click', () => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+  const skip = document.querySelector('.skip');
+  if (skip) skip.focus({ preventScroll: true });
 });
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+updateSpy();
+
+/* Navegación anterior / siguiente al final de cada sección */
+const sectionLabels = navLinks.map(a => ({ id: a.getAttribute('href').slice(1), label: a.textContent.trim() }));
+sections.forEach(sec => {
+  const i = sectionLabels.findIndex(s => s.id === sec.id);
+  if (i === -1) return;
+  const prev = sectionLabels[i - 1];
+  const next = sectionLabels[i + 1];
+  const nav = document.createElement('nav');
+  nav.className = 'sec-nav';
+  nav.setAttribute('aria-label', 'Navegación entre secciones');
+  nav.innerHTML = `
+    ${prev ? `<a class="sec-prev" href="#${prev.id}"><span aria-hidden="true">←</span> ${prev.label}</a>` : '<span></span>'}
+    ${next ? `<a class="sec-next" href="#${next.id}">${next.label} <span aria-hidden="true">→</span></a>` : '<span></span>'}
+  `;
+  sec.appendChild(nav);
+});
+
 </script>
 <script>
 /* Reajuste del ancla tras el render dinámico de tarjetas */
