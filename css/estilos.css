@@ -420,3 +420,11 @@ main section[id],main [id]{scroll-margin-top:calc(var(--header-h,108px) + 18px)}
 }
 .quiz-step{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
 @media print{.to-top,.readbar-track,.sec-nav{display:none!important}}
+
+/* ---------- Filas marcables: sin cursor de texto ni seleccion ---------- */
+.check-item,.analyzer-item,.check-item *,.analyzer-item *{
+  -webkit-user-select:none;user-select:none;
+  caret-color:transparent;
+  -webkit-tap-highlight-color:transparent;
+}
+.check-item,.analyzer-item{touch-action:manipulation}
