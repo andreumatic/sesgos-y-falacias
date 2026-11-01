@@ -1,6 +1,6 @@
 /* i18n: castellà (es) ↔ valencià normatiu AVL (va)
    Estratègia: els arrays de contingut es substituïxen a l'arrencada (js/va-datos*.js)
-   i el text estàtic es traduïx amb este diccionari (text nodes + atributs). */
+   i el text estàtic es tradueix amb aquest diccionari (text nodes + atributs). */
 (function () {
   'use strict';
 
@@ -34,7 +34,7 @@
     "Guía interactiva con evidencia": `Guia interactiva amb evidència`,
     "Tu cerebro te miente.": `El teu cervell et ment.`,
     "La evidencia lo demuestra.": `L'evidència ho demostra.`,
-    "Sesgos cognitivos y falacias lógicas explicados con estudios citados, un detector de manipulación en 60 segundos y tres tests para comprobar si distingues un argumento de un truco.": `Biaixos cognitius i fal·làcies lògiques explicats amb estudis citats, un detector de manipulació en 60 segons i tres tests per a comprovar si distingixes un argument d'un truc.`,
+    "Sesgos cognitivos y falacias lógicas explicados con estudios citados, un detector de manipulación en 60 segundos y tres tests para comprobar si distingues un argumento de un truco.": `Biaixos cognitius i fal·làcies lògiques explicats amb estudis citats, un detector de manipulació en 60 segons i tres tests per a comprovar si distingeixes un argument d'un truc.`,
     "Fuentes con DOI": `Fonts amb DOI`,
     "Detector en 60 s": `Detector en 60 s`,
     "12 preguntas clave": `12 preguntes clau`,
@@ -99,7 +99,7 @@
     "Toca la tarjeta para revelarlos.": `Toca la fitxa per a revelar-los.`,
     "Modo estudio activo.": `Mode estudi actiu.`,
     "El enemigo externo · Lógica informal": `L'enemic extern · Lògica informal`,
-    "La tradición de Hamblin (1970) y Walton (1995) muestra que una falacia es una técnica de argumentación mal utilizada que obstaculiza el diálogo. Walton advierte que el": `La tradició de Hamblin (1970) i Walton (1995) mostra que una fal·làcia és una tècnica d'argumentació mal utilitzada que obstaculitza el diàleg. Walton advertix que l'`,
+    "La tradición de Hamblin (1970) y Walton (1995) muestra que una falacia es una técnica de argumentación mal utilizada que obstaculiza el diálogo. Walton advierte que el": `La tradició de Hamblin (1970) i Walton (1995) mostra que una fal·làcia és una tècnica d'argumentació mal utilitzada que obstaculitza el diàleg. Walton adverteix que l'`,
     "no siempre es falaz; lo es cuando desplaza la carga de la prueba.": `no sempre és fal·laç; ho és quan desplaça la càrrega de la prova.`,
     "Buscar falacia…": `Buscar fal·làcia…`,
     "Buscar falacia por nombre o descripción": `Buscar fal·làcia per nom o descripció`,
@@ -116,7 +116,7 @@
     "Pausa emocional": `Pausa emocional`,
     "¿Qué emoción siento? Si es fuerte (ira, miedo, satisfacción), es señal de alarma.": `Quina emoció sent? Si és forta (ràbia, por, satisfacció), és senyal d'alarma.`,
     "Fuente": `Font`,
-    "¿Quién lo dice? ¿Es experto en ESTE tema? ¿Qué gana si le creo?": `Qui ho diu? És expert en ESTE tema? Què guanya si li crec?`,
+    "¿Quién lo dice? ¿Es experto en AQUEST tema? ¿Qué gana si le creo?": `Qui ho diu? És expert en AQUEST tema? Què guanya si li crec?`,
     "Evidencia": `Evidència`,
     "¿Dónde están los datos? ¿Qué falta? ¿Se ataca a alguien en vez del argumento?": `On estan les dades? Què falta? S'ataca algú en compte de l'argument?`,
     "Inversión": `Inversió`,
@@ -143,17 +143,17 @@
     "Datos sin fuente": `Dades sense font`,
     "\"Estudios dicen\", \"expertos afirman\", cifras sin origen.": `"Estudis diuen", "experts afirmen", xifres sense origen.`,
     "Urgencia para decidir": `Urgència per a decidir`,
-    "\"Solo hoy\", \"comparte antes de que lo borren\".": `"Només hui", "compartix abans que ho esborren".`,
+    "\"Solo hoy\", \"comparte antes de que lo borren\".": `"Només hui", "comparteix abans que ho esborren".`,
     "Anécdota como prueba": `Anècdota com a prova`,
     "Un caso personal presentado como evidencia general.": `Un cas personal presentat com a evidència general.`,
     "\"Siempre se ha hecho así\"": `"Sempre s'ha fet així"`,
     "Tradición como argumento de autoridad.": `Tradició com a argument d'autoritat.`,
     "Preguntas con presuposición": `Preguntes amb pressuposició`,
-    "\"¿Por qué X es tan malo?\" asume que X es malo.": `"Per què X és tan roín?" assumix que X és roín.`,
+    "\"¿Por qué X es tan malo?\" asume que X es malo.": `"Per què X és tan roín?" assumeix que X és roín.`,
     "Solo datos que confirman": `Només dades que confirmen`,
     "Se omite la evidencia contraria. Cherry picking.": `S'omet l'evidència contrària. Cherry picking.`,
     "Conclusión repetida como prueba": `Conclusió repetida com a prova`,
-    "El argumento es circular: asume lo que quiere demostrar.": `L'argument és circular: assumix el que vol demostrar.`,
+    "El argumento es circular: asume lo que quiere demostrar.": `L'argument és circular: assumeix el que vol demostrar.`,
     "🔬 Detector por concepto": `🔬 Detector per concepte`,
     "Señales específicas y pregunta clave para cada sesgo y falacia.": `Senyals específiques i pregunta clau per a cada biaix i fal·làcia.`,
     "Buscar en el detector…": `Buscar en el detector…`,
@@ -167,7 +167,7 @@
     /* antídots */
     "Defensa basada en evidencia": `Defensa basada en evidència`,
     "Antídotos: qué funciona según la investigación": `Antídots: què funciona segons la investigació`,
-    "No puedes \"desactivar\" los sesgos, pero la evidencia meta-analítica muestra que el entrenamiento con estrategias concretas produce mejoras medibles.": `No pots "desactivar" els biaixos, però l'evidència meta-analítica mostra que l'entrenament amb estratègies concretes produïx millores mesurables.`,
+    "No puedes \"desactivar\" los sesgos, pero la evidencia meta-analítica muestra que el entrenamiento con estrategias concretas produce mejoras medibles.": `No pots "desactivar" els biaixos, però l'evidència meta-analítica mostra que l'entrenament amb estratègies concretes produeix millores mesurables.`,
     "Tipos de antídoto": `Tipus d'antídot`,
     "🧠 Entrenar la mente": `🧠 Entrenar la ment`,
     "🌍 Entrenar el entorno": `🌍 Entrenar l'entorn`,
@@ -177,7 +177,7 @@
     "Es una de las estrategias con mayor efecto en el meta-análisis de 2025.": `És una de les estratègies amb major efecte en la meta-anàlisi de 2025.`,
     "Escribe tu opinión y tres razones por las que podrías estar equivocado.": `Escriu la teua opinió i tres raons per les quals podries estar equivocat.`,
     "2. Dar tiempo para deliberar": `2. Donar temps per a deliberar`,
-    "El pensamiento rápido es un motor de la creencia en desinformación. Dar tiempo reduce la creencia en titulares falsos.": `El pensament ràpid és un motor de la creença en desinformació. Donar temps reduïx la creença en titulars falsos.`,
+    "El pensamiento rápido es un motor de la creencia en desinformación. Dar tiempo reduce la creencia en titulares falsos.": `El pensament ràpid és un motor de la creença en desinformació. Donar temps redueix la creença en titulars falsos.`,
     "Regla de los 10 minutos antes de compartir algo que te indigna.": `Regla dels 10 minuts abans de compartir alguna cosa que t'indigne.`,
     "3. Recordatorios de precisión": `3. Recordatoris de precisió`,
     "Simples recordatorios sobre la importancia de la precisión mejoran la distinción verdad/falsedad, incluso en experimentos de campo en Twitter.": `Simples recordatoris sobre la importància de la precisió milloren la distinció veritat/falsedat, fins i tot en experiments de camp en Twitter.`,
@@ -187,7 +187,7 @@
     "¿Quién lo dice? ¿Es fuente primaria? ¿Cuál es su interés? ¿Qué dicen fuentes opuestas?": `Qui ho diu? És font primària? Quin és el seu interés? Què diuen fonts oposades?`,
     "2. Escapar de la burbuja de filtro": `2. Escapar de la bambolla de filtre`,
     "Los algoritmos amplifican el sesgo de confirmación. La exposición selectiva es casi el doble de probable hacia información congenial.": `Els algorismes amplifiquen el biaix de confirmació. L'exposició selectiva és quasi el doble de probable cap a informació congenial.`,
-    "Sigue a personas rigurosas con puntos de vista diferentes.": `Seguix persones rigoroses amb punts de vista diferents.`,
+    "Sigue a personas rigurosas con puntos de vista diferentes.": `Segueix persones rigoroses amb punts de vista diferents.`,
     "3. Diario de sesgos": `3. Diari de biaixos`,
     "La autoobservación entrena la metacognición, la base del pensamiento crítico.": `L'autoobservació entrena la metacognició, la base del pensament crític.`,
     "Cada noche, anota una situación y el sesgo que pudo operar.": `Cada nit, anota una situació i el biaix que va poder operar.`,
@@ -235,7 +235,7 @@
 
     /* peu */
     "Paz mental en tu mundo digital.": `Pau mental en el teu món digital.`,
-    "Guía educativa sobre sesgos cognitivos y falacias lógicas. Cada tarjeta cita su fuente académica: la credibilidad también se construye con evidencia.": `Guia educativa sobre biaixos cognitius i fal·làcies lògiques. Cada fitxa cita la seua font acadèmica: la credibilitat també es construïx amb evidència.`,
+    "Guía educativa sobre sesgos cognitivos y falacias lógicas. Cada tarjeta cita su fuente académica: la credibilidad también se construye con evidencia.": `Guia educativa sobre biaixos cognitius i fal·làcies lògiques. Cada fitxa cita la seua font acadèmica: la credibilitat també es construeix amb evidència.`,
     "Guía": `Guia`,
     "Contacto": `Contacte`,
     "Cuéntame qué necesitas": `Conta'm què necessites`,
@@ -258,7 +258,7 @@
     "✓ Marcada como hecha": `✓ Marcada com a feta`,
     "Reiniciar progreso": `Reiniciar progrés`,
     "Progreso borrado ✓": `Progrés esborrat ✓`,
-    "Las has comprobado todas. Ese es el hábito que protege del sesgo.": `Les has comprovades totes. Eixe és l'hàbit que protegix del biaix.`,
+    "Las has comprobado todas. Ese es el hábito que protege del sesgo.": `Les has comprovades totes. Eixe és l'hàbit que protegeix del biaix.`,
     "Vas por buen camino: repasa las que te faltan antes de compartir.": `Vas pel bon camí: repassa les que et falten abans de compartir.`,
     "Te faltan bastantes. Con un mensaje que te indigne, haz al menos las seis primeras.": `Te'n falten bastantes. Amb un missatge que t'indigne, fes almenys les sis primeres.`,
     "Preguntas marcadas": `Preguntes marcades`,
@@ -278,7 +278,7 @@
     [/^Pregunta (\d+) de (\d+)$/, `Pregunta $1 de $2`],
     [/^Resultado final · (\d+) preguntas$/, `Resultat final · $1 preguntes`],
     [/^Concepto (\d+) de (\d+)(.*)$/, `Concepte $1 de $2`],
-    [/^Ningún concepto coincide\. Prueba otra palabra o quita el filtro\.$/, `Cap concepte coincidix. Prova una altra paraula o lleva el filtre.`]
+    [/^Ningún concepto coincide\. Prueba otra palabra o quita el filtro\.$/, `Cap concepte coincideix. Prova una altra paraula o lleva el filtre.`]
   ];
 
   var ATTRS = ['placeholder', 'aria-label', 'title', 'alt'];
