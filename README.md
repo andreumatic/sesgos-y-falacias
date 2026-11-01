@@ -28,4 +28,4 @@ Contenido educativo; no sustituye asesoramiento profesional.
 
 ---
 
-© 2026 [AndreuMatic](https://andreumatic.com) · 654 225 831 · info@andreumatic.com
+© 2026 [AndreuMatic](https://andreumatic.com) · info@andreumatic.com
