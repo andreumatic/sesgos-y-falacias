@@ -104,6 +104,38 @@
   }
 
 
+  /* ---------- 2b. copiar enlace para compartir ---------- */
+  function addCopyButtons() {
+    $$('.card').forEach(function (card) {
+      var expand = card.querySelector('.card-expand');
+      if (!expand || expand.querySelector('.card-link')) return;
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'card-link';
+      btn.setAttribute('data-default', '\uD83D\uDD17 Copiar enlace para compartir');
+      btn.innerHTML = '<span aria-hidden="true">\uD83D\uDD17</span> Copiar enlace para compartir';
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var url = location.origin + location.pathname + '#' + card.id;
+        function done() {
+          btn.innerHTML = '<span aria-hidden="true">\u2713</span> Enlace copiado';
+          btn.classList.add('done');
+          setTimeout(function () {
+            btn.innerHTML = '<span aria-hidden="true">\uD83D\uDD17</span> Copiar enlace para compartir';
+            btn.classList.remove('done');
+          }, 2200);
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url).then(done, function () { window.prompt('Copia el enlace:', url); });
+        } else {
+          window.prompt('Copia el enlace:', url);
+        }
+      });
+      expand.appendChild(btn);
+    });
+  }
+
   /* ---------- 3. búsqueda global ?q= ---------- */
   function globalSearch() {
     var q = new URLSearchParams(location.search).get('q');
@@ -158,6 +190,7 @@
 
   /* ---------- arranque ---------- */
   function start() {
+    addCopyButtons();
     addResetButton();
   initContact();
     restoreProgress();

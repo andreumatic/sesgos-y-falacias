@@ -25,7 +25,7 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/favicon-32x32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="stylesheet" href="css/estilos.css?v=11">
+<link rel="stylesheet" href="css/estilos.css?v=12">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -1403,10 +1403,15 @@ function syncHeaderHeight() {
 syncHeaderHeight();
 addEventListener('resize', syncHeaderHeight);
 
-/* Cabecera compacta: se encoge al bajar y vuelve al subir */
-let isCompact = null;
+/* Cabecera compacta: histéresis para que no parpadee cerca del umbral.
+   Se pliega al pasar de 160 px y solo se despliega al bajar de 60 px,
+   asi la franja intermedia es una zona muerta. */
+let isCompact = false;
+const COMPACT_ON = 160;
+const COMPACT_OFF = 60;
 function updateCompact() {
-  const next = window.scrollY > 120;
+  const y = window.scrollY;
+  const next = isCompact ? y > COMPACT_OFF : y > COMPACT_ON;
   if (next === isCompact) return;
   isCompact = next;
   document.body.classList.toggle('is-compact', next);
