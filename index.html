@@ -25,7 +25,7 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/favicon-32x32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="stylesheet" href="css/estilos.css?v=26">
+<link rel="stylesheet" href="css/estilos.css?v=27">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -153,6 +153,10 @@
       <a href="mas-alla-de-los-sesgos.html">Más allá</a>
     </nav>
     <button class="study-toggle" id="studyToggle" type="button" aria-pressed="false" aria-label="Modo estudio"><span class="st-ico" aria-hidden="true">◉</span> <span class="st-txt">Modo estudio</span></button>
+    <div class="lang-switch" role="group" aria-label="Idioma">
+      <button class="lang-btn active" type="button" data-lang="es" aria-pressed="true">ES</button>
+      <button class="lang-btn" type="button" data-lang="va" aria-pressed="false">VAL</button>
+    </div>
   </div>
   <div class="readbar-track" role="progressbar" aria-label="Progreso de lectura" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="readbar" id="readbar"></div></div>
 </header>
@@ -512,10 +516,13 @@
 
 <button class="to-top" id="toTop" type="button" aria-label="Volver arriba"><span aria-hidden="true">↑</span></button>
 
+<script src="js/va-datos.js"></script>
+<script src="js/va-datos2.js"></script>
+<script src="js/i18n.js"></script>
 <script>
 /* ==================== DATA ==================== */
 
-const sesgos = [
+let sesgos = [
   { id:'confirmacion', emoji:'🔍', nombre:'Sesgo de Confirmación', cat:'creencia',
     def:'Buscar, interpretar y recordar solo la información que confirma tus creencias previas.',
     ejemplo:'Solo lees las reseñas positivas del producto que ya quieres comprar e ignoras las negativas.',
@@ -669,7 +676,7 @@ const sesgos = [
     evid:'Milgram (1963): estudios sobre obediencia a la autoridad.' }
 ];
 
-const falacias = [
+let falacias = [
   { id:'adhominem', emoji:'👊', nombre:'Ad Hominem', cat:'relevancia',
     def:'Atacar a la persona que hace el argumento en lugar de responder al argumento mismo.',
     ejemplo:'"No le hagas caso, es un hipócrita" (aunque lo que diga sea cierto).',
@@ -799,7 +806,7 @@ const falacias = [
     evid:'Lógica informal clásica: falacia de la pregunta compleja (loaded question).' }
 ];
 
-const pares = [
+let pares = [
   { sesgo:'Sesgo de Confirmación', sesgoPill:'purple', falacia:'Falacia del Francotirador', falaciaPill:'orange', desc:'Tu cerebro quiere tener razón y el manipulador te muestra solo la parte de la foto que le conviene. Episodio 1.' },
   { sesgo:'Efecto Dunning-Kruger', sesgoPill:'purple', falacia:'Ad Verecundiam', falaciaPill:'orange', desc:'La incompetencia te hace arrogante; los influencers que hablan con seguridad de temas que desconocen te vuelven blanco fácil. Episodio 2.' },
   { sesgo:'Sesgo de Conservadurismo', sesgoPill:'purple', falacia:'Ad Antiquitatem', falaciaPill:'orange', desc:'Tu cerebro teme a lo desconocido; te convencen de no cambiar usando la tradición como escudo. Episodio 3.' },
@@ -812,7 +819,7 @@ const pares = [
   { sesgo:'Sesgo de Creencia', sesgoPill:'purple', falacia:'Petición de Principio', falaciaPill:'orange', desc:'Si la conclusión te gusta, no notas que el argumento es circular.' }
 ];
 
-const deteccion = {
+let deteccion = {
   confirmacion: { senales: ['Solo compartes lo que confirma tu opinión', 'Te molestan los datos contrarios', 'Tu feed es homogéneo'], pregunta: '¿Qué evidencia me haría cambiar de opinión? ¿La he buscado?' },
   puntociego: { senales: ['Ves sesgos en todos menos en ti', '"Yo soy objetivo"', 'Culpas a la ideología ajena'], pregunta: '¿En qué podría estar equivocado ahora mismo?' },
   creenciasesgo: { senales: ['Aceptas argumentos flojos si te gusta la conclusión', 'No notas los fallos lógicos de lo que te conviene'], pregunta: 'Si este mismo argumento defendiera lo contrario, ¿lo aceptaría?' },
@@ -850,7 +857,7 @@ const deteccion = {
   preguntacompleja: { senales: ['Pregunta con presuposición oculta', '"¿Por qué X es tan malo?"'], pregunta: '¿Qué se asume en la pregunta?' }
 };
 
-const preguntasUniversales = [
+let preguntasUniversales = [
   '¿Qué emoción me provoca esto? ¿Es una reacción fuerte?',
   '¿Quién lo dice y qué gana si le creo?',
   '¿Es experto en este tema concreto?',
@@ -865,7 +872,7 @@ const preguntasUniversales = [
   '¿Estoy buscando la verdad o solo tener razón?'
 ];
 
-const analyzerItems = [
+let analyzerItems = [
   'El mensaje provoca una emoción fuerte (miedo, ira, urgencia, euforia).',
   'Se ataca a una persona o grupo en vez de al argumento.',
   'Se usa "todos", "nadie", "es obvio", "siempre", "nunca".',
@@ -880,7 +887,7 @@ const analyzerItems = [
 
 /* ==================== TEST BANKS ==================== */
 
-const testBanks = {
+let testBanks = {
   sesgos: [
     { q: 'Solo lees las reseñas positivas del móvil que ya has decidido comprar e ignoras las negativas. ¿Qué sesgo opera?',
       opts: ['Sesgo de Anclaje', 'Sesgo de Confirmación', 'Efecto Dunning-Kruger', 'Efecto de Negatividad'], correct: 1,
@@ -943,6 +950,23 @@ const testBanks = {
   ]
 };
 
+/* ==================== IDIOMA ==================== */
+const SF_LANG = (function () {
+  var q = new URLSearchParams(location.search).get('lang');
+  if (q === 'es' || q === 'va') { try { localStorage.setItem('sf:lang', q); } catch (e) {} return q; }
+  try { var s = localStorage.getItem('sf:lang'); if (s === 'es' || s === 'va') return s; } catch (e) {}
+  return 'es';
+})();
+if (SF_LANG === 'va' && window.VA_DATOS && window.VA_DATOS.sesgos) {
+  sesgos = VA_DATOS.sesgos;
+  falacias = VA_DATOS.falacias;
+  pares = VA_DATOS.pares;
+  deteccion = VA_DATOS.deteccion;
+  preguntasUniversales = VA_DATOS.preguntasUniversales;
+  analyzerItems = VA_DATOS.analyzerItems;
+  testBanks = VA_DATOS.testBanks;
+}
+
 /* ==================== RENDER ==================== */
 
 /* ==================== UTILIDADES ==================== */
@@ -969,7 +993,7 @@ function renderCards(data, gridId, type) {
     <article class="card ${type === 'falacia' ? 'fallacy' : ''}" id="${type}-${item.id}" tabindex="-1"
       data-cat="${item.cat}" data-search="${(item.nombre + ' ' + item.def + ' ' + item.ejemplo).toLowerCase()}">
       <div class="card-header">
-        <span class="card-cat">${item.cat}</span>
+        <span class="card-cat">${item.catNombre || item.cat}</span>
         <h3 class="card-title ${type === 'falacia' ? 'orange' : 'purple'}">
           <button class="card-toggle" type="button" aria-expanded="false" aria-controls="${type}-${item.id}-panel">
             <span class="card-emoji" aria-hidden="true">${item.emoji}</span>
@@ -1220,6 +1244,7 @@ function paintCheck(item, i) {
   item.setAttribute('aria-checked', checkState[i] ? 'true' : 'false');
 }
 
+let qsFirstRender = true;
 function renderStep() {
   const finished = qsIdx >= QS_TOTAL;
   qsItems.forEach((el, i) => { el.hidden = finished || i !== qsIdx; });
@@ -1238,10 +1263,11 @@ function renderStep() {
     const faltan = preguntasUniversales.map((q, i) => checkState[i] ? null : (i + 1) + '. ' + q).filter(Boolean);
     pend.innerHTML = faltan.length ? '<li>' + faltan.join('</li><li>') + '</li>' : '';
     pend.hidden = !faltan.length;
-    qsAgain.focus();
-  } else {
-    qsItems[qsIdx].focus();
+    qsAgain.focus({ preventScroll: true });
+  } else if (!qsFirstRender) {
+    qsItems[qsIdx].focus({ preventScroll: true });
   }
+  qsFirstRender = false;
 }
 
 function answer(value) {
@@ -1633,7 +1659,7 @@ updateSpy();
 const sectionLabels = [...navLinks]
   .filter(a => (a.getAttribute('href') || '').charAt(0) === '#')
   .map(a => ({ id: a.getAttribute('href').slice(1), label: a.textContent.trim() }));
-const nextPage = { href: 'mas-alla-de-los-sesgos.html', label: 'Más allá' };
+const nextPage = { href: 'mas-alla-de-los-sesgos.html' + (SF_LANG === 'va' ? '?lang=va' : ''), label: SF_LANG === 'va' ? 'Més enllà' : 'Más allá' };
 sections.forEach(sec => {
   const i = sectionLabels.findIndex(s => s.id === sec.id);
   if (i === -1) return;
@@ -1649,6 +1675,11 @@ sections.forEach(sec => {
   sec.appendChild(nav);
 });
 
+/* Arranque del idioma */
+if (window.SF_I18N) {
+  SF_I18N.wire(SF_LANG);
+  if (SF_LANG === 'va') SF_I18N.apply();
+}
 </script>
 <script>
 /* Reajuste del ancla tras el render dinámico de tarjetas */
