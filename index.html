@@ -25,7 +25,7 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/favicon-32x32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="stylesheet" href="css/estilos.css?v=24">
+<link rel="stylesheet" href="css/estilos.css?v=26">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -969,6 +969,7 @@ function renderCards(data, gridId, type) {
     <article class="card ${type === 'falacia' ? 'fallacy' : ''}" id="${type}-${item.id}" tabindex="-1"
       data-cat="${item.cat}" data-search="${(item.nombre + ' ' + item.def + ' ' + item.ejemplo).toLowerCase()}">
       <div class="card-header">
+        <span class="card-cat">${item.cat}</span>
         <h3 class="card-title ${type === 'falacia' ? 'orange' : 'purple'}">
           <button class="card-toggle" type="button" aria-expanded="false" aria-controls="${type}-${item.id}-panel">
             <span class="card-emoji" aria-hidden="true">${item.emoji}</span>

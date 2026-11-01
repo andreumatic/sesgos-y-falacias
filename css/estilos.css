@@ -910,3 +910,199 @@ body.is-compact .nav-links a{padding-top:7px;padding-bottom:7px}
 @media (prefers-reduced-motion:reduce){
   .check-item::after{transition:none}
 }
+
+
+/* ============ v4.0 · tarjetas de concepto (rediseno) ============ */
+.cards-grid{gap:0!important;padding:0!important;scroll-padding-inline:0!important}
+
+.cards-grid > .card{
+  flex:0 0 100%!important;
+  min-height:0!important;
+  background:var(--card)!important;
+  border:1px solid var(--line)!important;
+  border-top:1px solid var(--line)!important;
+  border-radius:20px!important;
+  padding:30px 32px 20px!important;
+  box-shadow:0 12px 30px rgba(15,46,41,.08)!important;
+  transform:none!important;
+  opacity:1!important;
+  overflow:hidden;
+  transition:box-shadow .3s ease,border-color .3s ease!important;
+}
+.cards-grid > .card:not(.is-current),
+.cards-grid > .card.is-current{
+  opacity:1!important;
+  transform:none!important;
+}
+.cards-grid > .card.is-current{
+  border-color:rgba(232,163,61,.55)!important;
+  box-shadow:0 18px 40px rgba(15,46,41,.13)!important;
+}
+
+/* cabecera: categoria + titulo, emoji en circulo */
+.cards-grid > .card .card-header{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  gap:6px!important;
+  margin:0 0 14px!important;
+}
+.cards-grid > .card .card-cat{
+  display:block;
+  font-family:'Space Mono',monospace;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--amber-text);
+}
+.cards-grid > .card .card-title{margin:0!important;font-size:1.5rem!important;line-height:1.15!important;letter-spacing:-.01em}
+.cards-grid > .card .card-toggle{
+  display:flex!important;
+  align-items:center!important;
+  gap:14px!important;
+  width:100%;
+  background:none!important;
+  border:0!important;
+  padding:0!important;
+  font:inherit!important;
+  color:inherit!important;
+  text-align:left;
+  cursor:pointer;
+}
+.cards-grid > .card .card-emoji{
+  flex:0 0 auto;
+  display:grid;
+  place-items:center;
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  background:var(--cream2);
+  border:1px solid var(--line);
+  font-size:22px;
+  line-height:1;
+}
+.cards-grid > .card .card-def{
+  font-size:1.02rem!important;
+  line-height:1.62!important;
+  color:#2b2620!important;
+  max-width:62ch!important;
+}
+
+/* ejemplo: cita con regla ambar */
+.cards-grid > .card .card-example{
+  margin-top:16px!important;
+  background:var(--cream2)!important;
+  border:0!important;
+  border-left:3px solid var(--amber)!important;
+  border-radius:0 12px 12px 0!important;
+  padding:14px 18px!important;
+}
+.cards-grid > .card .card-example .label{font-size:10px!important;letter-spacing:.14em!important;margin-bottom:5px!important}
+.cards-grid > .card .card-example .content{
+  font-size:.99rem!important;
+  line-height:1.58!important;
+  color:#3b352c!important;
+  max-width:58ch!important;
+}
+
+.cards-grid > .card .expand-hint{
+  font-size:11px!important;
+  letter-spacing:.1em!important;
+  color:var(--teal2)!important;
+  white-space:normal!important;
+  padding-top:14px!important;
+}
+
+/* escritorio: ficha a la izquierda, texto a la derecha */
+@media (min-width:900px){
+  .cards-grid > .card{
+    display:grid!important;
+    grid-template-columns:270px minmax(0,1fr)!important;
+    grid-template-areas:"head def" "head ex" "head hint" "exp exp"!important;
+    column-gap:38px;
+    align-content:start;
+    padding:38px 42px 26px!important;
+  }
+  .cards-grid > .card .card-header{
+    grid-area:head!important;
+    align-self:stretch;
+    justify-content:flex-start;
+    border-right:1px dashed var(--line);
+    padding-right:28px;
+    margin:0!important;
+  }
+  .cards-grid > .card .card-emoji{width:64px;height:64px;font-size:27px}
+  .cards-grid > .card .card-toggle{flex-direction:column!important;align-items:flex-start!important;gap:16px!important}
+  .cards-grid > .card .card-title{font-size:1.6rem!important}
+  .cards-grid > .card .card-def{grid-area:def!important;margin:0!important}
+  .cards-grid > .card .card-example{grid-area:ex!important;margin-top:14px!important}
+  .cards-grid > .card .expand-hint{grid-area:hint!important;text-align:left!important;margin-top:auto!important;padding-top:16px!important}
+  .cards-grid > .card .card-expand{grid-area:exp!important;margin-top:24px;padding-top:22px;border-top:1px dashed var(--line)}
+}
+
+/* movil */
+@media (max-width:899px){
+  .cards-grid > .card{padding:22px 20px 14px!important;border-radius:16px!important}
+  .cards-grid > .card .card-emoji{width:44px;height:44px;font-size:19px}
+  .cards-grid > .card .card-title{font-size:1.2rem!important}
+  .cards-grid > .card .card-def{font-size:.99rem!important}
+  .cards-grid > .card .expand-hint{text-align:left!important;font-size:10px!important;padding-top:12px!important}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .cards-grid > .card{transition:none!important}
+}
+
+
+/* ============ v4.1 · ficha con panel lateral tintado ============ */
+.cards-grid{max-width:980px;margin-inline:auto!important}
+
+@media (min-width:900px){
+  .cards-grid > .card{
+    display:grid!important;
+    grid-template-columns:284px minmax(0,1fr)!important;
+    grid-template-areas:"head def" "head ex" "head hint" "head exp"!important;
+    column-gap:0!important;
+    row-gap:0!important;
+    padding:0!important;
+    overflow:hidden;
+  }
+  .cards-grid > .card .card-header{
+    grid-area:head!important;
+    align-self:stretch!important;
+    justify-content:flex-start!important;
+    background:var(--cream2);
+    border-right:1px solid var(--line);
+    padding:36px 26px 30px 32px;
+    margin:0!important;
+  }
+  .cards-grid > .card .card-def{
+    grid-area:def!important;
+    margin:0!important;
+    padding:38px 44px 0 34px;
+    max-width:60ch!important;
+    font-size:1.05rem!important;
+    line-height:1.65!important;
+  }
+  .cards-grid > .card .card-example{
+    grid-area:ex!important;
+    margin:18px 44px 0 34px!important;
+  }
+  .cards-grid > .card .expand-hint{
+    grid-area:hint!important;
+    margin:0!important;
+    padding:18px 44px 26px 34px;
+  }
+  .cards-grid > .card .card-expand{
+    grid-area:exp!important;
+    margin:0!important;
+    padding:26px 44px 30px 34px;
+    border-top:1px dashed var(--line);
+  }
+}
+
+@media (max-width:899px){
+  .cards-grid{max-width:none;margin-inline:0!important}
+  .cards-grid > .card .card-header{background:transparent;border-right:0;padding:0;margin:0 0 14px!important}
+}
