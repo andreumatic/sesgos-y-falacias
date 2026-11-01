@@ -579,10 +579,21 @@ body.is-compact .nav-links a{padding-top:6px;padding-bottom:6px}
 .pair-pill.pill-purple{ color:var(--mint) !important }
 .pair-pill.pill-orange{ color:#fff5f1 !important }
 
-/* ============ v2.4c · cabecera compacta (refuerzo) ============ */
-body.is-compact .header-in{padding-top:5px!important;padding-bottom:5px!important}
-body.is-compact .brand-logo{width:26px!important;height:26px!important}
-body.is-compact .brand{font-size:15px!important}
-body.is-compact .brand-sub{max-width:0!important;opacity:0!important;margin-left:0!important}
-body.is-compact .nav-links a{padding-top:6px!important;padding-bottom:6px!important}
-body.is-compact .nav-row{padding-top:0;padding-bottom:0}
+/* ============ v2.5 · cabecera que se pliega al bajar ============ */
+.header-in{max-height:140px;overflow:hidden;transition:max-height .28s ease,opacity .22s ease,padding .22s ease}
+body.is-compact .header-in{max-height:0!important;opacity:0!important;padding-top:0!important;padding-bottom:0!important;pointer-events:none}
+.nav-row{display:flex;align-items:center;gap:10px}
+.nav-row .nav-links{flex:1 1 auto;min-width:0}
+.nav-row .study-toggle{flex:0 0 auto;margin:0;align-self:center}
+body.is-compact .nav-row{padding-top:3px;padding-bottom:3px}
+body.is-compact .nav-links a{padding-top:7px;padding-bottom:7px}
+@media (prefers-reduced-motion:reduce){
+  .header-in{transition:none}
+}
+
+/* v2.6 · toggle compacto en pantallas estrechas para liberar el rail de navegacion */
+@media (max-width:700px){
+  .nav-row .study-toggle{padding:8px 10px;gap:0}
+  .nav-row .study-toggle .st-txt{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+  .nav-row .study-toggle .st-ico{font-size:15px}
+}
