@@ -25,7 +25,7 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/favicon-32x32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="stylesheet" href="css/estilos.css?v=6">
+<link rel="stylesheet" href="css/estilos.css?v=7">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -114,6 +114,12 @@
 </script>
 </head>
 <body>
+<nav class="skipbar" aria-label="Atajos de la página">
+  <a href="#contenido">Ir al contenido</a>
+  <a href="#sesgos">Ir a los sesgos</a>
+  <a href="#detector">Ir al detector</a>
+  <a href="#test">Ir a los tests</a>
+</nav>
 <a class="skip" href="#contenido">Saltar al contenido</a>
 <noscript>
   <div class="wrap nojs-note">
@@ -248,7 +254,7 @@
     <button class="filter-chip" aria-pressed="false" data-filter="grupo" data-target="sesgos">Grupo</button>
   </div>
   <p class="result-count" id="countSesgos" aria-live="polite"></p>
-  <div class="study-banner">👁️ Modo estudio: definiciones y ejemplos difuminados. Pasa el cursor para revelarlos.</div>
+  <div class="study-banner">👁️ Modo estudio: definiciones y ejemplos difuminados. <span class="sb-hover">Pasa el cursor para revelarlos.</span><span class="sb-touch">Toca la tarjeta para revelarlos.</span></div>
   <div class="cards-grid" id="gridSesgos"></div>
 </section>
 
@@ -349,12 +355,12 @@
   <div class="analyzer reveal">
     <p class="analyzer-intro">El resultado es orientativo: no prueba que el mensaje sea falso, pero indica cuánta cautela deberías aplicar.</p>
     <p class="analyzer-count" id="analyzerCount" aria-live="polite">0 de 10 señales marcadas</p>
-    <div class="analyzer-list" id="analyzerList" role="group" aria-label="Señales de manipulación"></div>
     <div class="analyzer-result" id="analyzerResult" role="status">
       <div class="ar-score" id="arScore">0</div>
       <div class="ar-label" id="arLabel"></div>
       <div class="ar-desc" id="arDesc"></div>
     </div>
+    <div class="analyzer-list" id="analyzerList" role="group" aria-label="Señales de manipulación"></div>
     <button class="analyzer-reset" id="analyzerReset" type="button">🔄 Reiniciar análisis</button>
   </div>
 </section>
@@ -445,6 +451,7 @@
     <div class="quiz-result" id="quizResult">
       <div class="score" id="quizScore">0/0</div>
       <div class="msg" id="quizMsg"></div>
+      <ul class="quiz-review" id="quizReview"></ul>
       <button class="quiz-next show" id="quizRestart">🔄 Repetir test</button>
     </div>
   </div>
@@ -939,11 +946,15 @@ function onActivate(el, fn) {
 function renderCards(data, gridId, type) {
   const grid = document.getElementById(gridId);
   grid.innerHTML = data.map((item, idx) => `
-    <article class="card ${type === 'falacia' ? 'fallacy' : ''}" id="${type}-${item.id}" role="button" tabindex="0" aria-expanded="false"
+    <article class="card ${type === 'falacia' ? 'fallacy' : ''}" id="${type}-${item.id}" tabindex="-1"
       data-cat="${item.cat}" data-search="${(item.nombre + ' ' + item.def + ' ' + item.ejemplo).toLowerCase()}">
       <div class="card-header">
-        <span class="card-emoji" aria-hidden="true">${item.emoji}</span>
-        <h3 class="card-title ${type === 'falacia' ? 'orange' : 'purple'}">${item.nombre}</h3>
+        <h3 class="card-title ${type === 'falacia' ? 'orange' : 'purple'}">
+          <button class="card-toggle" type="button" aria-expanded="false" aria-controls="${type}-${item.id}-panel">
+            <span class="card-emoji" aria-hidden="true">${item.emoji}</span>
+            <span>${item.nombre}</span>
+          </button>
+        </h3>
       </div>
       <p class="card-def">${item.def}</p>
       <div class="card-example">
@@ -974,23 +985,19 @@ function renderCards(data, gridId, type) {
 
   grid.querySelectorAll('.card').forEach(card => {
     const hint = card.querySelector('.expand-hint');
-    const toggle = () => {
-      const open = card.classList.toggle('expanded');
-      card.setAttribute('aria-expanded', open ? 'true' : 'false');
+    const btn = card.querySelector('.card-toggle');
+    const apply = open => {
+      card.classList.toggle('expanded', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
       hint.innerHTML = open
         ? '<span class="arrow">▼</span> Ocultar análisis'
         : '<span class="arrow">▼</span> Ver análisis completo y fuente';
     };
+    const toggle = () => apply(!card.classList.contains('expanded'));
+    btn.addEventListener('click', e => { e.stopPropagation(); toggle(); });
     card.addEventListener('click', e => {
       if (e.target.closest('a, button')) return;
       toggle();
-    });
-    card.addEventListener('keydown', e => {
-      if (e.target !== card) return;
-      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
-        e.preventDefault();
-        toggle();
-      }
     });
   });
 }
@@ -1279,13 +1286,14 @@ tabBtns.forEach((btn, idx) => {
 /* ==================== TESTS ==================== */
 
 let currentTest = 'sesgos';
-let quizIndex = 0, quizScore = 0, quizAnswered = false;
+let quizIndex = 0, quizScore = 0, quizAnswered = false, quizWrong = [];
 
 function loadTest(testName) {
   currentTest = testName;
   quizIndex = 0;
   quizScore = 0;
   quizAnswered = false;
+  quizWrong = [];
   document.getElementById('quizContent').style.display = '';
   document.getElementById('quizResult').classList.remove('show');
   renderQuiz();
@@ -1304,7 +1312,15 @@ function renderQuiz() {
     else if (quizScore >= bank.length - 1) msg = 'Muy bien. Te queda un detalle por pulir.';
     else if (quizScore >= Math.ceil(bank.length / 2)) msg = 'Aprobado justo. Repasa los conceptos donde fallaste.';
     document.getElementById('quizMsg').textContent = msg;
+    const rev = document.getElementById('quizReview');
+    if (rev) {
+      rev.innerHTML = quizWrong.length
+        ? '<li class="qr-h">Repasa estas ' + quizWrong.length + ' preguntas</li>' +
+          quizWrong.map(w => '<li><span class="qr-q">' + w.q + '</span><span class="qr-a">Respuesta correcta: ' + w.a + '</span></li>').join('')
+        : '<li class="qr-ok">Sin fallos: dominas este test.</li>';
+    }
     document.getElementById('quizBar').style.width = '100%';
+    document.getElementById('quizResult').scrollIntoView({ block: 'start' });
     document.getElementById('quizRestart').focus();
     return;
   }
@@ -1333,6 +1349,7 @@ function renderQuiz() {
         fb.innerHTML = '✅ Correcto. ' + q.explain;
       } else {
         btn.classList.add('wrong');
+        quizWrong.push({ q: q.q, a: q.opts[q.correct] });
         opts.querySelectorAll('.quiz-opt')[q.correct].classList.add('correct');
         fb.className = 'quiz-feedback ko show';
         fb.innerHTML = '❌ Incorrecto. ' + q.explain;
@@ -1360,6 +1377,7 @@ document.getElementById('quizNext').addEventListener('click', () => { quizIndex+
 document.getElementById('quizRestart').addEventListener('click', () => {
   quizIndex = 0;
   quizScore = 0;
+  quizWrong = [];
   document.getElementById('quizContent').style.display = '';
   document.getElementById('quizResult').classList.remove('show');
   renderQuiz();
@@ -1430,18 +1448,21 @@ toTop.addEventListener('click', () => {
 updateSpy();
 
 /* Navegación anterior / siguiente al final de cada sección */
-const sectionLabels = navLinks.map(a => ({ id: a.getAttribute('href').slice(1), label: a.textContent.trim() }));
+const sectionLabels = [...navLinks]
+  .filter(a => (a.getAttribute('href') || '').charAt(0) === '#')
+  .map(a => ({ id: a.getAttribute('href').slice(1), label: a.textContent.trim() }));
+const nextPage = { href: 'mas-alla-de-los-sesgos.html', label: 'Más allá' };
 sections.forEach(sec => {
   const i = sectionLabels.findIndex(s => s.id === sec.id);
   if (i === -1) return;
   const prev = sectionLabels[i - 1];
-  const next = sectionLabels[i + 1];
+  const next = sectionLabels[i + 1] || (i === sectionLabels.length - 1 ? nextPage : null);
   const nav = document.createElement('nav');
   nav.className = 'sec-nav';
   nav.setAttribute('aria-label', 'Navegación entre secciones');
   nav.innerHTML = `
     ${prev ? `<a class="sec-prev" href="#${prev.id}"><span aria-hidden="true">←</span> ${prev.label}</a>` : '<span></span>'}
-    ${next ? `<a class="sec-next" href="#${next.id}">${next.label} <span aria-hidden="true">→</span></a>` : '<span></span>'}
+    ${next ? `<a class="sec-next" href="${next.href || '#' + next.id}">${next.label} <span aria-hidden="true">→</span></a>` : '<span></span>'}
   `;
   sec.appendChild(nav);
 });

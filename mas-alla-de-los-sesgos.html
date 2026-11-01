@@ -54,11 +54,11 @@
   .hero { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 3rem 1.5rem 2rem; }
   .hero .badge { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.35rem 0.9rem; border-radius: 6px; background: var(--cyan-bg); color: var(--cyan); border: 1px solid rgba(34,211,238,0.3); margin-bottom: 1rem; }
   .hero h1 { font-size: clamp(1.6rem, 4.2vw, 2.5rem); font-weight: 700; line-height: 1.18; margin-bottom: 1rem; letter-spacing: -0.02em; color: var(--teal); }
-  .hero h1 .accent { color: var(--amber-d); }
+  .hero h1 .accent { color: #a2631a; }
   .hero p { color: var(--muted); max-width: 750px; font-size: 1rem; }
 
   .constellation-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.8rem; margin-top: 1.8rem; }
-  .const-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.1rem; cursor: pointer; transition: all 0.2s; position: relative; overflow: hidden; }
+  .const-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.1rem; cursor: pointer; transition: transform .2s, background-color .2s, border-color .2s; position: relative; overflow: hidden; }
   .const-card:hover { transform: translateY(-2px); background: var(--card-hover); }
   .const-card .cc-emoji { font-size: 1.4rem; margin-bottom: 0.3rem; }
   .const-card .cc-title { font-size: 0.9rem; font-weight: 800; margin-bottom: 0.2rem; }
@@ -94,7 +94,7 @@
   .topic-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
   .topic-card.open .topic-body { max-height: 3000px; }
   .topic-inner { padding: 0 1.2rem 1.3rem; border-top: 1px solid var(--border); }
-  .topic-label { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.3rem; display: flex; align-items: center; gap: 0.3rem; margin-top: 1rem; }
+  .topic-label { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.3rem; display: flex; align-items: center; gap: 0.3rem; margin-top: 1rem; }
   .tl-what { color: var(--yellow); }
   .tl-evidence { color: var(--green); }
   .tl-connection { color: var(--orange); }
@@ -113,7 +113,7 @@
   .search-box input { width: 100%; padding: 0.7rem 1rem 0.7rem 2.4rem; background: var(--card); border: 1px solid var(--border); border-radius: 10px; color: var(--text); font-size: 0.9rem; outline: none; transition: border-color 0.2s; }
   .search-box input:focus { border-color: var(--cyan); }
   .search-box::before { content: '🔍'; position: absolute; left: 0.9rem; top: 50%; transform: translateY(-50%); font-size: 0.9rem; opacity: 0.6; }
-  .filter-chip { padding: 0.5rem 0.9rem; background: var(--card); border: 1px solid var(--border); border-radius: 20px; color: var(--muted); font-size: 0.8rem; cursor: pointer; transition: all 0.2s; white-space: nowrap; font-weight: 600; }
+  .filter-chip { padding: 0.5rem 0.9rem; background: var(--card); border: 1px solid var(--border); border-radius: 20px; color: var(--muted); font-size: 0.8rem; cursor: pointer; transition: background-color .2s, border-color .2s, color .2s; white-space: nowrap; font-weight: 600; }
   .filter-chip:hover { border-color: var(--cyan); color: var(--text); }
   .filter-chip.active { background: var(--cyan-bg); border-color: var(--cyan); color: var(--cyan); font-weight: 700; }
 
@@ -162,6 +162,7 @@
 </style>
 </head>
 <body>
+<a class="skip" href="#topicsContainer">Saltar a los temas</a>
 
 <nav>
   <a class="logo" href="index.html"><span class="lg-long">Constelaciones Temáticas</span><span class="lg-short">Constelaciones</span></a>
@@ -183,43 +184,33 @@
   <p>Tu serie actual explica los mecanismos internos (sesgos) y las armas externas (falacias). Esta documentación expande el mapa hacia los <strong>ecosistemas donde esos mecanismos operan</strong>: la tecnología que los amplifica, la tribu que los activa, la filosofía que los cuestiona y las emociones que los alimentan. Cada tema es un episodio potencial con su evidencia académica.</p>
 
   <div class="constellation-grid">
-    <div class="const-card digital" onclick="document.getElementById('digital').scrollIntoView({behavior:'smooth'})">
-      <div class="cc-emoji">🌐</div>
+    <a class="const-card digital" href="#digital"><div class="cc-emoji">🌐</div>
       <div class="cc-title">Constelación Digital</div>
-      <div class="cc-sub">Desinformación, algoritmos, IA</div>
-    </div>
-    <div class="const-card social" onclick="document.getElementById('social').scrollIntoView({behavior:'smooth'})">
-      <div class="cc-emoji">👥</div>
+      <div class="cc-sub">Desinformación, algoritmos, IA</div></a>
+    <a class="const-card social" href="#social"><div class="cc-emoji">👥</div>
       <div class="cc-title">Constelación Social</div>
-      <div class="cc-sub">Tribalismo, polarización, identidad</div>
-    </div>
-    <div class="const-card filo" onclick="document.getElementById('filosofia').scrollIntoView({behavior:'smooth'})">
-      <div class="cc-emoji">💭</div>
+      <div class="cc-sub">Tribalismo, polarización, identidad</div></a>
+    <a class="const-card filo" href="#filosofia"><div class="cc-emoji">💭</div>
       <div class="cc-title">Constelación Filosófica</div>
-      <div class="cc-sub">Epistemología, duda, ética</div>
-    </div>
-    <div class="const-card emocional" onclick="document.getElementById('emocional').scrollIntoView({behavior:'smooth'})">
-      <div class="cc-emoji">❤️‍🔥</div>
+      <div class="cc-sub">Epistemología, duda, ética</div></a>
+    <a class="const-card emocional" href="#emocional"><div class="cc-emoji">❤️‍🔥</div>
       <div class="cc-title">Constelación Emocional</div>
-      <div class="cc-sub">Neurociencia, retórica, narrativa</div>
-    </div>
-    <div class="const-card extra" onclick="document.getElementById('extra').scrollIntoView({behavior:'smooth'})">
-      <div class="cc-emoji">🧩</div>
+      <div class="cc-sub">Neurociencia, retórica, narrativa</div></a>
+    <a class="const-card extra" href="#extra"><div class="cc-emoji">🧩</div>
       <div class="cc-title">Sesgos y Falacias Extra</div>
-      <div class="cc-sub">Catálogo ampliado</div>
-    </div>
+      <div class="cc-sub">Catálogo ampliado</div></a>
   </div>
 </header>
 
 <section>
   <div class="controls">
-    <div class="search-box"><input type="text" id="searchTopics" placeholder="Buscar tema, sesgo o falacia..."></div>
-    <button class="filter-chip active" data-filter="all">Todos</button>
-    <button class="filter-chip" data-filter="digital">Digital</button>
-    <button class="filter-chip" data-filter="social">Social</button>
-    <button class="filter-chip" data-filter="filosofia">Filosofía</button>
-    <button class="filter-chip" data-filter="emocional">Emocional</button>
-    <button class="filter-chip" data-filter="extra">Extra</button>
+    <div class="search-box"><input type="text" id="searchTopics" placeholder="Buscar tema, sesgo o falacia…" aria-label="Buscar tema, sesgo o falacia" autocomplete="off" spellcheck="false"></div>
+    <button class="filter-chip active" data-filter="all" aria-pressed="true" type="button">Todos</button>
+    <button class="filter-chip" data-filter="digital" aria-pressed="false" type="button">Digital</button>
+    <button class="filter-chip" data-filter="social" aria-pressed="false" type="button">Social</button>
+    <button class="filter-chip" data-filter="filosofia" aria-pressed="false" type="button">Filosofía</button>
+    <button class="filter-chip" data-filter="emocional" aria-pressed="false" type="button">Emocional</button>
+    <button class="filter-chip" data-filter="extra" aria-pressed="false" type="button">Extra</button>
   </div>
 </section>
 
@@ -255,6 +246,13 @@
 <footer>
   <p><strong>Constelaciones Temáticas</strong> · Expansión de la serie Sesgos y Falacias</p>
   <p style="margin-top:0.4rem;font-size:0.78rem;">Cada tema es una puerta. Elige la que más te intrigue y empieza a guionizar.</p>
+  <div class="footer-brand">
+    <a href="https://andreumatic.com" target="_blank" rel="noopener">Andreu<strong>Matic</strong></a>
+    <span aria-hidden="true">·</span>
+    <a href="index.html">Sesgos y Falacias</a>
+    <span aria-hidden="true">·</span>
+    <a href="mailto:info@andreumatic.com">info@andreumatic.com</a>
+  </div>
 </footer>
 
 <script>
@@ -505,17 +503,23 @@ document.addEventListener('DOMContentLoaded', function() {
     return;
   }
 
+  window.toggleTopic = function (btn) {
+    var card = btn.parentElement;
+    var open = card.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  };
+
   function buildTopicHTML(topic, constelColor) {
     const questionsHTML = topic.questions.map(function(q) { return '<li>' + q + '</li>'; }).join('');
     return '<div class="topic-card" style="--accent:' + constelColor + '">' +
-      '<div class="topic-header" onclick="this.parentElement.classList.toggle(\'open\')">' +
+      '<button type="button" class="topic-header" aria-expanded="false" onclick="toggleTopic(this)">' +
         '<span class="topic-emoji">' + topic.emoji + '</span>' +
         '<div class="topic-info">' +
           '<h3>' + topic.title + '</h3>' +
           '<div class="topic-sub">' + topic.sub + '</div>' +
         '</div>' +
-        '<span class="topic-chevron">▼</span>' +
-      '</div>' +
+        '<span class="topic-chevron" aria-hidden="true">▼</span>' +
+      '</button>' +
       '<div class="topic-body">' +
         '<div class="topic-inner">' +
           '<div class="topic-label tl-what">📖 Qué es</div>' +
@@ -564,7 +568,7 @@ document.addEventListener('DOMContentLoaded', function() {
         '</section>';
       }
 
-      container.innerHTML = html || '<p style="text-align:center;color:var(--muted);padding:2rem;">No hay resultados para tu búsqueda.</p>';
+      container.innerHTML = html || '<p role="status" style="text-align:center;color:var(--muted);padding:2rem;">No hay resultados para tu búsqueda.</p>';
       console.log('[Constelaciones] Renderizados ' + count + ' temas.');
     } catch (err) {
       console.error('[Constelaciones] Error:', err);
@@ -583,6 +587,7 @@ document.addEventListener('DOMContentLoaded', function() {
       for (let j = 0; j < chips.length; j++) chips[j].classList.remove('active');
       this.classList.add('active');
       activeFilter = this.getAttribute('data-filter');
+      chips.forEach(function (c) { c.setAttribute('aria-pressed', c === this ? 'true' : 'false'); }.bind(this));
       renderTopics();
     });
   }
@@ -620,3 +625,22 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 </body>
 </html>
+<style>
+  /* v2.3 auditoría: teclado, contraste, dianas y navegación */
+  .skip { position: absolute; left: -9999px; top: 0; background: #fffdf4; color: #0f2e29; padding: 10px 16px; z-index: 300; font-family: 'Space Mono', monospace; font-size: 13px; border-radius: 0 0 8px 0; }
+  .skip:focus { left: 0; }
+  a.const-card { display: block; text-decoration: none; color: inherit; }
+  a.const-card:hover, a.const-card:focus-visible { border-color: var(--cyan); background: var(--card-hover); }
+  button.topic-header { width: 100%; text-align: left; background: none; border: 0; padding: 0; margin: 0; font: inherit; color: inherit; cursor: pointer; display: flex; align-items: flex-start; gap: .7rem; }
+  button.topic-header:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; border-radius: 6px; }
+  .footer-brand { margin-top: 1rem; padding-top: .9rem; border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; justify-content: center; font-size: .82rem; }
+  .footer-brand a { color: var(--teal); text-decoration: none; }
+  .footer-brand a:hover { color: var(--amber-d); text-decoration: underline; }
+  @media (max-width: 720px) {
+    nav { flex-wrap: wrap; }
+    .nav-links { order: 3; flex: 1 0 100%; padding-top: .45rem; border-top: 1px solid rgba(244,238,221,.16); }
+    .nav-links .nav-back { order: -1; border-left: 0; border-right: 1px solid rgba(244,238,221,.28); margin: 0 .55rem 0 0; padding: 0 .8rem 0 0; }
+    .filter-chip { min-height: 44px; }
+    .const-card { min-height: 44px; }
+  }
+</style>

@@ -465,3 +465,84 @@ main section[id],main [id]{scroll-margin-top:calc(var(--header-h,108px) + 18px)}
 .card:focus{outline:none}
 .card:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
 @media print{.card-link,.reset-progress{display:none!important}}
+
+
+/* ==========================================================================
+   MEJORAS v2.3 (auditoría UX/UI): contraste, dianas táctiles, saltos y repaso
+   ========================================================================== */
+:root{ --amber-text:#a2631a; }
+
+/* contraste del ámbar sobre crema (2,81:1 -> ~5:1) */
+.hero h1 .hl,.hl{ color:var(--amber-text) }
+.card-example .label,.hero-card-h,.pair-pill,.section-tag.tag-orange{ color:var(--amber-text) }
+.card-example .label,.hero-card-h{ font-size:11.5px }
+
+/* tarjetas: el control es un botón real dentro del h3 */
+.card-header{ margin:0 }
+.card-toggle{ display:flex;gap:9px;align-items:flex-start;width:100%;background:none;border:0;padding:0;
+  font:inherit;color:inherit;text-align:left;cursor:pointer }
+.card-toggle:focus-visible{ outline:3px solid var(--amber);outline-offset:3px;border-radius:6px }
+
+/* resultado del analizador siempre a la vista */
+.analyzer-result.show{ position:sticky;top:calc(var(--header-h,108px) + 8px);z-index:20;
+  box-shadow:0 10px 26px rgba(15,46,41,.16) }
+
+/* repaso del test */
+#quizResult{ scroll-margin-top:calc(var(--header-h,108px) + 16px) }
+.quiz-review{ margin:14px 0 4px;padding:0;list-style:none;display:grid;gap:8px;text-align:left }
+.quiz-review li{ background:var(--card);border:1px solid var(--line);border-radius:10px;padding:9px 12px;
+  display:grid;gap:3px;font-size:.9rem }
+.quiz-review .qr-q{ font-weight:600 }
+.quiz-review .qr-a{ color:var(--muted);font-size:.85rem }
+.quiz-review .qr-h{ background:none;border:0;padding:0;font-family:'Space Mono',monospace;font-size:11.5px;
+  text-transform:uppercase;letter-spacing:.06em;color:var(--muted) }
+.quiz-review .qr-ok{ background:rgba(143,217,196,.18);border-color:var(--mint) }
+
+/* aviso de modo estudio según el puntero */
+.sb-touch{ display:none }
+@media (hover:none){ .sb-hover{ display:none } .sb-touch{ display:inline } }
+
+/* atajos de teclado */
+.skipbar{ position:absolute;left:-9999px;top:0 }
+.skipbar:focus-within{ left:12px;top:12px;z-index:400;display:flex;flex-wrap:wrap;gap:8px;
+  background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px;box-shadow:var(--shadow) }
+.skipbar a{ font-family:'Space Mono',monospace;font-size:12px;text-decoration:none;color:var(--teal) }
+.skipbar a:focus-visible{ outline:3px solid var(--amber);outline-offset:2px }
+
+/* salto instantáneo: el suave tardaba segundos en páginas largas */
+html{ scroll-behavior:auto }
+
+/* rail del nav: pista de que se puede deslizar */
+.nav-links{ mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 26px),transparent 100%);
+  -webkit-mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 26px),transparent 100%) }
+@media (min-width:1000px){ .nav-links{ mask-image:none;-webkit-mask-image:none } }
+
+/* tabla de fuentes legible en móvil */
+@media (max-width:768px){
+  .refs-wrap{ overflow:visible }
+  .refs-table{ min-width:0;display:block }
+  .refs-table thead{ position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%) }
+  .refs-table tbody{ display:block }
+  .refs-table tr{ display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:11px 13px;margin-bottom:10px }
+  .refs-table td{ display:block;padding:2px 0;border:0 }
+  .refs-table td:first-child{ font-family:'Space Mono',monospace;font-size:11.5px;text-transform:uppercase;
+    letter-spacing:.06em;color:var(--muted);margin-bottom:5px }
+}
+
+/* dianas táctiles de 44 px y chips equilibrados */
+@media (max-width:700px){
+  .filter-chip,.tab-btn,.test-btn,.quiz-opt,.study-toggle,.analyzer-reset,.reset-progress,
+  .analyzer-item,.check-item{ min-height:44px }
+  .filter-chip,.tab-btn,.test-btn{ display:inline-flex;align-items:center;justify-content:center }
+  .filter-chip{ flex:1 1 auto;min-width:92px }
+  main{ padding-bottom:64px }
+  .to-top{ right:12px;bottom:12px;width:44px;height:44px }
+}
+
+/* tarjeta desplegada a lo ancho en escritorio (evita huecos en la fila) */
+@media (min-width:1100px){
+  .cards-grid .card.expanded{ grid-column:1/-1 }
+  .cards-grid .card.expanded .card-def,.cards-grid .card.expanded .card-example,
+  .cards-grid .card.expanded .deep-block p{ max-width:88ch }
+}
