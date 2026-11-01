@@ -650,3 +650,52 @@ body.is-compact .nav-links a{padding-top:7px;padding-bottom:7px}
 .rail-random:hover{border-color:var(--teal); background:var(--cream2)}
 @media (max-width:520px){ .rail-random{margin-left:0} }
 @media print{ .rail-nav{display:none!important} .cards-grid{display:block!important} }
+
+/* ============ v3.1 · una tarjeta a la vez (carrusel) ============ */
+.cards-grid{
+  scroll-snap-type:x mandatory;
+  padding:4px 2px 10px;
+  perspective:1200px;
+}
+.cards-grid > .card{
+  flex:0 0 100%;
+  max-width:none;
+  scroll-snap-align:center;
+  scroll-snap-stop:always;
+  min-height:clamp(380px,58vh,560px);
+  opacity:.55;
+  transform:scale(.94);
+  transform-origin:center center;
+  transition:transform .5s cubic-bezier(.22,1,.36,1), opacity .4s ease, box-shadow .5s ease, border-color .3s ease;
+  will-change:transform,opacity;
+}
+.cards-grid > .card.is-current{
+  opacity:1;
+  transform:scale(1);
+  box-shadow:0 20px 46px rgba(15,46,41,.18);
+  border-color:rgba(232,163,61,.55);
+}
+.cards-grid > .card.is-away{
+  opacity:.4;
+  transform:scale(.9);
+}
+.cards-grid > .card.is-current .card-title{ font-size:1.3rem }
+.cards-grid > .card .card-def,
+.cards-grid > .card .card-example,
+.cards-grid > .card .deep-block p{ max-width:70ch }
+.cards-grid > .card.is-current .card-def,
+.cards-grid > .card.is-current .card-example{ -webkit-line-clamp:unset; line-clamp:unset }
+@media (min-width:900px){
+  .cards-grid > .card{ flex-basis:100%; min-height:clamp(420px,62vh,600px) }
+  .cards-grid > .card.is-current .card-title{ font-size:1.5rem }
+}
+.rail-nav{ margin-top:14px }
+.rail-btn{ width:44px; height:44px; font-size:20px }
+.rail-count{ font-size:12.5px; letter-spacing:.08em }
+.rail-random{ min-height:44px }
+@media (prefers-reduced-motion:reduce){
+  .cards-grid > .card{ transition:none; opacity:1; transform:none }
+}
+@media print{
+  .cards-grid > .card{ opacity:1!important; transform:none!important; min-height:0 }
+}

@@ -189,9 +189,32 @@
   }
 
   /* ---------- arranque ---------- */
-  function start() {
+  
+/* ---------- 5. carrusel: marca la tarjeta centrada ---------- */
+function initCarousel() {
+  var grids = [$('#gridSesgos'), $('#gridFalacias')].filter(Boolean);
+  if (!('IntersectionObserver' in window)) return;
+  grids.forEach(function (grid) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        var card = e.target;
+        if (e.intersectionRatio > 0.55) {
+          card.classList.add('is-current');
+          card.classList.remove('is-away');
+        } else {
+          card.classList.remove('is-current');
+          if (e.intersectionRatio > 0 || grid.scrollLeft > 4) card.classList.add('is-away');
+        }
+      });
+    }, { root: grid, threshold: [0, 0.55, 0.9] });
+    grid.querySelectorAll('.card').forEach(function (c) { io.observe(c); });
+  });
+}
+
+function start() {
     addCopyButtons();
     addResetButton();
+  initCarousel();
   initContact();
     restoreProgress();
     globalSearch();
