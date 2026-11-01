@@ -121,9 +121,8 @@ main > section.hero{border-top:0}
 .section-head h2{margin-bottom:9px}
 .section-head > p{color:var(--muted);font-size:.98rem}
 
-/* reveal */
-.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
-.reveal.visible{opacity:1;transform:none}
+/* reveal: el contenido es visible por defecto (si falla el JS, la guía se lee igual) */
+.reveal{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 
 /* ---------- MARCO ---------- */
